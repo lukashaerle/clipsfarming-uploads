@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "remotion-studio",
+      "runtimeExecutable": "/Users/lukashaerle/.local/node-v24.22.3-darwin-arm64/bin/node",
+      "runtimeArgs": ["node_modules/@remotion/cli/remotion-cli.js", "studio", "--port", "3000", "--no-open"],
+      "env": {"PATH": "/Users/lukashaerle/.local/node-v24.22.3-darwin-arm64/bin:/usr/bin:/bin:/usr/sbin:/sbin"},
+      "port": 3000
+    }
+  ]
+}

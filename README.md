@@ -9,3 +9,7 @@ Einrichtung in einer frischen Umgebung:
 ```
 pip install --break-system-packages -q -U "yt-dlp[default]" faster-whisper numpy
 ```
+
+## remotion/
+
+Das Remotion-Projekt der animierten Erklärvideos (Pilot „5 Stunden am Handy“, Komposition `Handy5hSW`), damit die Videos auch in der Cloud gerendert werden können. Die Schrift (Barlow Condensed, SIL Open Font License) liegt in `remotion/public/fonts/`. Einmaliger Cloud-Test: `bash remotion/scripts/cloud_test.sh`.

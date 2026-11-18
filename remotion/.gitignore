@@ -1,0 +1,8 @@
+node_modules/
+.venv/
+out/
+build/
+.bundle/
+images/*/raw/*.json
+tts-models/
+voicetest/
