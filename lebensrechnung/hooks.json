@@ -1,0 +1,18 @@
+{
+ "_info": "Hook-Typ je Video (frage, zahl, mythos, szene). Die Tagesauswertung vergleicht Aufrufe nach Typ. Neue Skripte tragen sich hier ein.",
+ "bevorzugt": null,
+ "videos": {
+  "001-5-stunden-am-handy": "zahl",
+  "002-schlummertaste": "zahl",
+  "003-eltern": "frage",
+  "004-ein-prozent": "frage",
+  "005-47-sekunden": "frage",
+  "006-mit-19": "mythos",
+  "007-aufschieben": "zahl",
+  "008-17-stunden-wach": "szene",
+  "009-freundschaft": "szene",
+  "010-bewegung": "mythos",
+  "011-66-tage": "mythos",
+  "012-720-buecher": "zahl"
+ }
+}

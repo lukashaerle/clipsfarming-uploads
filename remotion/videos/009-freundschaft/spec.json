@@ -4,13 +4,13 @@
  "style": "action",
  "scenes": [
   {
-   "vo": "Du hast gerade wenig Leute um dich?",
+   "vo": "Neue Stadt. Neuer Job. Und abends sitzt du allein da.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Gerade",
-     "*wenig Leute?*"
+     "Abends",
+     "*ganz allein?*"
     ]
    },
    "figure": {

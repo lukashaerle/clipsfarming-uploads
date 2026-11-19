@@ -4,13 +4,13 @@
  "style": "action",
  "scenes": [
   {
-   "vo": "150 Minuten Bewegung pro Woche. Klingt viel?",
+   "vo": "Keine Zeit für Sport? Das stimmt fast nie.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "150 Minuten",
-     "*klingt viel?*"
+     "Keine Zeit",
+     "*für Sport?*"
     ]
    },
    "figure": {
@@ -19,7 +19,7 @@
    }
   },
   {
-   "vo": "Das sind nur 1,5 % deiner Woche.",
+   "vo": "150 Minuten pro Woche reichen. Das sind nur 1,5 % deiner Woche.",
    "head": "Nur|*1,5 %*",
    "graphic": {
     "kind": "ring",

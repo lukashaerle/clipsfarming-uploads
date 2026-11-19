@@ -15,7 +15,12 @@ Nummer + Kurzname, z. B. `011-buecher`. Beispiele: alle vorhandenen `remotion/vi
 - **14–16 Szenen**, jede mit **einem kurzen Satz** (höchstens ~70 Zeichen, gern Frage + Antwort, „Von wegen.“, „Klar: …“).
   Sprechtext gesamt **600–820 Zeichen** (≈ 40–50 s nach dem Tempo-Aufschlag).
 - Szene 1 = Hook als Frage oder Behauptung, `statement` ohne Überschrift, packend: das Bild in Szene 1 ist zugleich das
-  Vorschaubild. Szene 2 löst sofort auf („Von wegen. …“, „Leider nein. …“). Letzte Szene = Schlusssatz als `statement` mit `chip`.
+  Vorschaubild. **Hook-Test (seit 19.11.):** jedes Skript bekommt einen von vier Hook-Typen, im Wechsel, so dass jeder Typ etwa
+  gleich oft vorkommt (Zählung in `lebensrechnung/hooks.json`, dort die neue id mit Typ eintragen):
+  `frage` („Wie oft siehst du deine Eltern noch?“), `zahl` (Schockzahl zuerst: „Aufschieben kostet heute nur 2 Minuten.“),
+  `mythos` (verbreiteter Irrtum, sofort widerlegt: „21 Tage, dann sitzt die Gewohnheit?“ → „Leider nein.“),
+  `szene` (Mini-Szene, die man vor sich sieht: „Sie hat keinen Tropfen getrunken.“). Steht in `hooks.json` unter `"bevorzugt"`
+  ein Typ (von der Tagesauswertung gesetzt), nimm diesen bei jedem zweiten Skript. Szene 2 löst sofort auf („Von wegen. …“, „Leider nein. …“). Letzte Szene = Schlusssatz als `statement` mit `chip`.
 - Zwischendurch 2–3 kurze `statement`-Szenen als Ausrufe („Fast *2 Jahre.*“, „Nie eine *Studie.*“), sonst wechselnde Grafiken.
 - Ziffern dürfen Ziffern bleiben (die Stimme liest „5:42 Uhr“, „3000“, „0,5 Promille“ richtig, die Untertitel zeigen Ziffern).
   Nur Zahlen mit Tausenderpunkt ab 10.000 ausschreiben („zehntausendachtzig“) und dann `"cap": "<Satz mit Ziffern>"` setzen,
