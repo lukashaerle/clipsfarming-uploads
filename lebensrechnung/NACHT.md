@@ -40,10 +40,12 @@ Danach committen und auf `main` pushen (vorher `git pull --rebase`):
 `remotion/videos/<id>/take.mp3`, `remotion/videos/<id>/words.json` (falls vorhanden).
 Commit-Nachricht: `Lebensrechnung <id>: Full HD und 4K (Nacht-Produktion)`.
 
-## 5. Meldung
-Wenn die Umgebungsvariable `SLACK_WEBHOOK_LEBENSRECHNUNG` gesetzt ist, schicke eine kurze Nachricht per
-`curl -s -X POST -H 'Content-type: application/json' --data @msg.json "$SLACK_WEBHOOK_LEBENSRECHNUNG"`.
-**Die URL ist geheim: nie ausgeben, nie in Dateien, Logs oder Commits schreiben.**
-Inhalt: pro Video ID, Länge, Hörprüfung („ok“ oder „bitte anhören“ plus die erste Auffälligkeit), verbrauchte Zeichen, und
-„Freigabe morgens in der App“. Bei einem Fehler: welcher Schritt und die letzte Fehlerzeile.
-Ist die Variable nicht gesetzt, nur in der Abschlussantwort berichten.
+## 5. Meldung (Slack, Lebensrechnung Bot)
+Zwei Umgebungsvariablen, beide geheim (**nie ausgeben, nie in Dateien, Logs oder Commits schreiben**):
+- `SLACK_WEBHOOK_LR_UPLOADS` → Kanal #lebensrechnung-uploads: nach erfolgreicher Produktion.
+- `SLACK_WEBHOOK_LR_FEHLER` → Kanal #lebensrechnung-fehler: wenn ein Schritt scheitert (welcher Schritt, letzte Fehlerzeile).
+Senden: Nachricht als JSON `{"text": "..."}` in eine Datei unter /tmp schreiben, dann
+`curl -s -X POST -H 'Content-type: application/json' --data @/tmp/msg.json "$SLACK_WEBHOOK_LR_UPLOADS"` (bzw. FEHLER).
+Inhalt bei Erfolg, pro Video: ID und Titel, Sendetermin, Länge, Hörprüfung („ok“ oder „bitte anhören“ plus erste Auffälligkeit),
+sichere Zone, verbrauchte Credits, Schluss: „Freigabe morgens in der App“.
+Fehlt eine Variable, die Meldung nur in der Abschlussantwort geben. Nie die Faktenfabrik-Kanäle oder deren Bot benutzen.
