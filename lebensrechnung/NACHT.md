@@ -16,6 +16,8 @@ cd remotion && npm ci --no-audit --no-fund
 pip install --break-system-packages numpy av pillow || pip install numpy av pillow
 pip install --break-system-packages faster-whisper || true   # optional, für die Hörprüfung und als Ersatz für Scribe
 ```
+Remotions eigener Chrome-Download ist in der Cloud gesperrt; `night.sh` nimmt automatisch `/opt/pw-browsers/chromium`.
+Fehlen beim Rendern Bibliotheken, installiere sie wie in `remotion/scripts/cloud_test.sh` (apt, Ubuntu-24.04-Namen mit `t64`).
 
 ## 3. Stimme (ElevenLabs-Connector), pro Video
 - Text: `"[calm] "` + die `vo`-Felder aller Szenen der Spec, mit Zeilenumbruch verbunden, unverändert.
