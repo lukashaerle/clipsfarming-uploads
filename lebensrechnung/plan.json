@@ -1,4 +1,10 @@
 {
  "_info": "Sendeplan Lebensrechnung (Zeiten Europe/Berlin). Die Nacht-Routine produziert fuer das heutige Datum jedes Video, dessen Spec unter remotion/videos/<id>/spec.json liegt und das unter lebensrechnung/ noch fehlt. Gepostet wird erst nach Freigabe in der App.",
- "2026-11-20": {"12:30": "003-eltern", "19:00": "004-ein-prozent"}
+ "2026-11-19": {
+  "12:30": "002-schlummertaste"
+ },
+ "2026-11-20": {
+  "12:30": "003-eltern",
+  "19:00": "004-ein-prozent"
+ }
 }
