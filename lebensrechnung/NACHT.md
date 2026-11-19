@@ -50,7 +50,7 @@ Nachricht mit Python als JSON bauen (`{"text": "..."}`, nach /tmp/msg.json), dan
 Die Antwort muss genau `ok` sein.
 - Jede Nachricht beginnt mit `<@U0CJ23KT5MK>` (Erwähnung von Lukas, damit eine Push-Nachricht kommt).
 - Formatierung: *fett*, Links als <url|Text>.
-- Erfolg, pro Video: *Lebensrechnung <id> – <Titel>* fertig für <Datum, Uhrzeit>; Länge; Hörprüfung („ok“ oder „bitte anhören“
+- Erfolg, pro Video: *„<Titel>“* fertig (die ID nur klein dahinter) für <Datum, Uhrzeit>; Länge; Hörprüfung („ok“ oder „bitte anhören“
   plus erste Auffälligkeit); sichere Zone; verbrauchte Credits; Link zum 1080p-Video im Repo
   (https://github.com/lukashaerle/clipsfarming-uploads/blob/main/lebensrechnung/<id>-1080p.mp4); Schluss: „Freigabe morgens in der App“.
 - Fehler: „⚠️ *LEBENSRECHNUNG Nacht-Produktion abgebrochen* – <Schritt>: <letzte Fehlerzeile>“.
