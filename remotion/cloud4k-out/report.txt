@@ -1,0 +1,19 @@
+npm ci: exit 0 in 6 s
+start 2026-11-19T00:47:35Z | machine: Linux x86_64, cpus: 4, comp Handy5hSW, chunk 400 frames, options: --scale=2 --crf=16 --muted --log=error --timeout=180000 --concurrency=2 --browser-executable=/opt/pw-browsers/chromium --chrome-mode=chrome-for-testing
+frames: 3900
+chunk 0 (0-399): 211 s
+chunk 1 (400-799): 212 s
+chunk 2 (800-1199): 208 s
+chunk 3 (1200-1599): 228 s
+chunk 4 (1600-1999): 231 s
+chunk 5 (2000-2399): 226 s
+chunk 6 (2400-2799): 214 s
+chunk 7 (2800-3199): 580 s
+chunk 8 (3200-3599): 482 s
+chunk 9 (3600-3899): 162 s
+join: exit 0
+render time of all chunks: 2754 s
+stream|codec_name=h264|width=2160|height=3840|r_frame_rate=60/1|nb_frames=3900
+stream|codec_name=aac|r_frame_rate=0/0|nb_frames=3048
+format|duration=65.000000|size=77384974
+done 2026-11-19T01:33:54Z
