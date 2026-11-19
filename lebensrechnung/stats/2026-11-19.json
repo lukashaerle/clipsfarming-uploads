@@ -1,0 +1,164 @@
+{
+ "datum": "2026-11-19",
+ "videos": {
+  "001-5-stunden-am-handy": {
+   "title": "5 Stunden am Handy",
+   "hook": "zahl",
+   "postedAt": "2026-11-18",
+   "youtube": {
+    "views": 15,
+    "likes": 2,
+    "comments": 0
+   },
+   "tiktok": {
+    "views": 5,
+    "likes": 3,
+    "comments": 3,
+    "shares": 0,
+    "saves": 2
+   },
+   "instagram": {
+    "plays": 121,
+    "likes": 4
+   },
+   "total": 141
+  },
+  "002-schlummertaste": {
+   "title": "Die Schlummertaste",
+   "hook": "zahl",
+   "postedAt": "2026-11-19T12:30",
+   "youtube": {
+    "views": 8,
+    "likes": 3,
+    "comments": 1
+   },
+   "tiktok": {
+    "views": 1,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0
+   },
+   "instagram": {
+    "plays": 451,
+    "likes": 6
+   },
+   "total": 460
+  }
+ },
+ "unklar": [],
+ "raw": {
+  "youtube": [
+   {
+    "id": "jrwm8WCHRMI",
+    "title": "Nach 47 Sekunden bist du weg #shorts",
+    "privacy": "private",
+    "publishedAt": "2026-11-19T18:47:19Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+   },
+   {
+    "id": "_0VSzVQI7Tk",
+    "title": "1 % besser pro Tag = 37× im Jahr #shorts",
+    "privacy": "private",
+    "publishedAt": "2026-11-19T18:47:11Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+   },
+   {
+    "id": "6_QheMkIUjI",
+    "title": "Nur noch 360 Tage mit deinen Eltern? #shorts",
+    "privacy": "private",
+    "publishedAt": "2026-11-19T18:44:49Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+   },
+   {
+    "id": "eKPwfUXX1_Q",
+    "title": "Nach 47 Sekunden bist du weg #shorts",
+    "privacy": "private",
+    "publishedAt": "2026-11-19T14:18:00Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+   },
+   {
+    "id": "QdD6Huveq8g",
+    "title": "1 % besser pro Tag = 37× im Jahr #shorts",
+    "privacy": "private",
+    "publishedAt": "2026-11-19T11:35:01Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+   },
+   {
+    "id": "1sorQtxQ-uU",
+    "title": "Nur noch 360 Tage mit deinen Eltern? #shorts",
+    "privacy": "private",
+    "publishedAt": "2026-11-19T11:35:00Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+   },
+   {
+    "id": "uwkqTvgCmQ0",
+    "title": "3× Schlummern = fast eine Woche im Jahr #shorts",
+    "privacy": "public",
+    "publishedAt": "2026-11-19T11:30:02Z",
+    "views": 8,
+    "likes": 3,
+    "comments": 1
+   },
+   {
+    "id": "tCrD8t3cEqA",
+    "title": "5 Stunden am Handy = 76 Tage im Jahr #shorts",
+    "privacy": "public",
+    "publishedAt": "2026-11-19T00:57:06Z",
+    "views": 15,
+    "likes": 2,
+    "comments": 0
+   }
+  ],
+  "tiktok": [
+   {
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7709843398471044385",
+    "caption": "Dreimal Schlummern am Morgen sind fast eine Woche im Jahr. ⏰\n3 × 9 Minuten = 27",
+    "postedAt": "2026-11-19",
+    "views": 1,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0
+   },
+   {
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7709679977351908641",
+    "caption": "5 Stunden am Tag am Handy sind 76 Tage im Jahr. Rund um die Uhr. ⏳\nWas wäre, wen",
+    "postedAt": "2026-11-19",
+    "views": 5,
+    "likes": 3,
+    "comments": 3,
+    "shares": 0,
+    "saves": 2
+   }
+  ],
+  "instagram": [
+   {
+    "url": "https://www.instagram.com/reel/Df6-gf0vzBJ/",
+    "caption": "Dreimal Schlummern am Morgen sind fast eine Woche im Jahr. ⏰\n\n3 × 9 Minuten = 27",
+    "postedAt": "2026-11-19",
+    "plays": 451,
+    "likes": 6
+   },
+   {
+    "url": "https://www.instagram.com/reel/Df5190OOZLu/",
+    "caption": "5 Stunden am Tag am Handy sind 76 Tage im Jahr. Rund um die Uhr. ⏳\n\nWas wäre, we",
+    "postedAt": "2026-11-19",
+    "plays": 121,
+    "likes": 4
+   }
+  ]
+ }
+}
