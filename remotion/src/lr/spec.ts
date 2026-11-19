@@ -43,15 +43,21 @@ export type Scene = {
   size?: number;
   graphic: Graphic;
   figure?: {pose: FigurePose; place?: FigurePlace};
+  /** caption text when it should differ from `vo` (action style) */
+  cap?: string;
 };
 
 export type VideoSpec = {
   id: string;
   title: string;
+  /** 'action': short scenes, hard cuts on the beat, captions, energetic voice. Without it: the calm style. */
+  style?: 'action';
   scenes: Scene[];
 };
 
 /** written by scripts/lr/timeline.py: when every scene starts and ends, in seconds */
-export type Timeline = {length: number; scenes: {start: number; end: number}[]; audio: string};
+export type TimedWord = {t: string; s: number; e: number};
+/** vs/ve: when the voice of the scene starts and ends; tok: the spoken words with their times (for the captions) */
+export type Timeline = {length: number; scenes: {start: number; end: number; vs?: number; ve?: number; tok?: TimedWord[]}[]; audio: string};
 
 export type LrProps = {spec: VideoSpec; timeline: Timeline; debugSafe?: boolean};

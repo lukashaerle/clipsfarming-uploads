@@ -1,15 +1,16 @@
 {
  "id": "012-720-buecher",
  "title": "720 Bücher",
+ "style": "action",
  "scenes": [
   {
-   "vo": "Du liest in deinem Leben vielleicht noch 720 Bücher.",
+   "vo": "Du liest in deinem Leben vielleicht noch 720 Bücher. Mehr nicht.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Noch vielleicht",
-     "*720 Bücher*"
+     "Nur noch",
+     "*720 Bücher?*"
     ]
    },
    "figure": {
@@ -18,14 +19,14 @@
    }
   },
   {
-   "vo": "Wenn du ein Buch im Monat liest und noch 60 Jahre vor dir hast, sind das zwölf mal sechzig.",
-   "head": "*12 Bücher*|im Jahr",
+   "vo": "Die Rechnung: 1 Buch im Monat.",
+   "head": "*1 Buch*|im Monat",
    "graphic": {
     "kind": "blocks",
     "n": 12,
     "hi": 12,
-    "label": "Buch",
-    "caption": "12 Bücher × 60 Jahre = 720"
+    "label": "1",
+    "caption": "12 Bücher im Jahr"
    },
    "figure": {
     "pose": "stand",
@@ -33,8 +34,34 @@
    }
   },
   {
-   "vo": "2025 erschienen in Deutschland zweiundfünfzigtausendsechshundertvierundvierzig neue Titel.",
-   "head": "Neue *Titel*|in einem Jahr",
+   "vo": "Wenn du noch 60 Jahre vor dir hast, sind das 720.",
+   "head": "Noch|*60 Jahre*",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "1 Buch im Monat",
+      "value": "12 pro Jahr"
+     },
+     {
+      "label": "noch 60 Jahre",
+      "value": "× 60"
+     },
+     {
+      "label": "zusammen",
+      "value": "720 Bücher",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Allein 2025 erschienen in Deutschland über zweiundfünfzigtausend neue Titel.",
+   "head": "*52.644*|neue Titel",
    "graphic": {
     "kind": "counter",
     "to": 52644,
@@ -47,13 +74,14 @@
     ]
    },
    "figure": {
-    "pose": "look",
-    "place": "right"
-   }
+    "pose": "think",
+    "place": "center"
+   },
+   "cap": "Allein 2025 erschienen in Deutschland über 52.000 neue Titel."
   },
   {
-   "vo": "Das sind hundertvierundvierzig neue Bücher pro Tag, jeden Tag aufs Neue.",
-   "head": "*144* pro Tag",
+   "vo": "Das sind 144 neue Bücher. Jeden Tag.",
+   "head": "*144*|pro Tag",
    "graphic": {
     "kind": "compare",
     "left": {
@@ -62,18 +90,18 @@
     },
     "right": {
      "value": "1",
-     "label": "Buch pro Monat"
+     "label": "Buch pro Monat, du"
     },
     "hi": "left"
    },
    "figure": {
     "pose": "slump",
-    "place": "center"
+    "place": "left"
    }
   },
   {
-   "vo": "Und die wahre Zahl liegt sogar noch höher. Dein ganzes Leseleben deckt nicht einmal zwei Prozent eines einzigen Jahrgangs.",
-   "head": "Nicht mal *2 %*|eines Jahres",
+   "vo": "Dein ganzes Leseleben schafft nicht einmal 2 % eines einzigen Jahrgangs.",
+   "head": "Nicht mal|*2 %*",
    "graphic": {
     "kind": "ring",
     "percent": 1.4,
@@ -91,8 +119,42 @@
    }
   },
   {
-   "vo": "Im Schnitt lesen Menschen in Deutschland 27 Minuten am Tag. Fernsehen und Streaming kommen auf zwei Stunden und acht Minuten.",
-   "head": "Lesen *gegen*|Bildschirm",
+   "vo": "Lesezeit ist also knapp.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Lesezeit",
+     "ist *knapp.*"
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Im Schnitt lesen Menschen in Deutschland 27 Minuten am Tag.",
+   "head": "*27 Minuten*|Lesen",
+   "graphic": {
+    "kind": "counter",
+    "to": 27,
+    "unit": "Minuten Lesen am Tag",
+    "chips": [
+     {
+      "label": "Deutschland, 2022",
+      "value": "Destatis"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Fernsehen und Streaming: 128 Minuten.",
+   "head": "*128 Minuten*|Bildschirm",
    "graphic": {
     "kind": "bars",
     "unit": "min",
@@ -110,36 +172,51 @@
    },
    "figure": {
     "pose": "phone",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Jetzt die gute Nachricht: 20 Seiten am Tag reichen.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "*20 Seiten*",
+     "am Tag."
+    ]
+   },
+   "figure": {
+    "pose": "proud",
     "place": "right"
    }
   },
   {
-   "vo": "Wenn du jeden Tag 20 Seiten liest, sind das siebentausenddreihundert Seiten im Jahr. Also 24 Bücher mit je 300 Seiten.",
-   "head": "*20 Seiten*|am Tag",
+   "vo": "Bei 300 Seiten pro Buch sind das 24 Bücher im Jahr.",
+   "head": "*24 Bücher*|im Jahr",
    "graphic": {
     "kind": "counter",
     "to": 24,
     "unit": "Bücher pro Jahr",
     "chips": [
      {
-      "label": "20 × 365",
-      "value": "7.300 Seiten"
+      "label": "20 × 365 Seiten",
+      "value": "7.300"
      }
     ]
    },
    "figure": {
     "pose": "proud",
-    "place": "left"
+    "place": "center"
    }
   },
   {
-   "vo": "In sechzig Jahren sind das eintausendvierhundertvierzig statt 720. Und ein schwaches Buch darfst du weglegen.",
-   "head": "Doppelt so *viele*",
+   "vo": "In 60 Jahren: 1440 statt 720.",
+   "head": "*Doppelt*|so viele",
    "graphic": {
     "kind": "compare",
     "left": {
      "value": "720",
-     "label": "ein Buch im Monat"
+     "label": "1 Buch im Monat"
     },
     "right": {
      "value": "1.440",
@@ -148,8 +225,30 @@
     "hi": "right"
    },
    "figure": {
-    "pose": "think",
-    "place": "center"
+    "pose": "proud",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Und ein schwaches Buch? Darfst du weglegen.",
+   "head": "Du darfst|*aussuchen*",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "schwaches Buch",
+      "value": "weglegen"
+     },
+     {
+      "label": "gutes Buch",
+      "value": "weiterlesen",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
    }
   },
   {
@@ -158,13 +257,13 @@
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Das Buch, das du",
-     "lesen *willst*"
+     "Buch aufs",
+     "*Kopfkissen.*"
     ],
-    "chip": "Welches ist es?"
+    "chip": "Welches liest du als Nächstes?"
    },
    "figure": {
-    "pose": "stand",
+    "pose": "proud",
     "place": "center"
    }
   }

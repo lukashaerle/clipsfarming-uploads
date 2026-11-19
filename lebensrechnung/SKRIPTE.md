@@ -10,14 +10,20 @@ Nummer + Kurzname, z. B. `011-buecher`. Beispiele: alle vorhandenen `remotion/vi
   unverbrauchten Themen in der Reihenfolge des Plans; A-Themen auf 12:30, B-Themen auf 19:00, wenn möglich.
 - Gehen die unverbrauchten Themen zur Neige (weniger als 4), schreibe trotzdem, was geht, und melde es (siehe Routine).
 
-## Aufbau
-- 9 Szenen. Szene 1 = Hook als `statement` (ohne Überschrift), letzte Szene = Schlusssatz als `statement` mit `chip` (kurze Frage).
-- Sprechtext gesamt **830–920 Zeichen** (≈ 60 s). Pro Szene 1–3 kurze Sätze. Ruhig, Du-Form, kein Vorwurf, keine Gesundheitsversprechen.
-- Zahlen, die die Stimme falsch lesen könnte, im `vo` ausschreiben: Tausender mit Punkt („8.800“ → „achttausendachthundert“),
-  Uhrzeiten („5:42“ → „fünf Uhr zweiundvierzig“), Promille („0,5“ → „null Komma fünf“), „37-Fachen“ → „Siebenunddreißigfachen“.
-  Einfache Zahlen (47, 2012, 75) und Kommazahlen wie 1,35 dürfen Ziffern bleiben.
-- Nie Regie- oder Gliederungswörter sprechen lassen („Einordnung:“, „Hinweis:“, „Fazit:“, „Das ist ein Durchschnitt von 2022:“). Jeder Satz muss natürlich gesprochen klingen.
-- Eine Szene mit „Einordnung“ (Durchschnitt, Schätzung, Laborwert …), wie im Plan unter „Hinweis“ verlangt.
+## Aufbau (Action-Stil, seit 19.11.2026 Standard)
+- Spec beginnt mit `"style": "action"`. Beispiele: `remotion/videos/006-mit-19` bis `012-720-buecher`.
+- **14–16 Szenen**, jede mit **einem kurzen Satz** (höchstens ~70 Zeichen, gern Frage + Antwort, „Von wegen.“, „Klar: …“).
+  Sprechtext gesamt **600–820 Zeichen** (≈ 40–50 s nach dem Tempo-Aufschlag).
+- Szene 1 = Hook als Frage oder Behauptung, `statement` ohne Überschrift, packend: das Bild in Szene 1 ist zugleich das
+  Vorschaubild. Szene 2 löst sofort auf („Von wegen. …“, „Leider nein. …“). Letzte Szene = Schlusssatz als `statement` mit `chip`.
+- Zwischendurch 2–3 kurze `statement`-Szenen als Ausrufe („Fast *2 Jahre.*“, „Nie eine *Studie.*“), sonst wechselnde Grafiken.
+- Ziffern dürfen Ziffern bleiben (die Stimme liest „5:42 Uhr“, „3000“, „0,5 Promille“ richtig, die Untertitel zeigen Ziffern).
+  Nur Zahlen mit Tausenderpunkt ab 10.000 ausschreiben („zehntausendachtzig“) und dann `"cap": "<Satz mit Ziffern>"` setzen,
+  damit die Untertitel Ziffern zeigen.
+- Ruhig im Inhalt (kein Vorwurf, keine Gesundheitsversprechen), aber im Ton direkt und lebendig. Du-Form.
+- Nie Regie- oder Gliederungswörter sprechen lassen („Einordnung:“, „Hinweis:“, „Fazit:“). „Klar: Das ist ein Durchschnitt …“
+  als kurze Einordnung ist gut.
+- Eine Szene mit Einordnung (Durchschnitt, Schätzung, Laborwert …), wie im Plan unter „Hinweis“ verlangt.
 
 ## Überschriften (`head`)
 - Zwei Zeilen mit `|`, je höchstens ~16 Zeichen. `*Wort*` = helles Schlüsselwort; das schließende `*` muss direkt am Wortende
@@ -38,4 +44,4 @@ counter {to, decimals?, suffix?, unit, chips?} · bars {bars[{label,value,hi?}],
 cd remotion && npm ci --no-audit --no-fund   # einmal
 node scripts/lr/safezone.mjs videos/<id>/spec.json /tmp/zone-<id>
 ```
-Muss „all clear“ melden. Sonst Beschriftungen kürzen und erneut prüfen. Zeichenzahl prüfen. Danach Posttexte nach `POSTTEXTE.md`.
+Muss „all clear“ melden (prüft auch die Untertitel). Sonst Beschriftungen kürzen oder `statement`-Zeilen verlängern (kurze Zeilen werden riesig) und erneut prüfen. Zeichenzahl prüfen. Danach Posttexte nach `POSTTEXTE.md`.

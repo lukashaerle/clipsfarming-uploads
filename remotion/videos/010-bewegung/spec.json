@@ -1,44 +1,26 @@
 {
  "id": "010-bewegung",
  "title": "1,5 Prozent deiner Woche",
+ "style": "action",
  "scenes": [
   {
-   "vo": "Hundertfünfzig Minuten Bewegung sind nur eineinhalb Prozent deiner Woche.",
+   "vo": "150 Minuten Bewegung pro Woche. Klingt viel?",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
      "150 Minuten",
-     "= *1,5 %* deiner Woche"
+     "*klingt viel?*"
     ]
    },
    "figure": {
-    "pose": "stand",
+    "pose": "slump",
     "place": "center"
    }
   },
   {
-   "vo": "So viel empfiehlt die Weltgesundheitsorganisation Erwachsenen mindestens. Bewegung mit mittlerer Anstrengung, pro Woche.",
-   "head": "Die *Empfehlung*|der WHO",
-   "graphic": {
-    "kind": "counter",
-    "to": 150,
-    "unit": "Minuten pro Woche",
-    "chips": [
-     {
-      "label": "WHO",
-      "value": "mittlere Intensität"
-     }
-    ]
-   },
-   "figure": {
-    "pose": "stand",
-    "place": "left"
-   }
-  },
-  {
-   "vo": "Eine Woche hat zehntausendachtzig Minuten. Davon sind hundertfünfzig nur ein schmaler Streifen.",
-   "head": "*10.080*|Minuten pro Woche",
+   "vo": "Das sind nur 1,5 % deiner Woche.",
+   "head": "Nur|*1,5 %*",
    "graphic": {
     "kind": "ring",
     "percent": 1.5,
@@ -52,11 +34,70 @@
     ]
    },
    "figure": {
-    "pose": "none"
+    "pose": "look",
+    "place": "left"
    }
   },
   {
-   "vo": "Auf den Tag gerechnet sind das zweiundzwanzig Minuten.",
+   "vo": "So viel empfiehlt die WHO Erwachsenen. Mindestens.",
+   "head": "Die *Empfehlung*|der WHO",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "WHO-Empfehlung",
+      "value": "150 min pro Woche"
+     },
+     {
+      "label": "Intensität",
+      "value": "mittel, mindestens"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Eine Woche hat zehntausendachtzig Minuten.",
+   "head": "*10.080*|Minuten",
+   "graphic": {
+    "kind": "counter",
+    "to": 10080,
+    "unit": "Minuten pro Woche"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   },
+   "cap": "Eine Woche hat 10.080 Minuten."
+  },
+  {
+   "vo": "150 davon sind ein winziger Streifen.",
+   "head": "Ein schmaler|*Streifen*",
+   "graphic": {
+    "kind": "bars",
+    "unit": "min",
+    "bars": [
+     {
+      "label": "eine Woche",
+      "value": 10080
+     },
+     {
+      "label": "Bewegung",
+      "value": 150,
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Pro Tag sind das 22 Minuten.",
    "head": "*22 Minuten*|am Tag",
    "graphic": {
     "kind": "counter",
@@ -71,25 +112,51 @@
    },
    "figure": {
     "pose": "proud",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Weniger als eine Serienfolge.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Weniger als",
+     "*eine Folge.*"
+    ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und so lange sitzen Menschen in Deutschland an einem Werktag: 613 Minuten.",
+   "head": "*613 Minuten*|Sitzen",
+   "graphic": {
+    "kind": "counter",
+    "to": 613,
+    "unit": "Minuten Sitzen",
+    "chips": [
+     {
+      "label": "Werktag, Schnitt",
+      "value": "DKV-Report 2025"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "slump",
     "place": "left"
    }
   },
   {
-   "vo": "Dagegen sitzen Menschen in Deutschland an einem Werktag im Schnitt sechshundertdreizehn Minuten. Über zehn Stunden.",
-   "head": "Über *10 Stunden*|Sitzen",
+   "vo": "Über 10 Stunden.",
+   "head": "",
    "graphic": {
-    "kind": "bars",
-    "unit": "min",
-    "bars": [
-     {
-      "label": "Sitzen",
-      "value": 613
-     },
-     {
-      "label": "empfohlene Bewegung",
-      "value": 22,
-      "hi": true
-     }
+    "kind": "statement",
+    "lines": [
+     "Über",
+     "*10 Stunden.*"
     ]
    },
    "figure": {
@@ -98,7 +165,7 @@
    }
   },
   {
-   "vo": "Auf eine Minute Bewegung kommen neunundzwanzig Minuten Sitzen.",
+   "vo": "Auf 1 Minute Bewegung kommen 29 Minuten Sitzen.",
    "head": "1 zu *29*",
    "graphic": {
     "kind": "compare",
@@ -118,41 +185,66 @@
    }
   },
   {
-   "vo": "Viele schaffen die Empfehlung schon. In Deutschland sind es laut einer großen Befragung gut zwei von drei. Weltweit erreicht sie aber fast jeder dritte Erwachsene nicht.",
-   "head": "Fast *jeder Dritte*|schafft es nicht",
+   "vo": "Viele schaffen das schon. In Deutschland laut einer Befragung gut 2 von 3.",
+   "head": "*2 von 3*|schaffen es",
    "graphic": {
     "kind": "ring",
-    "percent": 31,
-    "center": "31 %",
+    "percent": 68,
+    "center": "68 %",
     "chips": [
      {
-      "label": "weltweit, 2022",
-      "value": "1,8 Mrd."
+      "label": "DKV-Report 2025",
+      "value": "schaffen es"
      }
     ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Weltweit aber fast jeder dritte Erwachsene nicht.",
+   "head": "Fast *jeder Dritte*|nicht",
+   "graphic": {
+    "kind": "counter",
+    "to": 31,
+    "unit": "weltweit zu wenig",
+    "chips": [
+     {
+      "label": "WHO, 2022",
+      "value": "1,8 Mrd."
+     }
+    ],
+    "suffix": " %"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "22 Minuten passen in fast jeden Tag.",
+   "head": "Passt in|*jeden Tag*",
+   "graphic": {
+    "kind": "grid",
+    "total": 65,
+    "hi": 1,
+    "cols": 13,
+    "label": "ein Tag",
+    "hiLabel": "22 Minuten"
    },
    "figure": {
     "pose": "none"
    }
   },
   {
-   "vo": "Zweiundzwanzig Minuten sind weniger als eine Serienfolge. Und sie passen in fast jeden Tag.",
-   "head": "Weniger als|*eine Folge*",
-   "graphic": {
-    "kind": "none"
-   },
-   "figure": {
-    "pose": "look",
-    "place": "center"
-   }
-  },
-  {
-   "vo": "Geh heute zweiundzwanzig Minuten zügig spazieren.",
+   "vo": "Geh heute 22 Minuten zügig spazieren.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "*22 Minuten*.",
+     "*22 Minuten.*",
      "Heute."
     ],
     "chip": "Wann gehst du los?"

@@ -38,6 +38,13 @@ SCENE_EARLY = 0.25   # a scene's picture starts this long before its first word
 TAIL = 1.7           # picture after the last word
 MUSIC_BED, MUSIC_DUCK, MUSIC_OPEN = 0.52, 0.42, 0.80
 
+# How a style changes the sound. 'action' (spec["style"]): the voice a little faster (pitch kept), short pauses,
+# every cut on the eighth-note grid of the beat (120 BPM), a driving beat instead of the ambient bed, louder effects.
+STYLES = {
+    None: dict(lead_in=LEAD_IN, gap_min=GAP_MIN, gap_max=GAP_MAX, early=SCENE_EARLY, tail=TAIL, tempo=1.0, grid=0.0, music="ambient"),
+    "action": dict(lead_in=0.15, gap_min=0.10, gap_max=0.22, early=0.06, tail=1.1, tempo=1.10, grid=0.25, music="beat"),
+}
+
 
 def norm(w):
     w = w.lower().replace("%", "prozent")
@@ -55,13 +62,14 @@ def whisper_words(path):
 def align(spec, words):
     """Every scene gets start, end and its words in the take."""
     heard = [norm(w["w"]) for w in words]
-    toks, owner = [], []
+    toks, owner, raw = [], [], []
     for i, sc in enumerate(spec["scenes"]):
         for tok in sc["vo"].split():
             n = norm(tok)
             if n:
                 toks.append(n)
                 owner.append(i)
+                raw.append(tok)
     sm = difflib.SequenceMatcher(None, toks, heard, autojunk=False)
     pos = [None] * len(toks)
     for tag, i1, i2, j1, j2 in sm.get_opcodes():
@@ -78,10 +86,12 @@ def align(spec, words):
         last = pos[k]
     out = []
     for i, sc in enumerate(spec["scenes"]):
-        idx = [pos[k] for k in range(len(owner)) if owner[k] == i]
+        ks = [k for k in range(len(owner)) if owner[k] == i]
+        idx = [pos[k] for k in ks]
         a, b = min(idx), max(idx)
         out.append({"id": "s%02d" % (i + 1), "vo": sc["vo"], "start": words[a]["s"], "end": words[b]["e"],
-                    "heard": " ".join(w["w"] for w in words[a:b + 1]), "words": words[a:b + 1]})
+                    "heard": " ".join(w["w"] for w in words[a:b + 1]), "words": words[a:b + 1],
+                    "tok": [{"t": raw[k], "s": words[pos[k]]["s"], "e": words[pos[k]]["e"]} for k in ks]})
     # quality: compare the letters, not the word boundaries (Whisper writes "37-fachen" as two words, "1 %" as "1 Prozent" ...)
     a, b = "".join(toks), "".join(heard)
     return out, difflib.SequenceMatcher(None, a, b, autojunk=False).ratio()
@@ -117,7 +127,21 @@ def cues_for(spec):
         elif k == "curve":
             ev += [{"k": "slide", "at": 0.3, "d": 2.2, "x": 150, "x2": 950, "v": 0.8}, {"k": "impulse", "at": 2.5, "v": 0.8}]
         cues["s%02d" % (i + 1)] = ev
-    return {"whoosh": {"default": 1.0}, "slots": cues}
+    out = {"whoosh": {"default": 1.0}, "slots": cues}
+    if spec.get("style") == "action":
+        # the graphics build 1.5 times as fast there (src/lr/Video.tsx), so do their sounds, and all a bit louder
+        for ev in cues.values():
+            for e in ev:
+                if "at" in e:
+                    e["at"] = round(max(0.03, (e["at"] - 0.22) / 1.5), 3)
+                if "d" in e:
+                    e["d"] = round(e["d"] / 1.5, 3)
+                if "roll" in e:
+                    e["roll"]["at"] = round(max(0.03, (e["roll"]["at"] - 0.22) / 1.5), 3)
+                    e["roll"]["step"] = round(e["roll"]["step"] / 1.5, 3)
+                e["v"] = round(e.get("v", 1.0) * 1.3, 2)
+        out["whoosh"]["default"] = 1.6
+    return out
 
 
 def main():
@@ -134,16 +158,24 @@ def main():
     os.makedirs(out_dir, exist_ok=True)
     os.makedirs(public, exist_ok=True)
 
+    sty = STYLES.get(spec.get("style"), STYLES[None])
     words = json.load(open(opt["--words"], encoding="utf-8"))["words"] if opt.get("--words") else whisper_words(take_path)
+    take = vtlib.load_audio(take_path, SR)
+    narration = os.path.abspath(take_path)
+    if sty["tempo"] != 1.0:
+        take = np.asarray(tighten.run_filters(take, [("atempo", "%.4f" % sty["tempo"])]), np.float32)
+        for w in words:
+            w["s"], w["e"] = w["s"] / sty["tempo"], w["e"] / sty["tempo"]
+        narration = os.path.abspath(os.path.join(out_dir, "take_tempo.wav"))
+        vtlib.save_wav(narration, take, SR)
     slots, ratio = align(spec, words)
     json.dump({"slots": slots}, open(os.path.join(out_dir, "align.json"), "w", encoding="utf-8"), indent=1, ensure_ascii=False)
     print("aligned %d scenes, match %.2f" % (len(slots), ratio))
     if ratio < 0.85:
         raise SystemExit("the take does not match the script well enough (%.2f); listen to it" % ratio)
 
-    take = vtlib.load_audio(take_path, SR)
     cuts = vm.cut_sentences(take, slots)
-    pieces, t, sentences = [], LEAD_IN, []
+    pieces, t, sentences = [], sty["lead_in"], []
     for i, (s, c) in enumerate(zip(slots, cuts)):
         piece = take[int(c["a"] * SR):int(c["b"] * SR)].copy()
         lead, dur = c["on"] - c["a"], c["off"] - c["on"]
@@ -156,13 +188,20 @@ def main():
                           "take_a": round(c["a"], 3), "take_b": round(c["b"], 3), "take_on": round(c["on"], 3), "take_off": round(c["off"], 3),
                           "pause_cut": 0.0, "tempo": 1.0, "early": 0.0, "late": 0.0, "glued": bool(c["glued_in"] or c["glued_out"])})
         natural = c["gap_after"] if i + 1 < len(slots) else 0
-        t += dur + min(GAP_MAX, max(GAP_MIN, natural))
-    length = round(sentences[-1]["end"] + TAIL, 2)
+        nxt = t + dur + min(sty["gap_max"], max(sty["gap_min"], natural))
+        if sty["grid"]:
+            # the cut of the next scene (a moment before its first word) lands on the beat grid
+            g = sty["grid"]
+            nxt = float(np.ceil((t + dur + sty["gap_min"] - sty["early"]) / g - 1e-6) * g + sty["early"])
+        t = nxt
+    length = round(sentences[-1]["end"] + sty["tail"], 2)
     n = int(length * SR)
     scenes = []
     for i, s in enumerate(sentences):
-        start = 0.0 if i == 0 else round(s["start"] - SCENE_EARLY, 3)
-        scenes.append({"start": start})
+        start = 0.0 if i == 0 else round(s["start"] - sty["early"], 3)
+        ps, a = s["piece_start"], cuts[i]["a"]
+        scenes.append({"start": start, "vs": s["start"], "ve": s["end"],
+                       "tok": [{"t": k["t"], "s": round(ps + k["s"] - a, 3), "e": round(ps + k["e"] - a, 3)} for k in slots[i]["tok"]]})
     for i, sc in enumerate(scenes):
         sc["end"] = scenes[i + 1]["start"] if i + 1 < len(scenes) else length
         sentences[i]["t0"], sentences[i]["t1"] = sc["start"], sc["end"]
@@ -183,11 +222,22 @@ def main():
 
     # music and sound effects
     py = sys.executable
-    subprocess.run([py, "-I", os.path.join(HERE, "..", "music", "ambient.py"), os.path.join(out_dir, "music"), str(length + 0.5), "generic"], check=True, capture_output=True)
+    bed_g, duck_g, open_g = MUSIC_BED, MUSIC_DUCK, MUSIC_OPEN
+    if sty["music"] == "beat":
+        subprocess.run([py, "-I", os.path.join(HERE, "..", "music", "powerbeat.py"), os.path.join(out_dir, "beat")], check=True, capture_output=True)
+        bl, br = vm.load_stereo(os.path.join(out_dir, "beat.wav"))
+        skip = int(4.0 * SR)                      # start in the groove; the bars stay on the grid of the cuts
+        bl, br = bl[skip:skip + n], br[skip:skip + n]
+        vtlib.save_wav(os.path.join(out_dir, "music_l.wav"), bl, SR)
+        ref = float(np.sqrt(np.mean(bl ** 2))) + 1e-9
+        duck_g = (10 ** (-28.5 / 20.0)) / ref     # about 13 dB under the voice while she speaks
+        bed_g, open_g = duck_g * 1.45, duck_g * 2.1
+    else:
+        subprocess.run([py, "-I", os.path.join(HERE, "..", "music", "ambient.py"), os.path.join(out_dir, "music"), str(length + 0.5), "generic"], check=True, capture_output=True)
     json.dump(cues_for(spec), open(os.path.join(out_dir, "cues.json"), "w"), indent=1)
     subprocess.run([py, "-I", os.path.join(HERE, "..", "motiv", "sfx.py"), os.path.join(out_dir, "cues.json"), os.path.join(out_dir, "timeline.json"),
                     os.path.join(out_dir, "sfx.wav"), str(length)], check=True, capture_output=True)
-    ml, mr = vm.load_stereo(os.path.join(out_dir, "music.wav"))
+    ml, mr = (bl, br) if sty["music"] == "beat" else vm.load_stereo(os.path.join(out_dir, "music.wav"))
     ml, mr = np.pad(ml, (0, max(0, n - len(ml))))[:n], np.pad(mr, (0, max(0, n - len(mr))))[:n]
     fl, fr = vm.load_stereo(os.path.join(out_dir, "sfx.wav"))
     fl, fr = np.pad(fl, (0, max(0, n - len(fl))))[:n], np.pad(fr, (0, max(0, n - len(fr))))[:n]
@@ -198,8 +248,8 @@ def main():
     env = vm.smooth_env(act, 0.12, 0.6)
     tt = np.arange(n) / SR
     fw, lw = sentences[0]["start"], sentences[-1]["end"]
-    bed = np.interp(tt, [0, max(0.01, fw - 0.05), fw + 0.4, lw + 0.3, lw + 1.4], [MUSIC_OPEN, MUSIC_OPEN, MUSIC_BED, MUSIC_BED, MUSIC_OPEN])
-    gain = (bed - (MUSIC_BED - MUSIC_DUCK) * env).astype(np.float32)
+    bed = np.interp(tt, [0, max(0.01, fw - 0.05), fw + 0.4, lw + 0.3, lw + 1.4], [open_g, open_g, bed_g, bed_g, open_g])
+    gain = (bed - (bed_g - duck_g) * env).astype(np.float32)
     left, right = ml * gain + track + fl, mr * gain + track + fr
     fade = np.interp(tt, [length - 1.0, length - 0.1], [1.0, 0.0]).astype(np.float32)   # the end fade lives in the mix
     left, right = left * fade, right * fade
@@ -208,7 +258,7 @@ def main():
         left, right = left * (0.95 / peak), right * (0.95 / peak)
     out_mp3 = os.path.join(public, "%s.mp3" % spec["id"])
     darkbeat.save_mp3(out_mp3, left, right)
-    json.dump({"length": length, "narration": os.path.abspath(take_path), "voice": os.path.abspath(os.path.join(out_dir, "voice.wav")), "sentences": sentences},
+    json.dump({"length": length, "style": spec.get("style"), "narration": narration, "voice": os.path.abspath(os.path.join(out_dir, "voice.wav")), "sentences": sentences},
               open(os.path.join(out_dir, "mix.json"), "w", encoding="utf-8"), indent=1, ensure_ascii=False)
     db = lambda v: float(20 * np.log10(np.sqrt(np.mean(v ** 2)) + 1e-9))
     sp = act > 0.5

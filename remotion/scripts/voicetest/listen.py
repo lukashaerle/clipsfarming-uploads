@@ -161,7 +161,7 @@ def main():
     fast = ["%s x%.3f" % (s["id"], s["tempo"]) for s in sent if s["tempo"] > 1.0]
     short = ["%s -%.2f s" % (s["id"], s["pause_cut"]) for s in sent if s["pause_cut"] > 0]
     for i, g in enumerate(gaps):
-        if g < 0.2:
+        if g < (0.08 if tl.get("style") == "action" else 0.2):   # the action style keeps its pauses short on purpose
             problems.append("%s -> %s: only %.2f s between the sentences" % (sent[i]["id"], sent[i + 1]["id"], g))
     for s in sent:
         if s["tempo"] > vm.SOFT_TEMPO:

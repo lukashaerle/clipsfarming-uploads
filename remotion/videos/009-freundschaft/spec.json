@@ -1,28 +1,46 @@
 {
  "id": "009-freundschaft",
  "title": "200 Stunden bis zur Freundschaft",
+ "style": "action",
  "scenes": [
   {
-   "vo": "Wenn du gerade wenig Leute hast: Enge Freundschaft braucht über zweihundert Stunden.",
+   "vo": "Du hast gerade wenig Leute um dich?",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Enge Freundschaft",
-     "braucht *200 Stunden*"
+     "Gerade",
+     "*wenig Leute?*"
     ]
    },
    "figure": {
-    "pose": "think",
+    "pose": "slump",
     "place": "center"
    }
   },
   {
-   "vo": "Das hat ein Forscher in den USA geschätzt. Er hat Menschen befragt, die gerade umgezogen waren, und Studierende im ersten Semester.",
-   "head": "Eine *Schätzung*|aus den USA",
+   "vo": "Enge Freundschaft braucht über 200 Stunden.",
+   "head": "Über|*200 Stunden*",
+   "graphic": {
+    "kind": "counter",
+    "to": 200,
+    "unit": "gemeinsame Stunden"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Das hat ein Forscher in den USA geschätzt.",
+   "head": "Eine|*Schätzung*",
    "graphic": {
     "kind": "chips",
     "items": [
+     {
+      "label": "Jeffrey Hall",
+      "value": "2018"
+     },
      {
       "label": "Studie 1",
       "value": "355 Umgezogene"
@@ -30,10 +48,47 @@
      {
       "label": "Studie 2",
       "value": "112 Erstsemester"
-     },
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Etwa 50 Stunden, bis aus Bekannten lockere Freunde werden.",
+   "head": "*50 Stunden*|locker befreundet",
+   "graphic": {
+    "kind": "timeline",
+    "from": 0,
+    "to": 220,
+    "unit": "Stunden",
+    "marks": [
      {
-      "label": "Jeffrey Hall",
-      "value": "2018"
+      "at": 50,
+      "label": "locker"
+     }
+    ],
+    "hiFrom": 0,
+    "hiTo": 50
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Etwa 90 Stunden bis zur echten Freundschaft.",
+   "head": "*90 Stunden*|befreundet",
+   "graphic": {
+    "kind": "counter",
+    "to": 90,
+    "unit": "Stunden",
+    "chips": [
+     {
+      "label": "Bekannte → Freunde",
+      "value": "etwa 90 h"
      }
     ]
    },
@@ -43,13 +98,13 @@
    }
   },
   {
-   "vo": "Rund fünfzig gemeinsame Stunden bis zur lockeren Freundschaft. Rund neunzig bis zur Freundschaft. Und mehr als zweihundert bis zur engen.",
-   "head": "50, 90,|*200 Stunden*",
+   "vo": "Und mehr als 200 bis zur engen.",
+   "head": "*200 Stunden*|bis eng",
    "graphic": {
     "kind": "timeline",
     "from": 0,
     "to": 220,
-    "unit": "gemeinsame Stunden",
+    "unit": "Stunden",
     "marks": [
      {
       "at": 50,
@@ -57,7 +112,7 @@
      },
      {
       "at": 90,
-      "label": "befreundet"
+      "label": "Freunde"
      },
      {
       "at": 200,
@@ -73,8 +128,8 @@
    }
   },
   {
-   "vo": "Wenn ihr euch zwei Stunden pro Woche seht, sind das hundert Wochen. Knapp zwei Jahre.",
-   "head": "*100 Wochen*|bei 2 h pro Woche",
+   "vo": "Bei 2 Stunden pro Woche dauert das 100 Wochen.",
+   "head": "*100 Wochen*|bei 2 h",
    "graphic": {
     "kind": "counter",
     "to": 100,
@@ -88,11 +143,26 @@
    },
    "figure": {
     "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Fast 2 Jahre.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Fast",
+     "*2 Jahre.*"
+    ]
+   },
+   "figure": {
+    "pose": "slump",
     "place": "left"
    }
   },
   {
-   "vo": "Bei vier Stunden pro Woche ist es ungefähr ein Jahr.",
+   "vo": "Bei 4 Stunden pro Woche: ungefähr 1 Jahr.",
    "head": "Doppelt so oft,|*halb so lang*",
    "graphic": {
     "kind": "compare",
@@ -108,40 +178,21 @@
    },
    "figure": {
     "pose": "proud",
-    "place": "center"
-   }
-  },
-  {
-   "vo": "Menschen in Deutschland verbringen im Schnitt eine Stunde und fünfzehn Minuten am Tag mit Kontakten und Geselligkeit. Aber über zwei Stunden mit Fernsehen und Streaming.",
-   "head": "Menschen|gegen *Bildschirm*",
-   "graphic": {
-    "kind": "bars",
-    "unit": "min",
-    "bars": [
-     {
-      "label": "Kontakte und Geselligkeit",
-      "value": 75,
-      "hi": true
-     },
-     {
-      "label": "Fernsehen und Streaming",
-      "value": 127
-     }
-    ]
-   },
-   "figure": {
-    "pose": "phone",
     "place": "right"
    }
   },
   {
-   "vo": "Wer neu anfängt, ist nicht unbeliebt. Nur eben bei Stunde null.",
-   "head": "",
+   "vo": "Menschen in Deutschland verbringen im Schnitt 75 Minuten am Tag mit Kontakten.",
+   "head": "*75 Minuten*|für Menschen",
    "graphic": {
-    "kind": "statement",
-    "lines": [
-     "Nicht *unbeliebt*.",
-     "Nur bei Stunde *null*."
+    "kind": "counter",
+    "to": 75,
+    "unit": "Minuten für Kontakte",
+    "chips": [
+     {
+      "label": "pro Tag, Schnitt",
+      "value": "Destatis"
+     }
     ]
    },
    "figure": {
@@ -150,10 +201,58 @@
    }
   },
   {
-   "vo": "Zeit garantiert keine Freundschaft. Aber ohne Zeit entsteht keine.",
-   "head": "Zeit ist|die *Grundlage*",
+   "vo": "Aber 127 Minuten mit Fernsehen und Streaming.",
+   "head": "*127 Minuten*|Bildschirm",
    "graphic": {
-    "kind": "none"
+    "kind": "bars",
+    "unit": "min",
+    "bars": [
+     {
+      "label": "Kontakte",
+      "value": 75,
+      "hi": true
+     },
+     {
+      "label": "Fernsehen, Streaming",
+      "value": 127
+     }
+    ]
+   },
+   "figure": {
+    "pose": "phone",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Wer neu anfängt, ist nicht unbeliebt. Nur eben bei Stunde 0.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Nicht *unbeliebt.*",
+     "Nur bei *Stunde 0.*"
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Klar: Zeit garantiert keine Freundschaft. Aber ohne Zeit entsteht keine.",
+   "head": "Keine|*Garantie*",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Zahlen",
+      "value": "Schätzwerte"
+     },
+     {
+      "label": "Zeit",
+      "value": "nötig, keine Garantie"
+     }
+    ]
    },
    "figure": {
     "pose": "think",
@@ -161,7 +260,7 @@
    }
   },
   {
-   "vo": "Schreib heute einer Person: Hast du diese Woche zwei Stunden Zeit?",
+   "vo": "Schreib heute einer Person: Hast du diese Woche 2 Stunden Zeit?",
    "head": "",
    "graphic": {
     "kind": "statement",

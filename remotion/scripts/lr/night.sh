@@ -67,6 +67,8 @@ rc=$?
 [ $rc -eq 0 ] || { tail -5 "$WORK/render1080.log" | tee -a "$LOG"; say "FULL HD: FEHLER exit $rc"; exit 1; }
 say "full hd: fertig in $(( $(date +%s) - t )) s"
 
+if [ -n "${LR_ONLY_HD:-}" ]; then say "4k: uebersprungen (LR_ONLY_HD)"; exit 0; fi
+
 # ---- 4. native 4K: chunks as ProRes, one H.264 encode at the end
 CHUNK=600
 i=0

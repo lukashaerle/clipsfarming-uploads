@@ -1,25 +1,56 @@
 {
  "id": "006-mit-19",
  "title": "Mit 19 schon zu spät?",
+ "style": "action",
  "scenes": [
   {
-   "vo": "Mit 19 ist es in deinem Leben erst fünf Uhr zweiundvierzig.",
+   "vo": "Mit 19 schon zu spät dran?",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Mit 19 ist es",
-     "erst *5:42 Uhr*"
+     "Mit 19 schon",
+     "*zu spät* dran?"
     ]
    },
    "figure": {
-    "pose": "think",
+    "pose": "slump",
     "place": "center"
    }
   },
   {
-   "vo": "Stell dir vor, dein Leben wäre ein einziger Tag. Und es dauert achtzig Jahre, ungefähr so lange wie heute im Schnitt in Deutschland.",
+   "vo": "Von wegen. In deinem Leben ist es erst 5:42 Uhr.",
+   "head": "*Von wegen.*",
+   "graphic": {
+    "kind": "clock",
+    "times": [
+     "05:42"
+    ],
+    "total": "so früh ist es erst"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Stell dir dein Leben als einen einzigen Tag vor.",
    "head": "Dein Leben|als *ein Tag*",
+   "graphic": {
+    "kind": "blocks",
+    "n": 24,
+    "hi": 24,
+    "label": "",
+    "caption": "24 Stunden"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Rund 80 Jahre. So alt werden Menschen in Deutschland im Schnitt.",
+   "head": "Rund|*80 Jahre*",
    "graphic": {
     "kind": "chips",
     "items": [
@@ -44,50 +75,81 @@
    }
   },
   {
-   "vo": "Dann ist jedes Lebensjahr achtzehn Minuten. Mit 19 steht die Uhr auf fünf Uhr zweiundvierzig. Draußen ist es noch dunkel.",
-   "head": "*5:42 Uhr*|am Morgen",
+   "vo": "Dann dauert jedes Lebensjahr nur 18 Minuten.",
+   "head": "1 Jahr =|*18 Minuten*",
    "graphic": {
-    "kind": "clock",
-    "times": [
-     "00:00",
-     "05:42"
-    ],
-    "total": "19 von 80 Jahren"
-   },
-   "figure": {
-    "pose": "look",
-    "place": "right"
-   }
-  },
-  {
-   "vo": "Mit 25 ist es halb acht. Mit 30 genau neun Uhr.",
-   "head": "Mit 30|erst *9 Uhr*",
-   "graphic": {
-    "kind": "chips",
-    "items": [
+    "kind": "counter",
+    "to": 18,
+    "unit": "Minuten pro Jahr",
+    "chips": [
      {
-      "label": "mit 19",
-      "value": "5:42 Uhr"
-     },
-     {
-      "label": "mit 25",
-      "value": "7:30 Uhr"
-     },
-     {
-      "label": "mit 30",
-      "value": "9:00 Uhr",
-      "hi": true
+      "label": "24 h ÷ 80 Jahre",
+      "value": "18 min"
      }
     ]
    },
    "figure": {
-    "pose": "stand",
+    "pose": "look",
     "place": "center"
    }
   },
   {
-   "vo": "Hinter dir liegt knapp ein Viertel. Drei Viertel liegen noch vor dir. Das sind einundsechzig Jahre.",
-   "head": "*61 Jahre*|vor dir",
+   "vo": "Mit 19 steht die Uhr auf 5:42. Draußen ist es noch dunkel.",
+   "head": "*5:42 Uhr*|noch dunkel",
+   "graphic": {
+    "kind": "ring",
+    "percent": 23.75,
+    "center": "5:42",
+    "chips": [
+     {
+      "label": "19 von 80 Jahren",
+      "value": "knapp ¼"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Mit 25 ist es halb acht.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Mit 25:",
+     "*7:30 Uhr*"
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Und mit 30? Genau 9 Uhr. Der Tag fängt gerade erst an.",
+   "head": "Mit 30|erst *9 Uhr*",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "7:30",
+     "label": "Uhr, mit 25"
+    },
+    "right": {
+     "value": "9:00",
+     "label": "Uhr, mit 30"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Knapp ein Viertel ist vorbei.",
+   "head": "Erst ein|*Viertel*",
    "graphic": {
     "kind": "grid",
     "total": 80,
@@ -101,16 +163,16 @@
    }
   },
   {
-   "vo": "In Wochen sind das dreitausendeinhundertzweiundsiebzig. Jede einzelne davon kannst du noch nutzen. Für Freunde, für Reisen, für alles, was du lernen willst.",
-   "head": "*3.172*|Wochen",
+   "vo": "61 Jahre liegen noch vor dir.",
+   "head": "*61 Jahre*|vor dir",
    "graphic": {
     "kind": "counter",
-    "to": 3172,
-    "unit": "Wochen vor dir",
+    "to": 61,
+    "unit": "Jahre vor dir",
     "chips": [
      {
-      "label": "61 Jahre × 52",
-      "value": "3.172"
+      "label": "80 − 19",
+      "value": "61"
      }
     ]
    },
@@ -120,17 +182,13 @@
    }
   },
   {
-   "vo": "Bis zur Regelaltersgrenze von 67 sind es 48 Jahre. Genug Zeit, um in etwas richtig gut zu werden.",
-   "head": "*48 Jahre*|zum Üben",
+   "vo": "Das sind über 3000 Wochen.",
+   "head": "",
    "graphic": {
-    "kind": "counter",
-    "to": 48,
-    "unit": "Jahre bis 67",
-    "chips": [
-     {
-      "label": "Regelaltersgrenze",
-      "value": "67 Jahre"
-     }
+    "kind": "statement",
+    "lines": [
+     "*3.172*",
+     "Wochen"
     ]
    },
    "figure": {
@@ -139,17 +197,80 @@
    }
   },
   {
-   "vo": "Natürlich ist das ein Durchschnitt und keine Vorhersage. Aber zu spät ist es mit 19 sicher nicht.",
+   "vo": "Und bis zur Rente? 48 Jahre.",
+   "head": "*48 Jahre*|bis zur Rente",
+   "graphic": {
+    "kind": "timeline",
+    "from": 0,
+    "to": 80,
+    "unit": "Alter",
+    "marks": [
+     {
+      "at": 19,
+      "label": "heute"
+     },
+     {
+      "at": 67,
+      "label": "Rente"
+     }
+    ],
+    "hiFrom": 19,
+    "hiTo": 67
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Genug Zeit, um in etwas richtig gut zu werden.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Nicht *zu spät*.",
-     "Früher Morgen."
+     "Genug Zeit,",
+     "um *richtig gut*",
+     "zu werden."
     ]
    },
    "figure": {
-    "pose": "stand",
+    "pose": "proud",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Klar: Das ist ein Durchschnitt, keine Garantie.",
+   "head": "Durchschnitt,|*keine* Garantie",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Lebenserwartung",
+      "value": "Durchschnitt"
+     },
+     {
+      "label": "Quelle",
+      "value": "Destatis 2025"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Aber zu spät? Um 5:42 Uhr? Ganz sicher nicht.",
+   "head": "*Zu spät?*|Sicher nicht.",
+   "graphic": {
+    "kind": "clock",
+    "times": [
+     "05:42"
+    ],
+    "total": "der Tag liegt vor dir"
+   },
+   "figure": {
+    "pose": "proud",
     "place": "center"
    }
   },

@@ -1,15 +1,16 @@
 {
  "id": "007-aufschieben",
  "title": "Was Aufschieben kostet",
+ "style": "action",
  "scenes": [
   {
-   "vo": "Aufschieben kostet am ersten Tag zwei Minuten. Am letzten fünfzehn Stunden.",
+   "vo": "Aufschieben kostet heute nur 2 Minuten.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Tag 1: *+2 Minuten*",
-     "Am Ende: *+15 Stunden*"
+     "Aufschieben kostet",
+     "heute *2 Minuten*"
     ]
    },
    "figure": {
@@ -18,15 +19,32 @@
    }
   },
   {
-   "vo": "Stell dir eine Aufgabe vor, die dreißig Stunden braucht. Und in dreißig Tagen fertig sein muss.",
-   "head": "30 Stunden|in *30 Tagen*",
+   "vo": "Am Ende kostet es 15 Stunden.",
+   "head": "Am Ende:|*15 Stunden*",
    "graphic": {
-    "kind": "grid",
-    "total": 30,
-    "hi": 30,
-    "cols": 10,
-    "label": "30 Tage",
-    "hiLabel": "1 Stunde pro Tag"
+    "kind": "compare",
+    "left": {
+     "value": "+2 min",
+     "label": "am ersten Tag"
+    },
+    "right": {
+     "value": "+15 h",
+     "label": "am letzten Tag"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Die Rechnung: Eine Aufgabe braucht 30 Stunden.",
+   "head": "Die *Rechnung*",
+   "graphic": {
+    "kind": "counter",
+    "to": 30,
+    "unit": "Stunden Arbeit"
    },
    "figure": {
     "pose": "stand",
@@ -34,8 +52,23 @@
    }
   },
   {
-   "vo": "Fängst du heute an, ist das eine Stunde pro Tag. Kaum mehr als eine Serienfolge.",
-   "head": "*1 Stunde*|pro Tag",
+   "vo": "Und du hast 30 Tage Zeit.",
+   "head": "*30 Tage*|Zeit",
+   "graphic": {
+    "kind": "grid",
+    "total": 30,
+    "hi": 30,
+    "cols": 10,
+    "label": "30 Tage",
+    "hiLabel": "bis zur Abgabe"
+   },
+   "figure": {
+    "pose": "none"
+   }
+  },
+  {
+   "vo": "Fängst du heute an, ist das 1 Stunde pro Tag.",
+   "head": "Heute anfangen:|*1 Stunde*",
    "graphic": {
     "kind": "counter",
     "to": 1,
@@ -53,8 +86,8 @@
    }
   },
   {
-   "vo": "Fängst du einen Tag später an, sind es zweiundsechzig Minuten. Zwei Minuten mehr. Das merkt man nicht.",
-   "head": "Einen Tag später:|*+2 Minuten*",
+   "vo": "Fängst du morgen an: 62 Minuten. Merkst du nicht.",
+   "head": "Morgen:|*+2 Minuten*",
    "graphic": {
     "kind": "compare",
     "left": {
@@ -73,31 +106,68 @@
    }
   },
   {
-   "vo": "Wartest du fünfzehn Tage, sind es zwei Stunden pro Tag. Nach zwanzig drei. Nach fünfundzwanzig schon sechs. Nach siebenundzwanzig zehn.",
+   "vo": "Nach 15 Tagen Warten: 2 Stunden am Tag. Nach 25: schon 6.",
    "head": "Erst langsam,|dann *schnell*",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "15 Tage gewartet",
+      "value": "2 h pro Tag"
+     },
+     {
+      "label": "20 Tage gewartet",
+      "value": "3 h pro Tag"
+     },
+     {
+      "label": "25 Tage gewartet",
+      "value": "6 h pro Tag",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Nach 27 Tagen sind es 10 Stunden. Jeden Tag.",
+   "head": "*10 Stunden*|jeden Tag",
+   "graphic": {
+    "kind": "counter",
+    "to": 10,
+    "unit": "Stunden pro Tag",
+    "chips": [
+     {
+      "label": "noch 3 Tage",
+      "value": "30 h ÷ 3"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Am vorletzten Tag: 15 Stunden.",
+   "head": "*15 Stunden*|an einem Tag",
    "graphic": {
     "kind": "bars",
     "unit": "h",
     "bars": [
      {
-      "label": "sofort",
+      "label": "1. Tag",
       "value": 1
      },
      {
-      "label": "15 Tage gewartet",
-      "value": 2
+      "label": "nach 27 Tagen",
+      "value": 10
      },
      {
-      "label": "20 Tage gewartet",
-      "value": 3
-     },
-     {
-      "label": "25 Tage gewartet",
-      "value": 6
-     },
-     {
-      "label": "27 Tage gewartet",
-      "value": 10,
+      "label": "vorletzter Tag",
+      "value": 15,
       "hi": true
      }
     ]
@@ -108,49 +178,60 @@
    }
   },
   {
-   "vo": "Am vorletzten Tag sind es fünfzehn Stunden. Am letzten dreißig. Mehr, als ein Tag überhaupt hat.",
-   "head": "*30 Stunden*|an einem Tag",
+   "vo": "Und am letzten? 30 Stunden. Mehr, als ein Tag hat.",
+   "head": "*30 Stunden*|geht nicht",
    "graphic": {
-    "kind": "counter",
-    "to": 30,
-    "unit": "Stunden am letzten Tag",
-    "chips": [
-     {
-      "label": "vorletzter Tag",
-      "value": "15 h"
-     },
-     {
-      "label": "ein Tag hat",
-      "value": "24 h",
-      "hi": true
-     }
-    ]
+    "kind": "compare",
+    "left": {
+     "value": "30 h",
+     "label": "Arbeit"
+    },
+    "right": {
+     "value": "24 h",
+     "label": "hat ein Tag"
+    },
+    "hi": "left"
    },
    "figure": {
     "pose": "slump",
-    "place": "left"
-   }
-  },
-  {
-   "vo": "Die Arbeit wird durchs Warten nicht mehr. Sie quetscht sich nur in weniger Tage.",
-   "head": "",
-   "graphic": {
-    "kind": "statement",
-    "lines": [
-     "Nicht *mehr* Arbeit.",
-     "Nur *weniger* Tage."
-    ]
-   },
-   "figure": {
-    "pose": "think",
     "place": "center"
    }
   },
   {
-   "vo": "Aufschieben ist normal. Fast jeder macht es. Es hat nichts mit Faulheit zu tun. Aber jetzt kennst du den Preis.",
-   "head": "Jetzt kennst du|den *Preis*",
+   "vo": "Die Arbeit wird durchs Warten nicht mehr.",
+   "head": "",
    "graphic": {
-    "kind": "none"
+    "kind": "statement",
+    "lines": [
+     "Nicht *mehr*",
+     "Arbeit."
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Sie quetscht sich nur in weniger Tage.",
+   "head": "Nur *weniger*|Tage",
+   "graphic": {
+    "kind": "timeline",
+    "from": 0,
+    "to": 30,
+    "unit": "Tage",
+    "marks": [
+     {
+      "at": 27,
+      "label": "Start"
+     },
+     {
+      "at": 30,
+      "label": "Abgabe"
+     }
+    ],
+    "hiFrom": 27,
+    "hiTo": 30
    },
    "figure": {
     "pose": "look",
@@ -158,12 +239,49 @@
    }
   },
   {
-   "vo": "Nimm die Aufgabe, die du schiebst. Und mach heute die erste Stunde.",
+   "vo": "Aufschieben ist normal. Aber jetzt kennst du den Preis.",
+   "head": "Ganz *normal*",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Aufschieben",
+      "value": "ganz normal"
+     },
+     {
+      "label": "aber",
+      "value": "es hat einen Preis",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Also: Nimm die Aufgabe, die du schiebst.",
+   "head": "Fang *heute* an",
+   "graphic": {
+    "kind": "grid",
+    "total": 30,
+    "hi": 1,
+    "cols": 10,
+    "label": "30 Tage",
+    "hiLabel": "heute"
+   },
+   "figure": {
+    "pose": "none"
+   }
+  },
+  {
+   "vo": "Und mach heute die erste Stunde.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "*Heute*.",
+     "*Heute.*",
      "Die erste Stunde."
     ],
     "chip": "Welche Aufgabe ist es?"

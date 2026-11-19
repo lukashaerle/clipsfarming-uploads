@@ -1,15 +1,16 @@
 {
  "id": "008-17-stunden-wach",
  "title": "17 Stunden wach",
+ "style": "action",
  "scenes": [
   {
-   "vo": "Sie hat keinen Tropfen getrunken. Und reagiert in Tests wie mit null Komma fünf Promille.",
+   "vo": "Sie hat keinen Tropfen getrunken.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Nüchtern.",
-     "Und trotzdem *0,5 Promille*?"
+     "Kein Tropfen",
+     "*Alkohol.*"
     ]
    },
    "figure": {
@@ -18,25 +19,32 @@
    }
   },
   {
-   "vo": "Sie ist seit halb sieben wach. Jetzt ist es halb zwölf in der Nacht. Siebzehn Stunden.",
+   "vo": "Und reagiert in Tests wie mit 0,5 Promille.",
+   "head": "Wie mit|*0,5 Promille*",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "0,0",
+     "label": "Promille getrunken"
+    },
+    "right": {
+     "value": "0,5",
+     "label": "Promille, in Tests"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Der Grund? Sie ist seit 17 Stunden wach.",
    "head": "Seit *17 Stunden*|wach",
    "graphic": {
-    "kind": "timeline",
-    "from": 6,
-    "to": 24,
-    "unit": "Uhr",
-    "marks": [
-     {
-      "at": 6.5,
-      "label": "6:30"
-     },
-     {
-      "at": 23.5,
-      "label": "23:30"
-     }
-    ],
-    "hiFrom": 6.5,
-    "hiTo": 23.5
+    "kind": "counter",
+    "to": 17,
+    "unit": "Stunden wach"
    },
    "figure": {
     "pose": "slump",
@@ -44,15 +52,46 @@
    }
   },
   {
-   "vo": "In einer Studie aus Australien haben neununddreißig Menschen dieselben Tests gemacht. Einmal nach langer Wachzeit, einmal mit Alkohol.",
+   "vo": "Aufgestanden um 6:30 Uhr. Jetzt ist es 23:30 Uhr.",
+   "head": "Von früh|bis *spät*",
+   "graphic": {
+    "kind": "clock",
+    "times": [
+     "06:30",
+     "23:30"
+    ],
+    "total": "17 Stunden wach"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Eine Studie aus Australien hat das getestet. 39 Menschen, dieselben Aufgaben, zweimal.",
+   "head": "Die *Studie*",
+   "graphic": {
+    "kind": "counter",
+    "to": 39,
+    "unit": "Versuchspersonen",
+    "chips": [
+     {
+      "label": "Australien",
+      "value": "Studie, 2000"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Einmal nach langer Wachzeit. Einmal mit Alkohol.",
    "head": "Derselbe Test,|*zweimal*",
    "graphic": {
     "kind": "chips",
     "items": [
-     {
-      "label": "Versuchspersonen",
-      "value": "39"
-     },
      {
       "label": "Durchgang 1",
       "value": "lange wach"
@@ -65,23 +104,18 @@
    },
    "figure": {
     "pose": "think",
-    "place": "left"
+    "place": "right"
    }
   },
   {
-   "vo": "Nach siebzehn bis neunzehn Stunden ohne Schlaf waren sie in einigen Tests so schlecht wie mit null Komma fünf Promille. Oder noch schlechter.",
-   "head": "17 Stunden wach|≈ *0,5 Promille*",
+   "vo": "Nach 17 bis 19 Stunden ohne Schlaf waren sie in einigen Tests so schlecht wie mit 0,5 Promille. Oder schlechter.",
+   "head": "",
    "graphic": {
-    "kind": "compare",
-    "left": {
-     "value": "17 h",
-     "label": "wach"
-    },
-    "right": {
-     "value": "0,5",
-     "label": "Promille, in Tests"
-    },
-    "hi": "right"
+    "kind": "statement",
+    "lines": [
+     "17 h wach",
+     "≈ *0,5 Promille*"
+    ]
    },
    "figure": {
     "pose": "slump",
@@ -89,18 +123,18 @@
    }
   },
   {
-   "vo": "Die Reaktion war in einigen Tests bis zu fünfzig Prozent langsamer.",
+   "vo": "Die Reaktion: in einigen Tests bis zu 50 % langsamer.",
    "head": "Bis zu *50 %*|langsamer",
    "graphic": {
     "kind": "bars",
     "unit": "%",
     "bars": [
      {
-      "label": "Reaktionszeit ausgeschlafen",
+      "label": "ausgeschlafen",
       "value": 100
      },
      {
-      "label": "nach langer Wachzeit, bis zu",
+      "label": "lange wach, bis zu",
       "value": 150,
       "hi": true
      }
@@ -108,34 +142,44 @@
    },
    "figure": {
     "pose": "slump",
-    "place": "right"
+    "place": "left"
    }
   },
   {
-   "vo": "Null Komma fünf Promille ist in Deutschland die Grenze, ab der Autofahren eine Ordnungswidrigkeit ist.",
+   "vo": "0,5 Promille: Ab da ist Autofahren in Deutschland eine Ordnungswidrigkeit.",
    "head": "Die Grenze|*am Steuer*",
    "graphic": {
     "kind": "counter",
     "to": 0.5,
-    "decimals": 1,
     "unit": "Promille",
     "chips": [
      {
       "label": "§ 24a StVG",
       "value": "Deutschland"
      }
-    ]
+    ],
+    "decimals": 1
    },
    "figure": {
     "pose": "stand",
-    "place": "left"
+    "place": "right"
    }
   },
   {
-   "vo": "Das ist ein Vergleich aus dem Labor, keine Umrechnung für jeden Menschen. Aber er zeigt, was Müdigkeit ausmacht.",
-   "head": "Müdigkeit|*zählt*",
+   "vo": "Klar: Das ist ein Laborvergleich. Keine Umrechnung für jeden.",
+   "head": "Nur ein|*Vergleich*",
    "graphic": {
-    "kind": "none"
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Vergleich",
+      "value": "aus dem Labor"
+     },
+     {
+      "label": "gilt für",
+      "value": "einzelne Tests"
+     }
+    ]
    },
    "figure": {
     "pose": "think",
@@ -143,14 +187,48 @@
    }
   },
   {
-   "vo": "Wer nach siebzehn Stunden schlafen geht, hat genau die sieben Stunden, die Fachleute Erwachsenen empfehlen.",
+   "vo": "Aber er zeigt, was Müdigkeit mit dir macht.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Müde heißt",
+     "*langsamer.*"
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Die gute Nachricht: 17 Stunden wach, 7 Stunden Schlaf.",
    "head": "17 + 7|= *24*",
    "graphic": {
     "kind": "blocks",
     "n": 24,
     "hi": 7,
     "label": "",
-    "caption": "7 Stunden Schlaf · 17 wach"
+    "caption": "7 h Schlaf · 17 h wach"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "So viel empfehlen Fachleute Erwachsenen mindestens.",
+   "head": "*7 Stunden*|oder mehr",
+   "graphic": {
+    "kind": "counter",
+    "to": 7,
+    "unit": "Stunden Schlaf",
+    "chips": [
+     {
+      "label": "Empfehlung",
+      "value": "7 h oder mehr"
+     }
+    ]
    },
    "figure": {
     "pose": "proud",
@@ -158,13 +236,13 @@
    }
   },
   {
-   "vo": "Rechne aus, wann deine siebzehn Stunden heute enden. Und geh dann ins Bett.",
+   "vo": "Rechne aus, wann deine 17 Stunden heute enden. Und dann: ab ins Bett.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
      "Wann enden",
-     "deine *17 Stunden*?"
+     "deine *17 Stunden?*"
     ],
     "chip": "Dann ab ins Bett."
    },
