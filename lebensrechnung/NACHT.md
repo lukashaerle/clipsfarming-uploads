@@ -17,7 +17,7 @@ pip install --break-system-packages numpy av pillow || pip install numpy av pill
 pip install --break-system-packages faster-whisper || true   # optional, für die Hörprüfung und als Ersatz für Scribe
 ```
 Remotions eigener Chrome-Download ist in der Cloud gesperrt; `night.sh` nimmt automatisch `/opt/pw-browsers/chromium`.
-Fehlen beim Rendern Bibliotheken, installiere sie wie in `remotion/scripts/cloud_test.sh` (apt, Ubuntu-24.04-Namen mit `t64`).
+Fehlen beim Rendern Bibliotheken, installiere sie mit apt (Ubuntu 24.04: libasound2t64 libatk1.0-0t64 libatk-bridge2.0-0t64 libcups2t64 libnss3 libgbm1 libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libpango-1.0-0).
 
 ## 3. Stimme (ElevenLabs-Connector), pro Video
 - Text: `"[calm] "` + die `vo`-Felder aller Szenen der Spec, mit Zeilenumbruch verbunden, unverändert.
