@@ -1,0 +1,23 @@
+== 005-47-sekunden | start 2026-11-19T13:33:18Z | Darwin arm64, 8 cpus
+  s06 31.05-39.26  Teuer ist aber vor allem der Weg zurück. Wer bei einem Proje
+  s07 39.68-44.51  Dazwischen liegen im Schnitt zwei andere Projekte. Jedes etw
+  s08 45.00-51.52  Das heißt nicht, dass mit dir etwas nicht stimmt. Gemessen w
+  s09 52.12-56.68  Stell jetzt einen Timer auf zehn Minuten. Und bleib so lange
+ton: fertig in 18 s
+CUTS   9 sentences | loudest sound right outside a cut: -70 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -69 dB
+WORDS  138 of 140 script words heard, each sentence listened to on its own | words the recognition was unsure about: none
+LEVEL  sentences between -15.6 and -14.5 dBFS (middle -15.1)
+FLOW   pauses between sentences 0.42 to 0.60 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s01 after 'Nächsten.' 0.47 s, s02 after 'wechseln.' 0.52 s, s03 after 'Minuten.' 0.46 s, s03 after 'Sekunden.' 0.55 s, s06 after 'zurück.' 0.52 s, s07 after 'Projekte.' 0.34 s, s08 after 'stimmt.' 0.50 s, s08 after 'Bildschirm,' 0.19 s, s09 after 'und' 0.36 s
+hoerpruefung: bitte anhoeren
+  - s03: script 'Vor zwanzig Jahren waren es noch zweieinhalb Minuten. Im Jahr 2012 dann 75 Sekunden. Heute sind es 47.' | heard 'Vor 20 Jahren waren es noch 2 ,5 Minuten. Im Jahr 2012 dann 75 Sekunden. Heute sind es 47.'
+  - s08: script 'Das heißt nicht, dass mit dir etwas nicht stimmt. Gemessen wurde das Wechseln am Bildschirm, nicht deine Aufmerksamkeit.' | heard 'Das heißt nicht, dass mit dir etwas nicht stimmt. Gemessen wurde das Wechseln am Bildschirm, nicht deiner Aufmerksamkeit.'
+  - s09: a pause of 0.36 s after 'und', where the script has no comma or full stop
+laenge: 58.38 s (3503 Bilder)
+SAFE ZONE  18 stills | all clear
+full hd: fertig in 54 s
+4k: fertig in 489 s (6 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=58.389000|size=15890493 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=58.380000|size=51693560 
+== 005-47-sekunden | fertig 2026-11-19T13:43:02Z
