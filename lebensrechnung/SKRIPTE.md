@@ -16,6 +16,7 @@ Nummer + Kurzname, z. B. `011-buecher`. Beispiele: alle vorhandenen `remotion/vi
 - Zahlen, die die Stimme falsch lesen könnte, im `vo` ausschreiben: Tausender mit Punkt („8.800“ → „achttausendachthundert“),
   Uhrzeiten („5:42“ → „fünf Uhr zweiundvierzig“), Promille („0,5“ → „null Komma fünf“), „37-Fachen“ → „Siebenunddreißigfachen“.
   Einfache Zahlen (47, 2012, 75) und Kommazahlen wie 1,35 dürfen Ziffern bleiben.
+- Nie Regie- oder Gliederungswörter sprechen lassen („Einordnung:“, „Hinweis:“, „Fazit:“, „Das ist ein Durchschnitt von 2022:“). Jeder Satz muss natürlich gesprochen klingen.
 - Eine Szene mit „Einordnung“ (Durchschnitt, Schätzung, Laborwert …), wie im Plan unter „Hinweis“ verlangt.
 
 ## Überschriften (`head`)

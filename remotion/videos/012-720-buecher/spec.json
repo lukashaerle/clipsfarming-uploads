@@ -72,7 +72,7 @@
    }
   },
   {
-   "vo": "Auch wenn die Zahl höher liegt: Dein ganzes Leseleben deckt nicht einmal zwei Prozent eines einzigen Jahrgangs.",
+   "vo": "Und die wahre Zahl liegt sogar noch höher. Dein ganzes Leseleben deckt nicht einmal zwei Prozent eines einzigen Jahrgangs.",
    "head": "Nicht mal *2 %*|eines Jahres",
    "graphic": {
     "kind": "ring",
@@ -91,7 +91,7 @@
    }
   },
   {
-   "vo": "Das ist ein Durchschnitt von 2022: Menschen in Deutschland lesen 27 Minuten am Tag. Fernsehen und Streaming: zwei Stunden und acht Minuten.",
+   "vo": "Im Schnitt lesen Menschen in Deutschland 27 Minuten am Tag. Fernsehen und Streaming kommen auf zwei Stunden und acht Minuten.",
    "head": "Lesen *gegen*|Bildschirm",
    "graphic": {
     "kind": "bars",
