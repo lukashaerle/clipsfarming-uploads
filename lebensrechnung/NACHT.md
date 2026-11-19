@@ -7,7 +7,8 @@ Gepostet wird erst morgens nach Freigabe in der App.
 ## 1. Was ist heute dran?
 - `HEUTE=$(TZ=Europe/Berlin date +%F)`, `MORGEN=$(TZ=Europe/Berlin date -d tomorrow +%F)`; lies `lebensrechnung/plan.json`,
   Einträge für beide Tage (Uhrzeit → Video-ID). Zuerst heute, dann morgen, jeweils in der Reihenfolge der Uhrzeit.
-- Ein Video ist zu produzieren, wenn `remotion/videos/<id>/spec.json` existiert und `lebensrechnung/<id>-4K.mp4` fehlt.
+- Ein Video ist zu produzieren, wenn `remotion/videos/<id>/spec.json` existiert und `lebensrechnung/<id>-report.txt` auf main fehlt
+  (ältere Videos liegen noch als mp4 auf main; auch dann gilt es als fertig).
 - Fehlt für einen Termin von heute die Spec, melde das (Schritt 5). Gibt es gar nichts zu tun, melde kurz „nichts zu tun“ und hör auf.
 
 ## 2. Vorbereitung (einmal)
@@ -35,10 +36,15 @@ Fehlen beim Rendern Bibliotheken, installiere sie mit apt (Ubuntu 24.04: libasou
 cd remotion && bash scripts/lr/night.sh <id> ../lebensrechnung
 ```
 Dauer ungefähr: Ton 1 Min, Full HD 10 Min, 4K 25 Min pro Video. Das Skript ist fortsetzbar (fertige 4K-Abschnitte werden übersprungen).
-Danach committen und auf `main` pushen (vorher `git pull --rebase`):
-`lebensrechnung/<id>-1080p.mp4`, `lebensrechnung/<id>-4K.mp4`, `lebensrechnung/<id>-report.txt`,
-`remotion/videos/<id>/take.mp3`, `remotion/videos/<id>/words.json` (falls vorhanden).
-Commit-Nachricht: `Lebensrechnung <id>: Full HD und 4K (Nacht-Produktion)`.
+Danach:
+- **Videos** kommen NICHT auf `main`, sondern auf den Branch `lr-videos`:
+  `bash remotion/scripts/lr/push_videos.sh lebensrechnung/<id>-1080p.mp4 lebensrechnung/<id>-4K.mp4`
+  (im Repo-Wurzelordner; gibt den Commit aus). Die mp4-Dateien danach NICHT auf main committen (sie sind per .gitignore ausgeschlossen).
+- Auf `main` committen und pushen (vorher `git pull --rebase`): `lebensrechnung/<id>-report.txt`,
+  `remotion/videos/<id>/take.mp3`, `remotion/videos/<id>/words.json` (falls vorhanden).
+  Commit-Nachricht: `Lebensrechnung <id>: produziert (Videos auf lr-videos)`.
+- „Fertig“ heißt ab jetzt: `lebensrechnung/<id>-report.txt` auf main UND die Videos auf `lr-videos`
+  (`git fetch origin lr-videos && git ls-tree -r --name-only origin/lr-videos`). Das gilt auch für Schritt 1.
 
 ## 5. Meldung (Slack, Lebensrechnung Bot)
 Zwei Umgebungsvariablen, beide geheim (**nie ausgeben, nie in Dateien, Logs oder Commits schreiben**):
