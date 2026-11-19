@@ -1,0 +1,16 @@
+date: 2026-11-18T23:01:43Z
+machine: Linux x86_64, cpus: 4, memory: 15 GB
+node: v22.23.5
+npm ci: exit 0 in 5 s
+browser ensure: skipped, using /opt/pw-browsers/chromium
+render Full HD: exit 0 in 874 s
+--- resumed after worker restart (4K render was killed) ---
+render 4K: exit 1 in 2561 s
+stills: 6 of 6
+--- cloud-1080p.mp4: 22126222 bytes
+stream|codec_name=h264|width=1080|height=1920|r_frame_rate=60/1|nb_frames=3900
+stream|codec_name=aac|sample_rate=48000|channels=2|r_frame_rate=0/0|nb_frames=3049
+format|duration=65.003000
+done
+note: Chrome download (remotion.media) blocked in cloud -> used preinstalled /opt/pw-browsers/chromium via --browser-executable
+note: worker restart killed the first 4K attempt; 4K was rerun once and failed with delayRender timeout (28000ms) at frame 3238
