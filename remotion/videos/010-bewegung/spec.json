@@ -1,0 +1,166 @@
+{
+ "id": "010-bewegung",
+ "title": "1,5 Prozent deiner Woche",
+ "scenes": [
+  {
+   "vo": "Hundertfünfzig Minuten Bewegung sind nur eineinhalb Prozent deiner Woche.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "150 Minuten",
+     "= *1,5 %* deiner Woche"
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "So viel empfiehlt die Weltgesundheitsorganisation Erwachsenen mindestens. Bewegung mit mittlerer Anstrengung, pro Woche.",
+   "head": "Die *Empfehlung*|der WHO",
+   "graphic": {
+    "kind": "counter",
+    "to": 150,
+    "unit": "Minuten pro Woche",
+    "chips": [
+     {
+      "label": "WHO",
+      "value": "mittlere Intensität"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Eine Woche hat zehntausendachtzig Minuten. Davon sind hundertfünfzig nur ein schmaler Streifen.",
+   "head": "*10.080*|Minuten pro Woche",
+   "graphic": {
+    "kind": "ring",
+    "percent": 1.5,
+    "center": "1,5 %",
+    "chips": [
+     {
+      "label": "150 ÷ 10.080",
+      "value": "1,5 %",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "none"
+   }
+  },
+  {
+   "vo": "Auf den Tag gerechnet sind das zweiundzwanzig Minuten.",
+   "head": "*22 Minuten*|am Tag",
+   "graphic": {
+    "kind": "counter",
+    "to": 22,
+    "unit": "Minuten am Tag",
+    "chips": [
+     {
+      "label": "150 ÷ 7",
+      "value": "21,4"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Dagegen sitzen Menschen in Deutschland an einem Werktag im Schnitt sechshundertdreizehn Minuten. Über zehn Stunden.",
+   "head": "Über *10 Stunden*|Sitzen",
+   "graphic": {
+    "kind": "bars",
+    "unit": "min",
+    "bars": [
+     {
+      "label": "Sitzen",
+      "value": 613
+     },
+     {
+      "label": "empfohlene Bewegung",
+      "value": 22,
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Auf eine Minute Bewegung kommen neunundzwanzig Minuten Sitzen.",
+   "head": "1 zu *29*",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "1",
+     "label": "Minute Bewegung"
+    },
+    "right": {
+     "value": "29",
+     "label": "Minuten Sitzen"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Viele schaffen die Empfehlung schon. In Deutschland sind es laut einer großen Befragung gut zwei von drei. Weltweit erreicht sie aber fast jeder dritte Erwachsene nicht.",
+   "head": "Fast *jeder Dritte*|schafft es nicht",
+   "graphic": {
+    "kind": "ring",
+    "percent": 31,
+    "center": "31 %",
+    "chips": [
+     {
+      "label": "weltweit, 2022",
+      "value": "1,8 Mrd."
+     }
+    ]
+   },
+   "figure": {
+    "pose": "none"
+   }
+  },
+  {
+   "vo": "Zweiundzwanzig Minuten sind weniger als eine Serienfolge. Und sie passen in fast jeden Tag.",
+   "head": "Weniger als|*eine Folge*",
+   "graphic": {
+    "kind": "none"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Geh heute zweiundzwanzig Minuten zügig spazieren.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "*22 Minuten*.",
+     "Heute."
+    ],
+    "chip": "Wann gehst du los?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  }
+ ]
+}

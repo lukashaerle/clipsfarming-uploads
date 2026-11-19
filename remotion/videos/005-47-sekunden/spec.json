@@ -1,0 +1,190 @@
+{
+ "id": "005-47-sekunden",
+ "title": "47 Sekunden",
+ "scenes": [
+  {
+   "vo": "Nach 47 Sekunden wechselst du am Bildschirm zum Nächsten. Im Schnitt.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "*47 Sekunden*.",
+     "Dann wechselst du."
+    ]
+   },
+   "figure": {
+    "pose": "phone",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "So lange bleiben Menschen bei der Arbeit auf einem Bildschirminhalt, bevor sie wechseln. Gemessen hat das die Forscherin Gloria Mark in Kalifornien.",
+   "head": "Bei der *Arbeit*|am Bildschirm",
+   "graphic": {
+    "kind": "counter",
+    "to": 47,
+    "unit": "Sekunden pro Inhalt",
+    "chips": [
+     {
+      "label": "Median",
+      "value": "40 Sekunden"
+     },
+     {
+      "label": "Gloria Mark",
+      "value": "UC Irvine"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "phone",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Vor zwanzig Jahren waren es noch zweieinhalb Minuten. Im Jahr 2012 dann 75 Sekunden. Heute sind es 47.",
+   "head": "In 20 Jahren|*geschrumpft*",
+   "graphic": {
+    "kind": "bars",
+    "unit": "Sekunden",
+    "bars": [
+     {
+      "label": "erste Studie, ab 2003",
+      "value": 150
+     },
+     {
+      "label": "2012",
+      "value": 75
+     },
+     {
+      "label": "heute",
+      "value": 47,
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Das ist weniger als ein Drittel von früher.",
+   "head": "Weniger als|*ein Drittel*",
+   "graphic": {
+    "kind": "ring",
+    "percent": 31,
+    "center": "31 %",
+    "chips": [
+     {
+      "label": "früher",
+      "value": "150 s"
+     },
+     {
+      "label": "heute",
+      "value": "47 s",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "none"
+   }
+  },
+  {
+   "vo": "Wenn du eine Stunde lang in diesem Tempo wechselst, sind das 77 Wechsel.",
+   "head": "*77 Wechsel*|in einer Stunde",
+   "graphic": {
+    "kind": "counter",
+    "to": 77,
+    "unit": "Wechsel pro Stunde",
+    "chips": [
+     {
+      "label": "3.600 s ÷ 47 s",
+      "value": "77"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Teuer ist aber vor allem der Weg zurück. Wer bei einem Projekt unterbrochen wird, kehrt im Schnitt erst nach gut fünfundzwanzig Minuten dorthin zurück.",
+   "head": "Teuer ist|der *Weg zurück*",
+   "graphic": {
+    "kind": "counter",
+    "to": 25.5,
+    "decimals": 1,
+    "unit": "Minuten bis zurück",
+    "chips": [
+     {
+      "label": "im Schnitt",
+      "value": "nach Unterbrechung"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Dazwischen liegen im Schnitt zwei andere Projekte. Jedes etwa zehn Minuten lang.",
+   "head": "Zwei Umwege|*dazwischen*",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Projekt B",
+      "value": "≈ 10,5 Minuten"
+     },
+     {
+      "label": "Projekt C",
+      "value": "≈ 10,5 Minuten"
+     },
+     {
+      "label": "zurück zu A",
+      "value": "nach 25,5 Minuten",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Das heißt nicht, dass mit dir etwas nicht stimmt. Gemessen wurde das Wechseln am Bildschirm, nicht deine Aufmerksamkeit.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Kein *Defekt*.",
+     "Eine *Gewohnheit*."
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Stell jetzt einen Timer auf zehn Minuten. Und bleib so lange bei einer Sache.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "*10 Minuten*.",
+     "Eine Sache."
+    ],
+    "chip": "Schaffst du es?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  }
+ ]
+}

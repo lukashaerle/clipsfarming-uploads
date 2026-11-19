@@ -1,0 +1,177 @@
+{
+ "id": "008-17-stunden-wach",
+ "title": "17 Stunden wach",
+ "scenes": [
+  {
+   "vo": "Sie hat keinen Tropfen getrunken. Und reagiert in Tests wie mit null Komma fünf Promille.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Nüchtern.",
+     "Und trotzdem *0,5 Promille*?"
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Sie ist seit halb sieben wach. Jetzt ist es halb zwölf in der Nacht. Siebzehn Stunden.",
+   "head": "Seit *17 Stunden*|wach",
+   "graphic": {
+    "kind": "timeline",
+    "from": 6,
+    "to": 24,
+    "unit": "Uhr",
+    "marks": [
+     {
+      "at": 6.5,
+      "label": "6:30"
+     },
+     {
+      "at": 23.5,
+      "label": "23:30"
+     }
+    ],
+    "hiFrom": 6.5,
+    "hiTo": 23.5
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "In einer Studie aus Australien haben neununddreißig Menschen dieselben Tests gemacht. Einmal nach langer Wachzeit, einmal mit Alkohol.",
+   "head": "Derselbe Test,|*zweimal*",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Versuchspersonen",
+      "value": "39"
+     },
+     {
+      "label": "Durchgang 1",
+      "value": "lange wach"
+     },
+     {
+      "label": "Durchgang 2",
+      "value": "mit Alkohol"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Nach siebzehn bis neunzehn Stunden ohne Schlaf waren sie in einigen Tests so schlecht wie mit null Komma fünf Promille. Oder noch schlechter.",
+   "head": "17 Stunden wach|≈ *0,5 Promille*",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "17 h",
+     "label": "wach"
+    },
+    "right": {
+     "value": "0,5",
+     "label": "Promille, in Tests"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Die Reaktion war in einigen Tests bis zu fünfzig Prozent langsamer.",
+   "head": "Bis zu *50 %*|langsamer",
+   "graphic": {
+    "kind": "bars",
+    "unit": "%",
+    "bars": [
+     {
+      "label": "Reaktionszeit ausgeschlafen",
+      "value": 100
+     },
+     {
+      "label": "nach langer Wachzeit, bis zu",
+      "value": 150,
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Null Komma fünf Promille ist in Deutschland die Grenze, ab der Autofahren eine Ordnungswidrigkeit ist.",
+   "head": "Die Grenze|*am Steuer*",
+   "graphic": {
+    "kind": "counter",
+    "to": 0.5,
+    "decimals": 1,
+    "unit": "Promille",
+    "chips": [
+     {
+      "label": "§ 24a StVG",
+      "value": "Deutschland"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Das ist ein Vergleich aus dem Labor, keine Umrechnung für jeden Menschen. Aber er zeigt, was Müdigkeit ausmacht.",
+   "head": "Müdigkeit|*zählt*",
+   "graphic": {
+    "kind": "none"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Wer nach siebzehn Stunden schlafen geht, hat genau die sieben Stunden, die Fachleute Erwachsenen empfehlen.",
+   "head": "17 + 7|= *24*",
+   "graphic": {
+    "kind": "blocks",
+    "n": 24,
+    "hi": 7,
+    "label": "",
+    "caption": "7 Stunden Schlaf · 17 wach"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Rechne aus, wann deine siebzehn Stunden heute enden. Und geh dann ins Bett.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Wann enden",
+     "deine *17 Stunden*?"
+    ],
+    "chip": "Dann ab ins Bett."
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  }
+ ]
+}
