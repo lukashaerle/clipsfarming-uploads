@@ -42,10 +42,20 @@ Commit-Nachricht: `Lebensrechnung <id>: Full HD und 4K (Nacht-Produktion)`.
 
 ## 5. Meldung (Slack, Lebensrechnung Bot)
 Zwei Umgebungsvariablen, beide geheim (**nie ausgeben, nie in Dateien, Logs oder Commits schreiben**):
-- `SLACK_WEBHOOK_LR_UPLOADS` → Kanal #lebensrechnung-uploads: nach erfolgreicher Produktion.
-- `SLACK_WEBHOOK_LR_FEHLER` → Kanal #lebensrechnung-fehler: wenn ein Schritt scheitert (welcher Schritt, letzte Fehlerzeile).
-Senden: Nachricht als JSON `{"text": "..."}` in eine Datei unter /tmp schreiben, dann
+- `SLACK_WEBHOOK_LR_UPLOADS` → #lebensrechnung-uploads (C0CJMNQ7TBR): nach erfolgreicher Produktion.
+- `SLACK_WEBHOOK_LR_FEHLER` → #lebensrechnung-fehler (C0CK6R2MQSG): wenn ein Schritt scheitert.
+
+Nachricht mit Python als JSON bauen (`{"text": "..."}`, nach /tmp/msg.json), dann
 `curl -s -X POST -H 'Content-type: application/json' --data @/tmp/msg.json "$SLACK_WEBHOOK_LR_UPLOADS"` (bzw. FEHLER).
-Inhalt bei Erfolg, pro Video: ID und Titel, Sendetermin, Länge, Hörprüfung („ok“ oder „bitte anhören“ plus erste Auffälligkeit),
-sichere Zone, verbrauchte Credits, Schluss: „Freigabe morgens in der App“.
-Fehlt eine Variable, die Meldung nur in der Abschlussantwort geben. Nie die Faktenfabrik-Kanäle oder deren Bot benutzen.
+Die Antwort muss genau `ok` sein.
+- Jede Nachricht beginnt mit `<@U0CJ23KT5MK>` (Erwähnung von Lukas, damit eine Push-Nachricht kommt).
+- Formatierung: *fett*, Links als <url|Text>.
+- Erfolg, pro Video: *Lebensrechnung <id> – <Titel>* fertig für <Datum, Uhrzeit>; Länge; Hörprüfung („ok“ oder „bitte anhören“
+  plus erste Auffälligkeit); sichere Zone; verbrauchte Credits; Link zum 1080p-Video im Repo
+  (https://github.com/lukashaerle/clipsfarming-uploads/blob/main/lebensrechnung/<id>-1080p.mp4); Schluss: „Freigabe morgens in der App“.
+- Fehler: „⚠️ *LEBENSRECHNUNG Nacht-Produktion abgebrochen* – <Schritt>: <letzte Fehlerzeile>“.
+
+**Notfall-Weg:** Fehlt eine Variable oder antwortet der Webhook nicht mit `ok`, poste dieselbe Nachricht über den Slack-Connector
+(`slack_send_message`) in den passenden Kanal (C0CJMNQ7TBR bzw. C0CK6R2MQSG) und schreibe ans Ende:
+„(über Connector gesendet, Webhook nicht erreichbar)“. Der Slack-Connector darf **ausschließlich** diese zwei Kanäle benutzen:
+nichts lesen, nichts in andere Kanäle oder Direktnachrichten schreiben, niemals die Faktenfabrik-Kanäle (#uploads, #fehler, #tagesreview).
