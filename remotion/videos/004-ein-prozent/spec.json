@@ -1,25 +1,47 @@
 {
  "id": "004-ein-prozent",
  "title": "1 Prozent",
+ "style": "action",
  "scenes": [
   {
-   "vo": "Ein Prozent mehr pro Tag wird in einem Jahr zum Siebenunddreißigfachen.",
+   "vo": "1 % besser pro Tag. Was bringt das in einem Jahr?",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "*1 %* pro Tag",
-     "= *37×* im Jahr"
+     "*1 %* besser",
+     "pro Tag?"
     ]
    },
    "figure": {
-    "pose": "look",
+    "pose": "think",
     "place": "center"
    }
   },
   {
-   "vo": "Rechnerisch jedenfalls. Wenn etwas jeden Tag um ein Prozent wächst, wächst das Wachstum mit.",
-   "head": "Wachstum|auf *Wachstum*",
+   "vo": "Rechnerisch: das 37-Fache.",
+   "head": "Das|*37-Fache*",
+   "graphic": {
+    "kind": "counter",
+    "to": 37.8,
+    "unit": "nach 365 Tagen",
+    "chips": [
+     {
+      "label": "1,01 hoch 365",
+      "value": "37,8"
+     }
+    ],
+    "decimals": 1,
+    "prefix": "× "
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Denn das Wachstum wächst mit.",
+   "head": "Wachstum auf|*Wachstum*",
    "graphic": {
     "kind": "curve",
     "base": 1.01,
@@ -36,8 +58,23 @@
    }
   },
   {
-   "vo": "Nach dreißig Tagen stehst du bei 1,35. Nach hundert Tagen bei 2,7. Nach zweihundert bei 7,3.",
-   "head": "Am Anfang|*fast nichts*",
+   "vo": "Am Anfang merkst du fast nichts.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Am Anfang:",
+     "*fast nichts.*"
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Nach 30 Tagen: 1,35. Nach 100 Tagen: 2,7.",
+   "head": "Ganz *langsam*",
    "graphic": {
     "kind": "chips",
     "items": [
@@ -62,8 +99,23 @@
    }
   },
   {
-   "vo": "Und dann geht es schnell. Zwischen Tag 295 und Tag 365 verdoppelt sich der Wert noch einmal.",
-   "head": "Die Hälfte|in *70 Tagen*",
+   "vo": "Und dann geht es schnell.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und dann",
+     "geht es *schnell.*"
+    ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Zwischen Tag 295 und Tag 365 verdoppelt sich alles noch mal.",
+   "head": "Verdoppelt in|*70 Tagen*",
    "graphic": {
     "kind": "timeline",
     "from": 200,
@@ -84,11 +136,11 @@
    },
    "figure": {
     "pose": "look",
-    "place": "center"
+    "place": "right"
    }
   },
   {
-   "vo": "Ohne diesen Effekt wären es nur 4,65. Der Rest ist Wachstum auf Wachstum.",
+   "vo": "Ohne diesen Effekt wären es nur 4,65.",
    "head": "*37,8*|statt 4,65",
    "graphic": {
     "kind": "compare",
@@ -108,7 +160,21 @@
    }
   },
   {
-   "vo": "Andersherum gilt das auch. Ein Prozent weniger pro Tag, und von hundert bleiben nach einem Jahr 2,6. Kleine Verluste fallen genauso wenig auf wie kleine Gewinne.",
+   "vo": "Andersrum gilt es auch: 1 % schlechter pro Tag.",
+   "head": "Andersrum:|*1 % weniger*",
+   "graphic": {
+    "kind": "counter",
+    "to": 1,
+    "unit": "Prozent weniger pro Tag",
+    "suffix": " %"
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Von 100 bleiben nach einem Jahr nur 2,6.",
    "head": "Von 100|bleiben *2,6*",
    "graphic": {
     "kind": "compare",
@@ -128,7 +194,29 @@
    }
   },
   {
-   "vo": "Niemand wird wirklich siebenunddreißigmal besser. Aber die Kurve zeigt, warum sich kleine Schritte so lange nach nichts anfühlen.",
+   "vo": "Klar: Niemand wird wirklich 37-mal besser.",
+   "head": "Nur eine|*Rechnung*",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Rechnung",
+      "value": "kein Versprechen"
+     },
+     {
+      "label": "aber sie zeigt",
+      "value": "warum Geduld zählt",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Aber die Kurve zeigt, warum sich kleine Schritte erst nach nichts anfühlen.",
    "head": "Erst *nichts.*|Dann *viel.*",
    "graphic": {
     "kind": "curve",
@@ -141,19 +229,19 @@
    }
   },
   {
-   "vo": "Schon ein Prozent pro Woche bringt dir in einem Jahr 68 Prozent mehr. Das ist realistischer und trotzdem viel.",
+   "vo": "Schon 1 % pro Woche bringt 68 % mehr in einem Jahr.",
    "head": "Schon *1 %*|pro Woche",
    "graphic": {
     "kind": "counter",
     "to": 68,
-    "suffix": " %",
     "unit": "mehr in einem Jahr",
     "chips": [
      {
-      "label": "1 % pro Woche",
-      "value": "52 Wochen"
+      "label": "1,01 hoch 52",
+      "value": "1,68"
      }
-    ]
+    ],
+    "suffix": " %"
    },
    "figure": {
     "pose": "proud",
@@ -161,7 +249,7 @@
    }
   },
   {
-   "vo": "Such dir heute eine Sache aus. Und mach sie ein kleines Stück besser als gestern.",
+   "vo": "Such dir heute eine Sache aus. Und mach sie 1 % besser als gestern.",
    "head": "",
    "graphic": {
     "kind": "statement",

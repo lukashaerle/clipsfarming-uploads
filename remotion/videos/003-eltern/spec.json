@@ -1,15 +1,16 @@
 {
  "id": "003-eltern",
  "title": "360 Tage mit deinen Eltern",
+ "style": "action",
  "scenes": [
   {
-   "vo": "Du siehst deine Eltern vielleicht nur noch 360 Tage.",
+   "vo": "Wie oft siehst du deine Eltern noch?",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Noch *360 Tage*",
-     "mit deinen Eltern"
+     "Wie oft siehst du",
+     "deine *Eltern* noch?"
     ]
    },
    "figure": {
@@ -18,40 +19,108 @@
    }
   },
   {
-   "vo": "Bis zum Auszug lebt ihr unter einem Dach. In Deutschland ziehen junge Menschen im Schnitt mit gut 24 Jahren aus.",
-   "head": "Unter|*einem Dach*",
+   "vo": "Vielleicht nur noch an 360 Tagen.",
+   "head": "Nur noch|*360 Tage*",
    "graphic": {
     "kind": "counter",
-    "to": 24.1,
-    "decimals": 1,
-    "unit": "Jahre bis zum Auszug",
-    "chips": [
+    "to": 360,
+    "unit": "Tage mit deinen Eltern"
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Die Rechnung: Bis zum Auszug lebt ihr unter einem Dach.",
+   "head": "Unter|*einem Dach*",
+   "graphic": {
+    "kind": "chips",
+    "items": [
      {
-      "label": "Durchschnitt Deutschland",
-      "value": "Destatis 2025"
+      "label": "Kindheit",
+      "value": "jeden Tag"
+     },
+     {
+      "label": "Jugend",
+      "value": "jeden Tag"
+     },
+     {
+      "label": "Auszug",
+      "value": "dann seltener",
+      "hi": true
      }
     ]
    },
    "figure": {
     "pose": "stand",
-    "place": "left"
-   }
-  },
-  {
-   "vo": "Das sind rund achttausendachthundert gemeinsame Tage. Frühstück, Schulwege, Abendessen, Streit ums Aufräumen.",
-   "head": "*8.800*|gemeinsame Tage",
-   "graphic": {
-    "kind": "counter",
-    "to": 8800,
-    "unit": "Tage unter einem Dach"
-   },
-   "figure": {
-    "pose": "proud",
     "place": "right"
    }
   },
   {
-   "vo": "Danach ändert sich die Rechnung. Wenn deine Eltern heute 55 sind und etwa 85 werden, bleiben noch dreißig Jahre.",
+   "vo": "In Deutschland ziehen junge Menschen im Schnitt mit gut 24 aus.",
+   "head": "Auszug mit|*24,1 Jahren*",
+   "graphic": {
+    "kind": "counter",
+    "to": 24.1,
+    "unit": "Jahre bis zum Auszug",
+    "chips": [
+     {
+      "label": "Schnitt Deutschland",
+      "value": "Destatis 2025"
+     }
+    ],
+    "decimals": 1
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Das sind rund achttausendachthundert gemeinsame Tage.",
+   "head": "*8.800*|gemeinsame Tage",
+   "graphic": {
+    "kind": "grid",
+    "total": 96,
+    "hi": 92,
+    "cols": 12,
+    "label": "alle gemeinsamen Tage",
+    "hiLabel": "schon gelebt"
+   },
+   "figure": {
+    "pose": "none"
+   },
+   "cap": "Das sind rund 8.800 gemeinsame Tage."
+  },
+  {
+   "vo": "Frühstück, Schulweg, Abendessen. Jeden Tag.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Frühstück. Schulweg.",
+     "*Jeden Tag.*"
+    ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Danach ändert sich die Rechnung.",
+   "head": "Danach|*ändert sich* alles",
+   "graphic": {
+    "kind": "none"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Wenn deine Eltern heute 55 sind und etwa 85 werden, bleiben 30 Jahre.",
    "head": "Noch|*30 Jahre*",
    "graphic": {
     "kind": "timeline",
@@ -77,23 +146,23 @@
    }
   },
   {
-   "vo": "Siehst du sie an zwölf Tagen im Jahr, sind das 360 Tage.",
+   "vo": "Siehst du sie an 12 Tagen im Jahr, sind das 360 Tage.",
    "head": "*12 Tage*|im Jahr",
    "graphic": {
     "kind": "blocks",
     "n": 12,
     "hi": 12,
     "label": "Tag",
-    "caption": "12 Tage × 30 Jahre = 360 Tage"
+    "caption": "12 × 30 Jahre = 360 Tage"
    },
    "figure": {
     "pose": "stand",
-    "place": "center"
+    "place": "left"
    }
   },
   {
-   "vo": "Dann liegen 96 Prozent eurer gemeinsamen Tage schon hinter euch.",
-   "head": "Schon|*hinter euch*",
+   "vo": "Dann liegen 96 % eurer gemeinsamen Tage schon hinter euch.",
+   "head": "*96 %*|schon vorbei",
    "graphic": {
     "kind": "ring",
     "percent": 96,
@@ -115,22 +184,43 @@
    }
   },
   {
-   "vo": "Das ist keine Vorhersage. Manche sehen ihre Eltern jede Woche, andere seltener. Nur ein Durchschnitt. Aber er zeigt, wie viel jeder einzelne Besuch zählt.",
-   "head": "",
+   "vo": "Klar: Das ist ein Durchschnitt. Manche sehen ihre Eltern jede Woche.",
+   "head": "Nur ein|*Durchschnitt*",
    "graphic": {
-    "kind": "statement",
-    "lines": [
-     "Kein Schicksal.",
-     "Ein *Durchschnitt*."
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Rechnung",
+      "value": "Durchschnitt"
+     },
+     {
+      "label": "deine Zahl",
+      "value": "kann ganz anders sein"
+     }
     ]
    },
    "figure": {
     "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Aber du kannst die Zahl selbst ändern.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Du kannst sie",
+     "*ändern.*"
+    ]
+   },
+   "figure": {
+    "pose": "proud",
     "place": "center"
    }
   },
   {
-   "vo": "Und du kannst die Zahl selbst ändern. Ein Tag mehr im Monat, und aus 360 werden 720.",
+   "vo": "Ein Tag mehr im Monat, und aus 360 werden 720.",
    "head": "Aus 360|werden *720*",
    "graphic": {
     "kind": "bars",
@@ -149,11 +239,37 @@
    },
    "figure": {
     "pose": "proud",
-    "place": "center"
+    "place": "left"
    }
   },
   {
-   "vo": "Das gilt auch für Großeltern, Geschwister und alle Menschen, die dir wichtig sind. Ruf heute an und macht den nächsten Besuch fest.",
+   "vo": "Das gilt auch für Großeltern, Geschwister und alle, die dir wichtig sind.",
+   "head": "Für alle,|die *zählen*",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Großeltern",
+      "value": ""
+     },
+     {
+      "label": "Geschwister",
+      "value": ""
+     },
+     {
+      "label": "Freunde",
+      "value": "alle, die zählen",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Ruf heute an und macht den nächsten Besuch fest.",
    "head": "",
    "graphic": {
     "kind": "statement",

@@ -1,23 +1,26 @@
-== 003-eltern | start 2026-11-19T10:03:03Z | Darwin arm64, 8 cpus
-  s06 31.57-35.36  Dann liegen 96 Prozent eurer gemeinsamen Tage schon hinter e
-  s07 35.86-45.35  Das ist keine Vorhersage. Manche sehen ihre Eltern jede Woch
-  s08 45.77-52.28  Und du kannst die Zahl selbst ändern. Ein Tag mehr im Monat,
-  s09 52.63-59.73  Das gilt auch für Großeltern, Geschwister und alle Menschen,
-ton: fertig in 19 s
-CUTS   9 sentences | loudest sound right outside a cut: -71 dB (silence is below -60)
-EDGES  loudest level at a sentence edge in the finished track: -79 dB
-WORDS  142 of 145 script words heard, each sentence listened to on its own | words the recognition was unsure about: s06 'Prozent' (0.40), s08 'und' (0.45)
-LEVEL  sentences between -15.7 and -14.8 dBFS (middle -15.0)
-FLOW   pauses between sentences 0.35 to 0.51 s | moved: none | sped up: none | pauses shortened: none
-PAUSES inside sentences: s02 after 'Dach.' 0.56 s, s03 after 'Tage.' 0.34 s, s03 after 'Abendessen,' 0.13 s, s04 after 'Rechnung.' 0.52 s, s04 after 'werden,' 0.17 s, s07 after 'Vorhersage.' 0.31 s, s07 after 'Woche,' 0.18 s, s07 after 'seltener.' 0.30 s, s07 after 'Durchschnitt.' 0.34 s, s08 after 'ändern.' 0.33 s, s08 after 'und' 0.15 s, s09 after 'sind.' 0.35 s
+== 003-eltern | start 2026-11-19T16:17:29Z | Darwin arm64, 8 cpus
+  s12 34.31-35.91  Aber du kannst die Zahl selbst ändern.
+  s13 36.06-39.99  Ein Tag mehr im Monat, und aus 360 werden 720.
+  s14 40.31-43.58  Das gilt auch für Großeltern, Geschwister und alle, die dir 
+  s15 43.81-46.05  Ruf heute an und macht den nächsten Besuch fest.
+ton: fertig in 18 s
+CUTS   15 sentences | loudest sound right outside a cut: -32 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -48 dB
+WORDS  129 of 133 script words heard, each sentence listened to on its own | words the recognition was unsure about: s10 'Prozent' (0.36)
+LEVEL  sentences between -16.2 and -14.2 dBFS (middle -15.2)
+FLOW   pauses between sentences 0.14 to 0.34 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s03 after 'Bis' 0.34 s, s06 after 'Abendessen.' 0.28 s, s11 after 'Klar,' 0.26 s, s11 after 'Durchschnitt.' 0.29 s
 hoerpruefung: bitte anhoeren
-  - s08: script 'Und du kannst die Zahl selbst ändern. Ein Tag mehr im Monat, und aus 360 werden 720.' | heard 'Und du kannst die Zahl selbst ändern. Eintag mehr im Monat und aus 360 werden 720.'
-  - s09: script 'Das gilt auch für Großeltern, Geschwister und alle Menschen, die dir wichtig sind. Ruf heute an und macht den nächsten Besuch fest.' | heard 'Das gilt auch für Großeltern, Geschwister und alle Menschen, die dir wichtig sind. Ruf heute an und mach den nächsten Besuch fest.'
-  - s08: a pause of 0.15 s after 'und', where the script has no comma or full stop
-laenge: 61.42 s (3685 Bilder)
-SAFE ZONE  18 stills | all clear
-full hd: fertig in 53 s
-4k: fertig in 168 s (7 abschnitte, einmal kodiert)
-stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=61.419000|size=16302734 
-stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=61.416667|size=52323710 
-== 003-eltern | fertig 2026-11-19T10:07:26Z
+  - s15: the finished track is not silent at its edge (-90 / -48 dB)
+  - s05: script 'Das sind rund achttausendachthundert gemeinsame Tage.' | heard 'Das sind rund 8 .800 gemeinsame Tage.'
+  - s10: script 'Dann liegen 96 % eurer gemeinsamen Tage schon hinter euch.' | heard 'Dann liegen 96 Prozent eurer gemeinsamen Tage schon hinter euch.'
+  - s13: script 'Ein Tag mehr im Monat, und aus 360 werden 720.' | heard 'Eintag mehr im Monat und aus 360 werden 720.'
+  - s15: script 'Ruf heute an und macht den nächsten Besuch fest.' | heard 'Ruf heute an und mach den nächsten Besuch fest.'
+  - s03: a pause of 0.34 s after 'Bis', where the script has no comma or full stop
+laenge: 47.14 s (2828 Bilder)
+SAFE ZONE  30 stills | all clear
+full hd: fertig in 40 s
+4k: fertig in 362 s (5 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=47.147000|size=15477743 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=47.133333|size=47515034 
+== 003-eltern | fertig 2026-11-19T16:24:59Z
