@@ -59,3 +59,28 @@ Die Antwort muss genau `ok` sein.
 (`slack_send_message`) in den passenden Kanal (C0CJMNQ7TBR bzw. C0CK6R2MQSG) und schreibe ans Ende:
 „(über Connector gesendet, Webhook nicht erreichbar)“. Der Slack-Connector darf **ausschließlich** diese zwei Kanäle benutzen:
 nichts lesen, nichts in andere Kanäle oder Direktnachrichten schreiben, niemals die Faktenfabrik-Kanäle (#uploads, #fehler, #tagesreview).
+
+## 6. Freigabe-Anfrage in Slack (nach dem Push, für jedes heute fertig gewordene Video)
+1. Stelle sicher, dass `lebensrechnung/posts/<id>.json` existiert (sonst nach `lebensrechnung/POSTTEXTE.md` schreiben),
+   setze `"status": "freigabe-angefragt"`, committe und pushe.
+2. Lade das Full-HD-Video über den Slack-Connector nach #lebensrechnung-uploads (C0CJMNQ7TBR):
+   `slack_get_file_upload_url` (filename `<id>.mp4`, content_length = exakte Dateigröße), Datei per
+   `curl -s -X POST -H 'Content-Type: video/mp4' --data-binary @lebensrechnung/<id>-1080p.mp4 "$URL"` hochladen
+   (URL in eine Variable, nie umschreiben), dann `slack_complete_file_upload` mit `channel_id: C0CJMNQ7TBR`,
+   `title: "<Titel>"` und diesem `initial_comment`:
+   ```
+   *Freigabe: „<Titel>“* – <Wochentag> <TT.MM.>, <time> Uhr (TikTok, Instagram, YouTube)
+
+   *TikTok und Instagram:*
+   ><text, jede Zeile mit > davor>
+
+   *YouTube:* <yt_title>
+   ><yt_text, gekürzt auf die ersten 3 Zeilen>
+
+   ✅ = so einplanen · ❌ = nicht posten · Änderungswunsch als Antwort im Thread
+   Freigabe-ID: <id>
+   ```
+   Dies ist der einzige erlaubte Einsatz des Slack-Connectors außer dem Notfall-Weg aus Abschnitt 5.
+3. Zum Schluss eine Bot-Nachricht per `$SLACK_WEBHOOK_LR_UPLOADS`:
+   `<@U0CJ23KT5MK> *Freigabe gesucht:* „<Titel 1>“ (<time>) und „<Titel 2>“ (<time>) – bitte ✅ unter das jeweilige Video.`
+   Eingeplant wird danach automatisch vom Mac (Aufgabe „Lebensrechnung Freigabe“), sobald dein ✅ da ist.
