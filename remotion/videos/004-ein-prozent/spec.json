@@ -66,7 +66,7 @@
    "head": "Die Hälfte|in *70 Tagen*",
    "graphic": {
     "kind": "timeline",
-    "from": 0,
+    "from": 200,
     "to": 365,
     "unit": "Tage",
     "marks": [
@@ -111,20 +111,16 @@
    "vo": "Andersherum gilt das auch. Ein Prozent weniger pro Tag, und von hundert bleiben nach einem Jahr 2,6. Kleine Verluste fallen genauso wenig auf wie kleine Gewinne.",
    "head": "Von 100|bleiben *2,6*",
    "graphic": {
-    "kind": "bars",
-    "unit": "",
-    "decimals": 1,
-    "bars": [
-     {
-      "label": "Start",
-      "value": 100
-     },
-     {
-      "label": "nach 1 Jahr, 1 % weniger pro Tag",
-      "value": 2.6,
-      "hi": true
-     }
-    ]
+    "kind": "compare",
+    "left": {
+     "value": "100",
+     "label": "Start"
+    },
+    "right": {
+     "value": "2,6",
+     "label": "nach einem Jahr"
+    },
+    "hi": "right"
    },
    "figure": {
     "pose": "slump",
@@ -133,7 +129,7 @@
   },
   {
    "vo": "Niemand wird wirklich siebenunddreißigmal besser. Aber die Kurve zeigt, warum sich kleine Schritte so lange nach nichts anfühlen.",
-   "head": "Erst *nichts*.|Dann *viel*.",
+   "head": "Erst *nichts.*|Dann *viel.*",
    "graphic": {
     "kind": "curve",
     "base": 1.01,

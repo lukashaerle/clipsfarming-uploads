@@ -54,4 +54,4 @@ export type VideoSpec = {
 /** written by scripts/lr/timeline.py: when every scene starts and ends, in seconds */
 export type Timeline = {length: number; scenes: {start: number; end: number}[]; audio: string};
 
-export type LrProps = {spec: VideoSpec; timeline: Timeline};
+export type LrProps = {spec: VideoSpec; timeline: Timeline; debugSafe?: boolean};

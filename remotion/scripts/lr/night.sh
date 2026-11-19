@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Produce one Lebensrechnung video from its folder, after the narration exists.
 #   bash scripts/lr/night.sh <video id> [out dir = out/lr]
+# Steps also include a safe-zone check (scripts/lr/safezone.mjs); a violation stops the run before rendering.
 # Needs videos/<id>/spec.json and videos/<id>/take.mp3; uses videos/<id>/words.json (ElevenLabs Scribe word times)
 # when it is there, otherwise a local Whisper run. Steps: sound and timing -> listening check -> Full HD -> native 4K.
 # 4K is rendered in chunks (a chunk survives a restart of the machine) into a near-lossless intermediate and encoded
@@ -52,6 +53,12 @@ EOF
 LEN=$("$PY" -I -c "import json,sys; print(json.load(open(sys.argv[1]))['length'])" "$WORK/timeline.json")
 FRAMES=$("$PY" -I -c "import sys; print(round(float(sys.argv[1]) * 60))" "$LEN")
 say "laenge: $LEN s ($FRAMES Bilder)"
+
+# ---- 2b. safe zone: no text or graphic where the app's buttons and captions cover the video
+node scripts/lr/safezone.mjs "$DIR/spec.json" "$WORK/timeline.json" "$WORK/zone" >"$WORK/zone.log" 2>&1
+zrc=$?
+grep -E "SAFE ZONE|^  - " "$WORK/zone.log" | tee -a "$LOG"
+[ $zrc -eq 0 ] || { say "SICHERE ZONE: VERLETZT, nicht gerendert (Bild: $WORK/zone/zonen.png)"; exit 1; }
 
 # ---- 3. Full HD
 t=$(date +%s)

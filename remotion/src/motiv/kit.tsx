@@ -316,7 +316,7 @@ const parseHead = (head: string) => {
   );
 };
 
-export const Headline: React.FC<{head: string; lt: number; dur: number; size: number; mood: number}> = ({head, lt, size, mood}) => {
+export const Headline: React.FC<{head: string; lt: number; dur: number; size: number; mood: number; top?: number}> = ({head, lt, size, mood, top = 236}) => {
   const lines = parseHead(head);
   const barH = lines.length * size * 0.96;
   const barColor = mix(C.phone, C.you, mood);
@@ -325,7 +325,7 @@ export const Headline: React.FC<{head: string; lt: number; dur: number; size: nu
       style={{
         position: 'absolute',
         left: 62,
-        top: 236,
+        top,
         width: 940,
         fontFamily: FONT,
         fontWeight: 800,

@@ -41,10 +41,14 @@ const mixPose = (a: Pose, b: Pose, u: number): Pose => ({
   aura: lerp(a.aura, b.aura, u),
 });
 
+// Safe zone (user's template 2026-11-19): below y 955 the app's buttons cover everything right of x 886. The graphics
+// are drawn for the full width, so they are scaled towards the left edge of the band until they end left of x 880.
+const SAFE = {x: 48, y: 560, s: 0.8};
+
 const FADE_IN = 0.45;
 const FADE_OUT = 0.35;
 
-export const LrVideo: React.FC<LrProps> = ({spec, timeline}) => {
+export const LrVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
   setPalette('sw');
   const frame = useCurrentFrame();
   const t = frame / FPS;
@@ -56,7 +60,8 @@ export const LrVideo: React.FC<LrProps> = ({spec, timeline}) => {
   const p0 = poseOf(spec.scenes[Math.max(0, idx - 1)].figure?.pose, spec.scenes[Math.max(0, idx - 1)].figure?.place);
   const p1 = poseOf(spec.scenes[idx].figure?.pose, spec.scenes[idx].figure?.place);
   const pose = idx === 0 ? p1 : mixPose(p0, p1, smooth(seg(t, sc[idx].start - 0.2, sc[idx].start + 0.6)));
-  const zoom = 1.012 + 0.012 * Math.sin((2 * Math.PI * t) / 23 - 1.2);
+  // debugSafe: only text and graphics on a plain background, at the largest zoom (scripts/lr/safezone.mjs)
+  const zoom = debugSafe ? 1.024 : 1.012 + 0.012 * Math.sin((2 * Math.PI * t) / 23 - 1.2);
 
   // which scenes are visible: the current one, and the previous one while it dissolves
   const layers = [idx - 1, idx].filter((i) => i >= 0).map((i) => {
@@ -71,21 +76,23 @@ export const LrVideo: React.FC<LrProps> = ({spec, timeline}) => {
     <AbsoluteFill style={{backgroundColor: C.bg0}}>
       <svg viewBox="0 0 1080 1920" width={1080} height={1920} style={{position: 'absolute'}}>
         <Defs />
-        <Bg t={t} mood={0.5} energy={0.4} />
+        {debugSafe ? null : <Bg t={t} mood={0.5} energy={0.4} />}
       </svg>
-      <AbsoluteFill style={{transform: `scale(${zoom})`, transformOrigin: '540px 1000px', filter: C.glow ? `drop-shadow(0 0 14px ${C.glow})` : undefined}}>
+      <AbsoluteFill style={{transform: `scale(${zoom})`, transformOrigin: '540px 1000px', filter: C.glow && !debugSafe ? `drop-shadow(0 0 14px ${C.glow})` : undefined}}>
         {layers.map((l) =>
           l.a > 0.001 ? (
             <AbsoluteFill key={l.i} style={{opacity: l.a, transform: `translateY(${(1 - l.a) * 14}px)`}}>
               <svg viewBox="0 0 1080 1920" width={1080} height={1920} style={{position: 'absolute'}}>
                 <Defs />
-                <GraphicLayer g={spec.scenes[l.i].graphic} lt={l.lt} dur={l.dur} />
+                <g transform={`translate(${SAFE.x} ${SAFE.y}) scale(${SAFE.s}) translate(${-SAFE.x} ${-SAFE.y})`}>
+                  <GraphicLayer g={spec.scenes[l.i].graphic} lt={l.lt} dur={l.dur} />
+                </g>
               </svg>
-              {spec.scenes[l.i].head ? <Headline head={spec.scenes[l.i].head} lt={l.lt} dur={999} size={spec.scenes[l.i].size ?? 112} mood={0.5} /> : null}
+              {spec.scenes[l.i].head ? <Headline head={spec.scenes[l.i].head} lt={l.lt} dur={999} size={spec.scenes[l.i].size ?? 112} mood={0.5} top={256} /> : null}
             </AbsoluteFill>
           ) : null,
         )}
-        <svg viewBox="0 0 1080 1920" width={1080} height={1920} style={{position: 'absolute'}}>
+        <svg viewBox="0 0 1080 1920" width={1080} height={1920} style={{position: 'absolute', display: debugSafe ? 'none' : undefined}}>
           <Defs />
           <line x1={70} y1={FLOOR} x2={1010} y2={FLOOR} stroke={C.ink} strokeOpacity={0.5} strokeWidth={4} strokeLinecap="round" />
           <Figure
@@ -103,7 +110,7 @@ export const LrVideo: React.FC<LrProps> = ({spec, timeline}) => {
         </svg>
       </AbsoluteFill>
       <svg viewBox="0 0 1080 1920" width={1080} height={1920} style={{position: 'absolute'}}>
-        <rect width={1080} height={1920} fill={C.endFade} opacity={Math.max(1 - smooth(seg(t, 0, 0.6)), smooth(seg(t, timeline.length - 0.9, timeline.length - 0.1)))} />
+        <rect width={1080} height={1920} fill={C.endFade} opacity={debugSafe ? 0 : Math.max(1 - smooth(seg(t, 0, 0.6)), smooth(seg(t, timeline.length - 0.9, timeline.length - 0.1)))} />
       </svg>
       {timeline.audio ? (
         <Audio
