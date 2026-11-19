@@ -69,17 +69,18 @@ nichts lesen, nichts in andere Kanäle oder Direktnachrichten schreiben, niemals
    (URL in eine Variable, nie umschreiben), dann `slack_complete_file_upload` mit `channel_id: C0CJMNQ7TBR`,
    `title: "<Titel>"` und diesem `initial_comment`:
    ```
-   *Freigabe: „<Titel>“* – <Wochentag> <TT.MM.>, <time> Uhr (TikTok, Instagram, YouTube)
+   **Freigabe: „<Titel>“** – <Wochentag> <TT.MM.>, <time> Uhr (TikTok, Instagram, YouTube)
 
-   *TikTok und Instagram:*
+   **TikTok und Instagram:**
    ><text, jede Zeile mit > davor>
 
-   *YouTube:* <yt_title>
+   **YouTube:** <yt_title>
    ><yt_text, gekürzt auf die ersten 3 Zeilen>
 
    ✅ = so einplanen · ❌ = nicht posten · Änderungswunsch als Antwort im Thread
    Freigabe-ID: <id>
    ```
+   (Der Slack-Connector nutzt normales Markdown: **fett**. Die Webhook-Nachrichten nutzen *fett*.)
    Dies ist der einzige erlaubte Einsatz des Slack-Connectors außer dem Notfall-Weg aus Abschnitt 5.
 3. Zum Schluss eine Bot-Nachricht per `$SLACK_WEBHOOK_LR_UPLOADS`:
    `<@U0CJ23KT5MK> *Freigabe gesucht:* „<Titel 1>“ (<time>) und „<Titel 2>“ (<time>) – bitte ✅ unter das jeweilige Video.`
