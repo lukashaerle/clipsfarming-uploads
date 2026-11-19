@@ -1,0 +1,183 @@
+{
+ "id": "011-66-tage",
+ "title": "66 Tage, nicht 21",
+ "scenes": [
+  {
+   "vo": "Eine Gewohnheit braucht nicht 21 Tage, sondern eher 66.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Nicht 21 Tage,",
+     "eher *66 Tage*"
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Das zeigt eine Studie aus London. Sie wollte wissen, wie lange es wirklich dauert. 96 Freiwillige übten zwölf Wochen lang jeden Tag eine neue Gewohnheit.",
+   "head": "Eine *Studie*|aus London",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Lally u. a.",
+      "value": "2010"
+     },
+     {
+      "label": "Freiwillige",
+      "value": "96"
+     },
+     {
+      "label": "Dauer",
+      "value": "12 Wochen"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Im Mittel dauerte es 66 Tage, bis es von allein lief. Bei manchen nur 18, bei anderen 254.",
+   "head": "Im Mittel|*66 Tage*",
+   "graphic": {
+    "kind": "timeline",
+    "from": 0,
+    "to": 260,
+    "unit": "Tage",
+    "marks": [
+     {
+      "at": 18,
+      "label": "18"
+     },
+     {
+      "at": 66,
+      "label": "66"
+     },
+     {
+      "at": 254,
+      "label": "254"
+     }
+    ],
+    "hiFrom": 0,
+    "hiTo": 66
+   },
+   "figure": {
+    "pose": "look",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Das ist gut dreimal so lang wie die 21 Tage, die jeder kennt.",
+   "head": "Gut *dreimal*|so lang",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "21",
+     "label": "Tage, der Mythos"
+    },
+    "right": {
+     "value": "66",
+     "label": "Tage, im Mittel"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Die 21 stammen aus einem Buch von 1960. Ein Schönheitschirurg schrieb, Patienten gewöhnten sich in etwa 21 Tagen an ihr neues Gesicht.",
+   "head": "Woher die *21*|kommt",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Buch",
+      "value": "1960"
+     },
+     {
+      "label": "Autor",
+      "value": "Schönheitschirurg"
+     },
+     {
+      "label": "Thema",
+      "value": "neues Gesicht"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Und ein verpasster Tag? Eine einzelne ausgelassene Gelegenheit schadete in der Studie nicht wesentlich.",
+   "head": "Ein Tag *fehlt*|na und?",
+   "graphic": {
+    "kind": "grid",
+    "total": 66,
+    "hi": 65,
+    "cols": 11,
+    "label": "Tage",
+    "hiLabel": "gemacht"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "66 Tage sind neun Wochen und drei Tage. Wer nach drei Wochen noch kämpft, macht nichts falsch.",
+   "head": "*9 Wochen*|und 3 Tage",
+   "graphic": {
+    "kind": "counter",
+    "to": 9,
+    "unit": "Wochen und 3 Tage",
+    "chips": [
+     {
+      "label": "66 ÷ 7",
+      "value": "9,4"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Einordnung: Das sind Mittelwerte aus Selbstauskunft. Jeder ist anders, mancher braucht länger.",
+   "head": "Nur ein *Mittel*|kein Gesetz",
+   "graphic": {
+    "kind": "none"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Wenn du heute einen Tag verpasst hast: Mach morgen einfach weiter.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Einen Tag verpasst?",
+     "Mach *morgen weiter.*"
+    ],
+    "chip": "Was fängst du an?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  }
+ ]
+}

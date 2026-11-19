@@ -1,0 +1,172 @@
+{
+ "id": "012-720-buecher",
+ "title": "720 Bücher",
+ "scenes": [
+  {
+   "vo": "Du liest in deinem Leben vielleicht noch 720 Bücher.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Noch vielleicht",
+     "*720 Bücher*"
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Wenn du ein Buch im Monat liest und noch 60 Jahre vor dir hast, sind das zwölf mal sechzig.",
+   "head": "*12 Bücher*|im Jahr",
+   "graphic": {
+    "kind": "blocks",
+    "n": 12,
+    "hi": 12,
+    "label": "Buch",
+    "caption": "12 Bücher × 60 Jahre = 720"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "2025 erschienen in Deutschland zweiundfünfzigtausendsechshundertvierundvierzig neue Titel.",
+   "head": "Neue *Titel*|in einem Jahr",
+   "graphic": {
+    "kind": "counter",
+    "to": 52644,
+    "unit": "neue Titel 2025",
+    "chips": [
+     {
+      "label": "Börsenverein",
+      "value": "Erstauflagen"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Das sind hundertvierundvierzig neue Bücher pro Tag, jeden Tag aufs Neue.",
+   "head": "*144* pro Tag",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "144",
+     "label": "neue Titel pro Tag"
+    },
+    "right": {
+     "value": "1",
+     "label": "Buch pro Monat"
+    },
+    "hi": "left"
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Auch wenn die Zahl höher liegt: Dein ganzes Leseleben deckt nicht einmal zwei Prozent eines einzigen Jahrgangs.",
+   "head": "Nicht mal *2 %*|eines Jahres",
+   "graphic": {
+    "kind": "ring",
+    "percent": 1.4,
+    "center": "1,4 %",
+    "chips": [
+     {
+      "label": "720 ÷ 52.644",
+      "value": "1,4 %",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "none"
+   }
+  },
+  {
+   "vo": "Das ist ein Durchschnitt von 2022: Menschen in Deutschland lesen 27 Minuten am Tag. Fernsehen und Streaming: zwei Stunden und acht Minuten.",
+   "head": "Lesen *gegen*|Bildschirm",
+   "graphic": {
+    "kind": "bars",
+    "unit": "min",
+    "bars": [
+     {
+      "label": "Lesen",
+      "value": 27,
+      "hi": true
+     },
+     {
+      "label": "Fernsehen, Streaming",
+      "value": 128
+     }
+    ]
+   },
+   "figure": {
+    "pose": "phone",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Wenn du jeden Tag 20 Seiten liest, sind das siebentausenddreihundert Seiten im Jahr. Also 24 Bücher mit je 300 Seiten.",
+   "head": "*20 Seiten*|am Tag",
+   "graphic": {
+    "kind": "counter",
+    "to": 24,
+    "unit": "Bücher pro Jahr",
+    "chips": [
+     {
+      "label": "20 × 365",
+      "value": "7.300 Seiten"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "In sechzig Jahren sind das eintausendvierhundertvierzig statt 720. Und ein schwaches Buch darfst du weglegen.",
+   "head": "Doppelt so *viele*",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "720",
+     "label": "ein Buch im Monat"
+    },
+    "right": {
+     "value": "1.440",
+     "label": "20 Seiten am Tag"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Leg heute Abend das Buch, das du lesen willst, auf dein Kopfkissen.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Das Buch, das du",
+     "lesen *willst*"
+    ],
+    "chip": "Welches ist es?"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "center"
+   }
+  }
+ ]
+}
