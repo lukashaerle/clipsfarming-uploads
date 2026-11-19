@@ -103,6 +103,9 @@ def soft_noise(dur, lo, hi):
 
 
 def slots_of(script_ts):
+    if script_ts.endswith(".json"):   # a timeline written by scripts/lr/build_audio.py
+        tl = json.load(open(script_ts, encoding="utf-8"))
+        return [("s%02d" % (i + 1), sc["start"], sc["end"]) for i, sc in enumerate(tl["scenes"])]
     src = open(script_ts, encoding="utf-8").read()
     return [(m.group(1), float(m.group(2)), float(m.group(3))) for m in re.finditer(r"\{id: '(s\d+)', t0: ([\d.]+), t1: ([\d.]+),", src)]
 

@@ -1,0 +1,24 @@
+{
+ "id": "002-schlummertaste",
+ "title": "Die Schlummertaste",
+ "scenes": [
+  {"vo": "Dreimal Schlummern am Morgen sind fast eine Woche im Jahr.", "head": "",
+   "graphic": {"kind": "statement", "lines": ["3× Schlummern", "= fast *1 Woche*", "im Jahr"]}, "figure": {"pose": "slump", "place": "center"}},
+  {"vo": "Der Wecker klingelt um halb sieben. Du drückst auf Schlummern. Neun Minuten.", "head": "*9 Minuten*|pro Runde",
+   "graphic": {"kind": "clock", "times": ["6:30", "6:39"], "total": "+ 9 Minuten"}, "figure": {"pose": "slump", "place": "right"}},
+  {"vo": "Dann noch einmal. Und noch einmal.", "head": "Dreimal|*27 Minuten*",
+   "graphic": {"kind": "clock", "times": ["6:30", "6:39", "6:48", "6:57"], "total": "27 Minuten"}, "figure": {"pose": "slump", "place": "right"}},
+  {"vo": "Siebenundzwanzig Minuten jeden Morgen. Das sind 164 Stunden im Jahr.", "head": "*Jeden*|Morgen",
+   "graphic": {"kind": "counter", "to": 164, "unit": "Stunden im Jahr", "chips": [{"label": "27 Min × 365", "value": "9.855 Min"}]}, "figure": {"pose": "think", "place": "left"}},
+  {"vo": "Fast sieben volle Tage. Rund um die Uhr.", "head": "*6,8 Tage*|rund um die Uhr",
+   "graphic": {"kind": "grid", "total": 365, "hi": 7, "cols": 21, "label": "ein Jahr", "hiLabel": "Tage geschlummert"}, "figure": {"pose": "stand", "place": "center"}},
+  {"vo": "Eine Studie hat drei Millionen Nächte von Nutzern einer Schlaf-App ausgewertet. Mehr als die Hälfte endete mit der Schlummertaste.", "head": "Mehr als|*jede zweite* Nacht",
+   "graphic": {"kind": "ring", "percent": 55.6, "center": "55,6 %", "chips": [{"label": "Nächte ausgewertet", "value": "3 Mio."}]}, "figure": {"pose": "look", "place": "right"}},
+  {"vo": "Im Schnitt schlummern sie knapp elf Minuten. Wer oft drückt, zwanzig.", "head": "Minuten|*pro Morgen*",
+   "graphic": {"kind": "bars", "unit": "Min", "decimals": 1, "bars": [{"label": "Durchschnitt", "value": 10.8}, {"label": "Vielnutzer", "value": 20.2}, {"label": "3 × 9 Minuten", "value": 27, "hi": true}]}, "figure": {"pose": "none"}},
+  {"vo": "Siebenundzwanzig Minuten am Stück wären mehr wert. Als Schlaf. Oder als ruhiger Start in den Tag.", "head": "Am Stück|*mehr wert*",
+   "graphic": {"kind": "compare", "left": {"value": "3 × 9", "label": "Minuten zerstückelt"}, "right": {"value": "27", "label": "Minuten am Stück"}, "hi": "right"}, "figure": {"pose": "proud", "place": "center"}},
+  {"vo": "Stell heute Abend nur einen Wecker. Auf die Zeit, zu der du wirklich aufstehst.", "head": "",
+   "graphic": {"kind": "statement", "lines": ["*Ein* Wecker.", "*Ein* Aufstehen."], "chip": "Wann klingelt deiner?"}, "figure": {"pose": "proud", "place": "center"}}
+ ]
+}

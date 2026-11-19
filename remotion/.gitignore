@@ -5,4 +5,4 @@ build/
 .bundle/
 images/*/raw/*.json
 tts-models/
-voicetest/
+/voicetest/

@@ -1,0 +1,185 @@
+{
+ "id": "004-ein-prozent",
+ "title": "1 Prozent",
+ "scenes": [
+  {
+   "vo": "Ein Prozent mehr pro Tag wird in einem Jahr zum Siebenunddreißigfachen.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "*1 %* pro Tag",
+     "= *37×* im Jahr"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Rechnerisch jedenfalls. Wenn etwas jeden Tag um ein Prozent wächst, wächst das Wachstum mit.",
+   "head": "Wachstum|auf *Wachstum*",
+   "graphic": {
+    "kind": "curve",
+    "base": 1.01,
+    "days": 365,
+    "marks": [
+     100,
+     200,
+     295
+    ],
+    "label": "1 % pro Tag"
+   },
+   "figure": {
+    "pose": "none"
+   }
+  },
+  {
+   "vo": "Nach dreißig Tagen stehst du bei 1,35. Nach hundert Tagen bei 2,7. Nach zweihundert bei 7,3.",
+   "head": "Am Anfang|*fast nichts*",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Tag 30",
+      "value": "× 1,35"
+     },
+     {
+      "label": "Tag 100",
+      "value": "× 2,7"
+     },
+     {
+      "label": "Tag 200",
+      "value": "× 7,3",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und dann geht es schnell. Zwischen Tag 295 und Tag 365 verdoppelt sich der Wert noch einmal.",
+   "head": "Die Hälfte|in *70 Tagen*",
+   "graphic": {
+    "kind": "timeline",
+    "from": 0,
+    "to": 365,
+    "unit": "Tage",
+    "marks": [
+     {
+      "at": 295,
+      "label": "× 18,8"
+     },
+     {
+      "at": 365,
+      "label": "× 37,8"
+     }
+    ],
+    "hiFrom": 295,
+    "hiTo": 365
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Ohne diesen Effekt wären es nur 4,65. Der Rest ist Wachstum auf Wachstum.",
+   "head": "*37,8*|statt 4,65",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "4,65",
+     "label": "ohne Zinseszins"
+    },
+    "right": {
+     "value": "37,8",
+     "label": "mit Zinseszins"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Andersherum gilt das auch. Ein Prozent weniger pro Tag, und von hundert bleiben nach einem Jahr 2,6. Kleine Verluste fallen genauso wenig auf wie kleine Gewinne.",
+   "head": "Von 100|bleiben *2,6*",
+   "graphic": {
+    "kind": "bars",
+    "unit": "",
+    "decimals": 1,
+    "bars": [
+     {
+      "label": "Start",
+      "value": 100
+     },
+     {
+      "label": "nach 1 Jahr, 1 % weniger pro Tag",
+      "value": 2.6,
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Niemand wird wirklich siebenunddreißigmal besser. Aber die Kurve zeigt, warum sich kleine Schritte so lange nach nichts anfühlen.",
+   "head": "Erst *nichts*.|Dann *viel*.",
+   "graphic": {
+    "kind": "curve",
+    "base": 1.01,
+    "days": 365,
+    "label": "1 % pro Tag"
+   },
+   "figure": {
+    "pose": "none"
+   }
+  },
+  {
+   "vo": "Schon ein Prozent pro Woche bringt dir in einem Jahr 68 Prozent mehr. Das ist realistischer und trotzdem viel.",
+   "head": "Schon *1 %*|pro Woche",
+   "graphic": {
+    "kind": "counter",
+    "to": 68,
+    "suffix": " %",
+    "unit": "mehr in einem Jahr",
+    "chips": [
+     {
+      "label": "1 % pro Woche",
+      "value": "52 Wochen"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Such dir heute eine Sache aus. Und mach sie ein kleines Stück besser als gestern.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "*Eine* Sache.",
+     "Jeden Tag",
+     "*1 %* besser."
+    ],
+    "chip": "Welche nimmst du?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  }
+ ]
+}

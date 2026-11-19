@@ -1,6 +1,8 @@
 """Quiet, dark underscore for the explainer videos: sustained chords, a soft slow pulse, no melody.
 
-    python -I ambient.py <out_basename> [length in s = 65.5]
+    python -I ambient.py <out_basename> [length in s = 65.5] [generic]
+
+"generic" stretches the arc to the given length and leaves out the stop line, for videos built from a spec.
 
 Own composition in D minor, built entirely in code. It is meant to sit far under a narrator.
 The arc follows the slot template of the videos:
@@ -45,6 +47,7 @@ PLAN = [(0, 8, "Dm", True), (8, 12, "Bb", True), (12, 16, "Gm", True), (16, 20, 
         (50, 54, "Dm8", True), (54, 58, "Bb", True), (58, 62, "C", True), (62, 66, "D5", True)]
 CUTOFF = [(0, 260), (2.5, 620), (8, 760), (12, 700), (16, 820), (19.5, 560), (20.5, 1150), (24, 1050), (28, 1400), (31.6, 2300),
           (32.0, 400), (34.0, 700), (34.8, 1250), (42, 1350), (46, 1500), (49.6, 2100), (50.2, 2000), (58, 2100), (62, 1700), (66, 500)]
+F = 1.0   # time stretch of the arc (1.0 = the pilot)
 G = dict(pad=1.0, bass=0.30, pulse=0.55, air=0.016, swell=0.05, reverb=0.42)
 
 
@@ -106,6 +109,22 @@ def band(x, lo, hi):
     return db.fft_filter(x, lambda f: (1 / np.sqrt(1 + (lo / np.maximum(f, 1e-3)) ** 6)) * (1 / np.sqrt(1 + (f / hi) ** 6)))
 
 
+def scaled_arc(length):
+    """The arc of the pilot, stretched to `length` seconds, without the stop line (generic videos)."""
+    global PLAN, CUTOFF, STOP, F
+    f = length / 65.5
+    F = f
+    plan = [(0, 8, "Dm", True), (8, 12, "Bb", True), (12, 16, "Gm", True), (16, 20, "Asus", True), (20, 24, "Bb9", False),
+            (24, 28, "F", True), (28, 33, "C", True), (33, 38, "Dm", True), (38, 42, "Bb", True), (42, 46, "F", True), (46, 50, "C", True),
+            (50, 54, "Dm8", True), (54, 58, "Bb", True), (58, 62, "C", True), (62, 66, "D5", True)]
+    PLAN = [(round(a * f, 3), round(b * f, 3), c, h) for a, b, c, h in plan]
+    PLAN[-1] = (PLAN[-1][0], length + 1.0, PLAN[-1][2], PLAN[-1][3])
+    cut = [(0, 260), (2.5, 620), (8, 760), (12, 700), (16, 820), (19.5, 560), (20.5, 1150), (24, 1050), (28, 1400), (33, 1300),
+           (42, 1350), (46, 1500), (49.6, 2100), (50.2, 2000), (58, 2100), (62, 1700), (66, 500)]
+    CUTOFF = [(a * f, v) for a, v in cut]
+    STOP = (-10.0, -9.0)
+
+
 def build(length):
     n = int(length * SR)
     tt = np.arange(n) / SR
@@ -123,7 +142,7 @@ def build(length):
         send_r[i:i + m] += sig_r[:m] * gain * send
 
     # ---- chords and bass
-    level = [(0, 0.0), (1.8, 0.8), (20, 0.85), (24, 0.8), (31.8, 1.0), (34.0, 0.9), (50, 1.0), (62, 1.0), (66, 0.7)]
+    level = [(a * F if a > 2 else a, v) for a, v in [(0, 0.0), (1.8, 0.8), (20, 0.85), (24, 0.8), (31.8, 1.0), (34.0, 0.9), (50, 1.0), (62, 1.0), (66, 0.7)]]
     for t0, t1, name, has_bass in PLAN:
         root, notes = VOICE[name]
         attack = 0.5 if t0 in (0, STOP[1]) else 1.6          # after silence the chord comes in on the bar line
@@ -139,22 +158,22 @@ def build(length):
             put(b, b, max(0.0, t0 - 0.5) if t0 not in (0, STOP[1]) else t0, 1.0)
 
     # ---- pulse: once a second, the bar lines a little stronger; silent in the turn and on the stop line
-    for sec in range(0, 63):
-        if 20 <= sec < 24 or STOP[0] <= sec < STOP[1]:
+    for sec in range(0, int(length - 2.5)):
+        if 20 * F <= sec < 24 * F or STOP[0] <= sec < STOP[1]:
             continue
         vel = 1.0 if sec % 2 == 0 else 0.5
         if sec < 4:
             vel *= 0.45 + 0.14 * sec          # fades in over the hook
-        if 24 <= sec < 32:
+        if 24 * F <= sec < 32 * F:
             vel *= 0.8 if sec % 2 == 0 else 0.0   # only the bar lines while it builds
-        if sec >= 50:
+        if sec >= 50 * F:
             vel *= 1.12
         if vel > 0:
             h = thud(vel) * G["pulse"]
             put(h, h, float(sec), 1.0, send=0.18)
 
     # ---- air: a breath of high noise, different left and right
-    air_level = auto([(0, 0.0), (2, 0.7), (20, 0.8), (24, 1.0), (31.9, 1.6), (32.0, 0.25), (34.0, 0.25), (34.6, 0.9), (50, 1.2), (62, 1.0), (66, 0.3)], tt)
+    air_level = auto([(a * F if a > 2 else a, v) for a, v in [(0, 0.0), (2, 0.7), (20, 0.8), (24, 1.0), (31.9, 1.6), (32.0, 0.25), (34.0, 0.25), (34.6, 0.9), (50, 1.2), (62, 1.0), (66, 0.3)]], tt)
     for ch, ph in ((0, 0.0), (1, 1.7)):
         a = band(rng.standard_normal(n).astype(np.float32), 3500, 8000) * (0.65 + 0.35 * np.sin(2 * np.pi * 0.11 * tt + ph)) * air_level * G["air"]
         if ch == 0:
@@ -167,9 +186,10 @@ def build(length):
     x = np.arange(k) / k
     sw = band(rng.standard_normal(k).astype(np.float32), 500, 5000) * x ** 2.4
     sw = db.fade(sw, 0.05, 0.025) * G["swell"]
-    put(sw, sw, STOP[0] - 4.0, 1.0, send=0.6)
+    if STOP[0] > 4:
+        put(sw, sw, STOP[0] - 4.0, 1.0, send=0.6)
     # ---- reverse breaths into the plan and the payoff
-    for t_hit in (STOP[1], 50.0):
+    for t_hit in ((STOP[1] if STOP[0] > 0 else 33 * F), 50.0 * F):
         s = db.swell(1.3) * 0.055
         put(s, s, t_hit - 1.3, 1.0, send=0.5)
 
@@ -183,6 +203,8 @@ def build(length):
 def main():
     base = sys.argv[1]
     length = float(sys.argv[2]) if len(sys.argv) > 2 else 65.5
+    if len(sys.argv) > 3 and sys.argv[3] == "generic":
+        scaled_arc(length)
     left, right = build(length)
     # level: the plan section sets the reference, peaks stay well below full scale
     i0, i1 = int(34 * SR), int(50 * SR)
@@ -199,7 +221,10 @@ def main():
     db.save_mp3(base + ".mp3", left.astype(np.float32), right.astype(np.float32))
     print("length %.1f s | peak %.2f | RMS %.1f dBFS | left/right correlation %.2f" % (len(left) / SR, max(np.max(np.abs(left)), np.max(np.abs(right))), db.db(left), float(np.corrcoef(left, right)[0, 1])))
     for name, a, b in (("problem", 0, 20), ("turn", 20, 24), ("build", 24, 32), ("stop", 32, 34), ("plan", 34, 50), ("payoff", 50, 62), ("close", 62, 65)):
+        a, b = a * F, min(b * F, len(left) / SR)
         seg = left[int(a * SR):int(b * SR)]
+        if len(seg) < SR // 2:
+            continue
         spec = np.abs(np.fft.rfft(seg)) ** 2
         f = np.fft.rfftfreq(len(seg), 1 / SR)
         tot = spec[(f > 30)].sum() + 1e-12

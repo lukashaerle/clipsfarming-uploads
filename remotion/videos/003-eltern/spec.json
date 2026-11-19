@@ -1,0 +1,171 @@
+{
+ "id": "003-eltern",
+ "title": "360 Tage mit deinen Eltern",
+ "scenes": [
+  {
+   "vo": "Du siehst deine Eltern vielleicht nur noch 360 Tage.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Noch *360 Tage*",
+     "mit deinen Eltern"
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Bis zum Auszug lebt ihr unter einem Dach. In Deutschland ziehen junge Menschen im Schnitt mit gut 24 Jahren aus.",
+   "head": "Unter|*einem Dach*",
+   "graphic": {
+    "kind": "counter",
+    "to": 24.1,
+    "decimals": 1,
+    "unit": "Jahre bis zum Auszug",
+    "chips": [
+     {
+      "label": "Durchschnitt Deutschland",
+      "value": "Destatis 2025"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Das sind rund achttausendachthundert gemeinsame Tage. Frühstück, Schulwege, Abendessen, Streit ums Aufräumen.",
+   "head": "*8.800*|gemeinsame Tage",
+   "graphic": {
+    "kind": "counter",
+    "to": 8800,
+    "unit": "Tage unter einem Dach"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Danach ändert sich die Rechnung. Wenn deine Eltern heute 55 sind und etwa 85 werden, bleiben noch dreißig Jahre.",
+   "head": "Noch|*30 Jahre*",
+   "graphic": {
+    "kind": "timeline",
+    "from": 50,
+    "to": 90,
+    "unit": "Alter deiner Eltern",
+    "marks": [
+     {
+      "at": 55,
+      "label": "heute"
+     },
+     {
+      "at": 85,
+      "label": "etwa"
+     }
+    ],
+    "hiFrom": 55,
+    "hiTo": 85
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Siehst du sie an zwölf Tagen im Jahr, sind das 360 Tage.",
+   "head": "*12 Tage*|im Jahr",
+   "graphic": {
+    "kind": "blocks",
+    "n": 12,
+    "hi": 12,
+    "label": "1",
+    "caption": "12 Tage × 30 Jahre = 360 Tage"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Dann liegen 96 Prozent eurer gemeinsamen Tage schon hinter euch.",
+   "head": "Schon|*hinter euch*",
+   "graphic": {
+    "kind": "ring",
+    "percent": 96,
+    "center": "96 %",
+    "chips": [
+     {
+      "label": "schon gelebt",
+      "value": "8.800 Tage"
+     },
+     {
+      "label": "noch vor euch",
+      "value": "360 Tage",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "none"
+   }
+  },
+  {
+   "vo": "Das ist keine Vorhersage. Manche sehen ihre Eltern jede Woche, andere seltener. Nur ein Durchschnitt. Aber er zeigt, wie viel jeder einzelne Besuch zählt.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Kein Schicksal.",
+     "Ein *Durchschnitt*."
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und du kannst die Zahl selbst ändern. Ein Tag mehr im Monat, und aus 360 werden 720.",
+   "head": "Aus 360|werden *720*",
+   "graphic": {
+    "kind": "bars",
+    "unit": "Tage",
+    "bars": [
+     {
+      "label": "12 Tage im Jahr",
+      "value": 360
+     },
+     {
+      "label": "24 Tage im Jahr",
+      "value": 720,
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Das gilt auch für Großeltern, Geschwister und alle Menschen, die dir wichtig sind. Ruf heute an und macht den nächsten Besuch fest.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Ruf *heute* an."
+    ],
+    "chip": "Wann siehst du sie wieder?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  }
+ ]
+}
