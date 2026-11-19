@@ -1,0 +1,28 @@
+== 004-ein-prozent | start 2026-11-19T10:08:22Z | Darwin arm64, 8 cpus
+  s06 34.67-45.09  Andersherum gilt das auch. Ein Prozent weniger pro Tag, und 
+  s07 45.64-52.96  Niemand wird wirklich siebenunddreißigmal besser. Aber die K
+  s08 53.43-60.90  Schon ein Prozent pro Woche bringt dir in einem Jahr 68 Proz
+  s09 61.49-65.85  Such dir heute eine Sache aus. Und mach sie ein kleines Stüc
+ton: fertig in 23 s
+CUTS   9 sentences | loudest sound right outside a cut: -71 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -79 dB
+WORDS  132 of 149 script words heard, each sentence listened to on its own | words the recognition was unsure about: s07 'mal' (0.42)
+LEVEL  sentences between -15.7 and -14.7 dBFS (middle -15.2)
+FLOW   pauses between sentences 0.42 to 0.60 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s02 after 'jedenfalls.' 0.62 s, s02 after 'wächst,' 0.16 s, s03 after ',35,' 0.41 s, s03 after ',7,' 0.48 s, s04 after 'schnell.' 0.51 s, s05 after ',65.' 0.43 s, s06 after 'auch.' 0.45 s, s06 after ',6.' 0.48 s, s07 after 'besser.' 0.47 s, s08 after 'mehr.' 0.50 s, s08 after 'und' 0.22 s, s09 after 'und' 0.27 s
+hoerpruefung: bitte anhoeren
+  - s01: script 'Ein Prozent mehr pro Tag wird in einem Jahr zum Siebenunddreißigfachen.' | heard '1 % mehr pro Tag wird in einem Jahr zum 37 -fachen.'
+  - s02: script 'Rechnerisch jedenfalls. Wenn etwas jeden Tag um ein Prozent wächst, wächst das Wachstum mit.' | heard 'rechnerisch jedenfalls. Wenn etwas jeden Tag um 1 % wächst, wächst das Wachstum mit.'
+  - s03: script 'Nach dreißig Tagen stehst du bei 1,35. Nach hundert Tagen bei 2,7. Nach zweihundert bei 7,3.' | heard 'Nach 30 Tagen stehst du bei 1 ,35, nach 100 Tagen bei 2 ,7, nach 200 bei 7 ,3.'
+  - s04: script 'Und dann geht es schnell. Zwischen Tag 295 und Tag 365 verdoppelt sich der Wert noch einmal.' | heard 'Und dann geht es schnell. Zwischentag 295 und Tag 365 verdoppelt sich der Wert noch einmal.'
+  - s05: script 'Ohne diesen Effekt wären es nur 4,65. Der Rest ist Wachstum auf Wachstum.' | heard 'Ohne diesen Effekt wären es nur 4 ,65. Der Rest ist Wachstum auf Wachstum.'
+  - s06: script 'Andersherum gilt das auch. Ein Prozent weniger pro Tag, und von hundert bleiben nach einem Jahr 2,6. Kleine Verluste fallen genauso wenig auf wie kleine Gewinne.' | heard 'Andersherum gilt das auch. 1 % weniger pro Tag und von 100 bleiben nach einem Jahr 2 ,6. Kleine Verluste fallen genauso wenig auf wie kleine Gewinne.'
+  - s07: script 'Niemand wird wirklich siebenunddreißigmal besser. Aber die Kurve zeigt, warum sich kleine Schritte so lange nach nichts anfühlen.' | heard 'Niemand wird wirklich 37 mal besser, aber die Kurve zeigt, warum sich kleine Schritte so lange nach nichts anfühlen.'
+  - s08: script 'Schon ein Prozent pro Woche bringt dir in einem Jahr 68 Prozent mehr. Das ist realistischer und trotzdem viel.' | heard 'Schon 1 % pro Woche bringt ihr in einem Jahr 68 % mehr. Das ist realistischer und trotzdem viel.'
+laenge: 67.55 s (4053 Bilder)
+SAFE ZONE  18 stills | all clear
+full hd: fertig in 69 s
+4k: fertig in 689 s (7 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=67.563000|size=17631498 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=67.550000|size=57734451 
+== 004-ein-prozent | fertig 2026-11-19T10:21:50Z

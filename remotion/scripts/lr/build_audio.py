@@ -40,7 +40,7 @@ MUSIC_BED, MUSIC_DUCK, MUSIC_OPEN = 0.52, 0.42, 0.80
 
 
 def norm(w):
-    w = w.lower()
+    w = w.lower().replace("%", "prozent")
     w = re.sub(r"\d+", lambda m: vp.zahl(int(m.group(0))), w)
     return re.sub(r"[^a-zäöüß]", "", w)
 
@@ -82,7 +82,9 @@ def align(spec, words):
         a, b = min(idx), max(idx)
         out.append({"id": "s%02d" % (i + 1), "vo": sc["vo"], "start": words[a]["s"], "end": words[b]["e"],
                     "heard": " ".join(w["w"] for w in words[a:b + 1]), "words": words[a:b + 1]})
-    return out, sm.ratio()
+    # quality: compare the letters, not the word boundaries (Whisper writes "37-fachen" as two words, "1 %" as "1 Prozent" ...)
+    a, b = "".join(toks), "".join(heard)
+    return out, difflib.SequenceMatcher(None, a, b, autojunk=False).ratio()
 
 
 def cues_for(spec):
