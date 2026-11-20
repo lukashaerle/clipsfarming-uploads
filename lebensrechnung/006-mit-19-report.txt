@@ -1,0 +1,24 @@
+== 006-mit-19 | start 2026-11-20T01:20:08Z | Linux x86_64, 4 cpus
+  s13 33.06-35.36  Genug Zeit, um in etwas richtig gut zu werden.
+  s14 35.56-37.80  Klar: Das ist ein Durchschnitt, keine Garantie.
+  s15 38.06-41.84  Aber zu spät? Um 5:42 Uhr? Ganz sicher nicht.
+  s16 42.06-45.26  Schreib heute eine Sache auf, die du mit 25 können willst.
+ton: fertig in 41 s
+CUTS   16 sentences | loudest sound right outside a cut: -74 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -76 dB
+WORDS  127 of 131 script words heard, each sentence listened to on its own | words the recognition was unsure about: s02 'Uhr' (0.24), s06 'Uhr' (0.38), s12 'und' (0.44)
+LEVEL  sentences between -16.4 and -14.4 dBFS (middle -15.1)
+FLOW   pauses between sentences 0.11 to 0.33 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s04 after 'Jahre.' 0.38 s, s06 after 'Uhr.' 0.32 s, s08 after '30?' 0.34 s, s08 after 'Uhr.' 0.32 s, s12 after 'Rente?' 0.40 s, s14 after 'Klar,' 0.17 s, s15 after 'spät?' 0.28 s, s15 after 'Uhr?' 0.29 s
+hoerpruefung: bitte anhoeren
+  - s02: script 'Von wegen. In deinem Leben ist es erst 5:42 Uhr.' | heard 'Von wegen. In deinem Leben ist es erst 5 Uhr 42.'
+  - s06: script 'Mit 19 steht die Uhr auf 5:42. Draußen ist es noch dunkel.' | heard 'Mit 19 steht die Uhr auf 5 Uhr 42. Draußen ist es noch dunkel.'
+  - s11: script 'Das sind über 3000 Wochen.' | heard 'Das sind über 3 .000 Wochen.'
+  - s15: script 'Aber zu spät? Um 5:42 Uhr? Ganz sicher nicht.' | heard 'Aber zu spät, um 5 .42 Uhr? Ganz sicher nicht.'
+laenge: 46.36 s (2782 Bilder)
+SAFE ZONE  32 stills | all clear
+full hd: fertig in 580 s
+4k: fertig in 2103 s (5 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=46.379000|size=14617149 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=46.360000|size=46950497 
+== 006-mit-19 | fertig 2026-11-20T02:06:18Z
