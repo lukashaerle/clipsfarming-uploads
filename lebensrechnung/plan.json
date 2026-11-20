@@ -1,26 +1,35 @@
 {
  "_info": "Sendeplan Lebensrechnung (Zeiten Europe/Berlin). Die Nacht-Routine produziert fuer das heutige Datum jedes Video, dessen Spec unter remotion/videos/<id>/spec.json liegt und das unter lebensrechnung/ noch fehlt. Gepostet wird erst nach Freigabe in der App.",
+ "_pause": {
+  "tage": [
+   "2026-11-21",
+   "2026-11-22"
+  ],
+  "grund": "Pause bis Sonntagabend (Verdacht auf TikTok-Shadowban). An diesen Tagen keine Videos eintragen, keine produzieren, nichts posten."
+ },
  "2026-11-19": {
   "12:30": "002-schlummertaste"
  },
  "2026-11-20": {
-  "12:30": "003-eltern",
-  "19:00": "004-ein-prozent"
- },
- "2026-11-21": {
-  "12:30": "005-47-sekunden",
-  "19:00": "006-mit-19"
- },
- "2026-11-22": {
-  "12:30": "007-aufschieben",
-  "19:00": "008-17-stunden-wach"
+  "12:30": "003-eltern"
  },
  "2026-11-23": {
-  "12:30": "009-freundschaft",
-  "19:00": "010-bewegung"
+  "12:30": "004-ein-prozent",
+  "19:00": "005-47-sekunden"
  },
  "2026-11-24": {
-  "12:30": "011-66-tage",
-  "19:00": "012-720-buecher"
+  "12:30": "006-mit-19",
+  "19:00": "007-aufschieben"
+ },
+ "2026-11-25": {
+  "12:30": "008-17-stunden-wach",
+  "19:00": "009-freundschaft"
+ },
+ "2026-11-26": {
+  "12:30": "010-bewegung",
+  "19:00": "011-66-tage"
+ },
+ "2026-11-27": {
+  "12:30": "012-720-buecher"
  }
 }
