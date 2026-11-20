@@ -7,6 +7,7 @@ Gepostet wird erst morgens nach Freigabe in der App.
 ## 1. Was ist heute dran?
 - `HEUTE=$(TZ=Europe/Berlin date +%F)`, `MORGEN=$(TZ=Europe/Berlin date -d tomorrow +%F)`; lies `lebensrechnung/plan.json`,
   Einträge für beide Tage (Uhrzeit → Video-ID). Zuerst heute, dann morgen, jeweils in der Reihenfolge der Uhrzeit.
+- Tage unter `"_pause"."tage"` in plan.json sind Pausentage: dort nichts produzieren und nichts zur Freigabe schicken.
 - Ein Video ist zu produzieren, wenn `remotion/videos/<id>/spec.json` existiert und `lebensrechnung/<id>-report.txt` auf main fehlt
   (ältere Videos liegen noch als mp4 auf main; auch dann gilt es als fertig).
 - Fehlt für einen Termin von heute die Spec, melde das (Schritt 5). Gibt es gar nichts zu tun, melde kurz „nichts zu tun“ und hör auf.
