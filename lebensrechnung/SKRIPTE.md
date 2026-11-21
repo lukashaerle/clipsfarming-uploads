@@ -26,6 +26,7 @@ Nummer + Kurzname, z. B. `011-buecher`. Beispiele: alle vorhandenen `remotion/vi
   Nur Zahlen mit Tausenderpunkt ab 10.000 ausschreiben („zehntausendachtzig“) und dann `"cap": "<Satz mit Ziffern>"` setzen,
   damit die Untertitel Ziffern zeigen.
 - Ruhig im Inhalt (kein Vorwurf, keine Gesundheitsversprechen), aber im Ton direkt und lebendig. Du-Form.
+- **Kein Tod, kein Lebensende (seit 21.11.):** TikTok stufte „360 Tage mit deinen Eltern“ als „sensibles Thema“ ein (nicht für den Für dich-Feed). Nie Sterben, Tod, Lebenserwartung als Endpunkt, „bleiben nur noch“, „mehr nicht“, „wenn deine Eltern 85 werden“. Stattdessen nach vorn rechnen: „In 60 Jahren sind das 720.“, „61 Jahre liegen vor dir.“ Auch Alkohol, Drogen, Glücksspiel, Diäten und psychische Erkrankungen nur nach Rücksprache.
 - Nie Regie- oder Gliederungswörter sprechen lassen („Einordnung:“, „Hinweis:“, „Fazit:“). „Klar: Das ist ein Durchschnitt …“
   als kurze Einordnung ist gut.
 - Eine Szene mit Einordnung (Durchschnitt, Schätzung, Laborwert …), wie im Plan unter „Hinweis“ verlangt.

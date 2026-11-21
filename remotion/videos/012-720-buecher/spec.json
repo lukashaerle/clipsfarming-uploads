@@ -4,13 +4,13 @@
  "style": "action",
  "scenes": [
   {
-   "vo": "Du liest in deinem Leben vielleicht noch 720 Bücher. Mehr nicht.",
+   "vo": "1 Buch im Monat. Das sind 720 Bücher in 60 Jahren.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Nur noch",
-     "*720 Bücher?*"
+     "720 Bücher",
+     "*in 60 Jahren*"
     ]
    },
    "figure": {
@@ -34,8 +34,8 @@
    }
   },
   {
-   "vo": "Wenn du noch 60 Jahre vor dir hast, sind das 720.",
-   "head": "Noch|*60 Jahre*",
+   "vo": "Über 60 Jahre gerechnet, sind das 720.",
+   "head": "In|*60 Jahren*",
    "graphic": {
     "kind": "chips",
     "items": [
@@ -44,7 +44,7 @@
       "value": "12 pro Jahr"
      },
      {
-      "label": "noch 60 Jahre",
+      "label": "60 Jahre lang",
       "value": "× 60"
      },
      {
@@ -100,7 +100,7 @@
    }
   },
   {
-   "vo": "Dein ganzes Leseleben schafft nicht einmal 2 % eines einzigen Jahrgangs.",
+   "vo": "Alle 720 zusammen sind nicht einmal 2 % eines einzigen Jahrgangs.",
    "head": "Nicht mal|*2 %*",
    "graphic": {
     "kind": "ring",
