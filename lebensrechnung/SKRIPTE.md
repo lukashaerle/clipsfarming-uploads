@@ -11,7 +11,8 @@ Nummer + Kurzname, z. B. `011-buecher`. Beispiele: alle vorhandenen `remotion/vi
 - Gehen die unverbrauchten Themen zur Neige (weniger als 4), schreibe trotzdem, was geht, und melde es (siehe Routine).
 
 ## Aufbau (Punch-Stil, seit 21.11.2026 Standard für alle neuen Videos)
-Vorbild: `remotion/videos/007-aufschieben/spec.json`. Lies es ganz, bevor du schreibst. Ältere Specs mit `"style": "action"`
+Vorbild: `remotion/videos/007-aufschieben/spec.json`. Lies es ganz, bevor du schreibst. Weitere Beispiele im selben Stil:
+`008-17-stunden-wach` (Studie mit Einordnung), `013-zeit-schlaegt-betrag` (`rise` mit Grenzlinie, `note`, ausgeschriebene Zahlen). Ältere Specs mit `"style": "action"`
 sind kein Vorbild mehr.
 - Spec beginnt mit `"style": "punch"`. Kein `accent` setzen (Standard ist Gelb).
 - **12–14 Szenen**, jede mit **einem kurzen Satz** (höchstens ~50 Zeichen). Sprechtext gesamt **430–520 Zeichen** (≈ 30–35 s).
@@ -35,6 +36,10 @@ sind kein Vorbild mehr.
   eine Grenzlinie, die der letzte Balken durchbricht („Ein Tag hat 24 h“). Diese Szenen dürfen direkt aufeinander folgen.
 - **Schlüsselwort:** Das Bild zoomt auf die letzte Zahl des Satzes (bei statements auf das erste markierte Wort). Deshalb:
   **eine wichtige Zahl pro Satz, möglichst am Ende.** Soll es ein anderes Wort sein: `"key": "<Wortanfang>"` in der Szene.
+- Ist die wichtige Zahl ausgeschrieben („achtundvierzigtausend“), setze `"key": "achtund"` (Wortanfang), sonst zoomt das Bild
+  auf eine frühere Ziffer. Das `cap` dazu hat am besten gleich viele Wörter wie `vo`, dann laufen die Untertitel genau mit.
+- Ruht die ganze Rechnung auf einer Annahme (Zins, Preis), setze oben in der Spec `"note": "angenommen: 5 % pro Jahr"`
+  (höchstens ~30 Zeichen): die Zeile steht dann dauerhaft klein im Bild.
 - `"hold": 0.25` (höchstens 0.5) an einer Szene = Atempause danach. Nur nach dem Hook-Paar (Szene 2) und nach dem Höhepunkt,
   zusammen höchstens 1 Sekunde.
 - **Schleife (Pflicht):** Die letzte Szene ist ein kurzer `statement`-Satz, der mit Doppelpunkt endet und in den ersten Satz

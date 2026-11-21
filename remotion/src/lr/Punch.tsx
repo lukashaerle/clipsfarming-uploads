@@ -20,7 +20,8 @@ const FLOOR = 1480;
 /** the graphics are drawn for the band y 560-1180 (scenes.tsx); here they move up and zoom around the stage centre */
 const STAGE = {cx: 540, cy: 590, shift: -290};
 /** captions: one line inside the safe width 44-886 below y 955 */
-const CAP = {x0: 44, x1: 886, y: 1076, max: 118, fit: 780};
+// fit 760: the spoken word grows by 8 %, and a caption of one long word must still end inside the safe width
+const CAP = {x0: 44, x1: 886, y: 1076, max: 118, fit: 760};
 const INK_DARK = '#0B0B0B';
 const easeOut = (u: number) => 1 - Math.pow(1 - clamp(u), 3);
 
@@ -31,6 +32,9 @@ const chipsTransform = (rows: number) => {
   const cy = 700 + (84 + (rows - 1) * 96) / 2;
   return `translate(540 ${STAGE.cy - 20}) scale(${k}) translate(-540 ${-cy})`;
 };
+
+/** horizontal bars carry their value to the right of the bar and reach x 1046 at full size: drawn at 0.9 they end at 995 */
+const BARS_TRANSFORM = `translate(540 ${STAGE.cy}) scale(0.9) translate(-540 ${-STAGE.cy - 290})`;
 
 type W = {text: string; s: number; e: number};
 
@@ -343,7 +347,7 @@ export const PunchVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
         ) : (
           <svg viewBox="0 0 1080 1920" width={1080} height={1920} style={{position: 'absolute'}}>
             <Defs />
-            <g transform={g.kind === 'chips' ? chipsTransform(g.items.length) : `translate(0 ${STAGE.shift})`}>
+            <g transform={g.kind === 'chips' ? chipsTransform(g.items.length) : g.kind === 'bars' ? BARS_TRANSFORM : `translate(0 ${STAGE.shift})`}>
               <GraphicLayer g={g} lt={raw * 1.5 + (idx === 0 ? 1.4 : 0.22)} dur={len * 1.5 + 0.22} kt={(tm.kt - tm.s) * 1.5 + 0.22} />
             </g>
           </svg>
@@ -355,7 +359,13 @@ export const PunchVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
         <line x1={60} y1={FLOOR} x2={60 + 820 * clamp(t / Math.max(1, timeline.length))} y2={FLOOR} stroke={ink} strokeWidth={7} strokeLinecap="round" />
         <Figure x={pose.x} y={FLOOR} s={1.0} color={C.ink} phone={pose.phone} slump={pose.slump} look={[pose.lookX, pose.lookY]} aura={pose.aura * 0.5} opacity={invert ? 0 : pose.op} t={t} bob={hop} />
       </svg>
-      {statement ? null : <Captions text={scene.cap ?? scene.vo} tok={scene.cap ? undefined : timeline.scenes[idx].tok} t={t} tm={tm} debug={debug} />}
+      {spec.note ? (
+        <div style={{position: 'absolute', left: 62, top: 228, fontFamily: FONT, fontWeight: 600, fontSize: 30, lineHeight: 1, letterSpacing: 3, whiteSpace: 'nowrap', color: invert ? INK_DARK : C.dim, opacity: invert ? 0.7 : 1}}>
+          {spec.note.toUpperCase()}
+        </div>
+      ) : null}
+      {/* a caption text of its own (cap) follows the voice too when it has as many words as the sentence */}
+      {statement ? null : <Captions text={scene.cap ?? scene.vo} tok={timeline.scenes[idx].tok} t={t} tm={tm} debug={debug} />}
       {timeline.audio ? <Audio src={staticFile(timeline.audio)} /> : null}
     </AbsoluteFill>
   );

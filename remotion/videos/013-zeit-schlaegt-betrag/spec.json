@@ -1,27 +1,45 @@
 {
  "id": "013-zeit-schlaegt-betrag",
  "title": "Zeit schlägt Betrag",
- "style": "action",
+ "style": "punch",
+ "note": "angenommen: 5 % pro Jahr",
  "scenes": [
   {
-   "vo": "Zwei Freunde sparen je 100 Euro im Monat. Einer startet 10 Jahre später.",
+   "vo": "Zwei Freunde sparen je 100 Euro im Monat.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Zwei Sparer.",
-     "Gleiche *100 Euro.*",
-     "Einer startet *später.*"
+     "Zwei Freunde",
+     "sparen je *100 Euro*",
+     "im Monat."
     ]
    },
    "figure": {
-    "pose": "look",
+    "pose": "stand",
     "place": "center"
    }
   },
   {
-   "vo": "Wer liegt vorn? Der Frühe, und zwar weit. Die Rechnung:",
-   "head": "Die|*Rechnung*",
+   "vo": "Einer startet 10 Jahre später.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Einer startet",
+     "*10 Jahre*",
+     "später."
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "left"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Die Rechnung: 40 Jahre, angenommen 5 % Zinsen.",
+   "head": "",
    "graphic": {
     "kind": "chips",
     "items": [
@@ -42,104 +60,130 @@
    },
    "figure": {
     "pose": "stand",
-    "place": "left"
+    "place": "right"
    }
   },
   {
-   "vo": "100 × 12 × 40: Du zahlst achtundvierzigtausend Euro ein.",
-   "head": "*48.000*|eingezahlt",
+   "vo": "Eingezahlt: achtundvierzigtausend Euro.",
+   "head": "",
    "graphic": {
     "kind": "counter",
     "to": 48000,
     "unit": "Euro eingezahlt"
    },
    "figure": {
-    "pose": "think",
-    "place": "right"
+    "pose": "look",
+    "place": "center"
    },
-   "cap": "100 × 12 × 40: Du zahlst 48.000 Euro ein."
+   "cap": "Eingezahlt: 48.000 Euro.",
+   "key": "achtund"
   },
   {
-   "vo": "Mit Zinsen werden daraus rund hundertfünfzigtausend Euro.",
-   "head": "Mit Zinsen|*150.000*",
+   "vo": "Nach 20 Jahren: einundvierzigtausend.",
+   "head": "",
    "graphic": {
-    "kind": "compare",
-    "left": {
-     "value": "48.000",
-     "label": "eingezahlt"
-    },
-    "right": {
-     "value": "150.000",
-     "label": "mit 5 % Zinsen"
-    },
-    "hi": "right"
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "20 Jahre",
+      "value": 41
+     },
+     {
+      "label": "30 Jahre",
+      "value": 83
+     },
+     {
+      "label": "40 Jahre",
+      "value": 150
+     }
+    ],
+    "show": 1,
+    "unit": "T€",
+    "title": "Rund, in Tausend Euro",
+    "limit": {
+     "value": 48,
+     "label": "Eingezahlt: 48 T€"
+    }
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   },
+   "cap": "Nach 20 Jahren: 41.000",
+   "key": "einund"
+  },
+  {
+   "vo": "Nach 30 Jahren: dreiundachtzigtausend.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "20 Jahre",
+      "value": 41
+     },
+     {
+      "label": "30 Jahre",
+      "value": 83
+     },
+     {
+      "label": "40 Jahre",
+      "value": 150
+     }
+    ],
+    "show": 2,
+    "unit": "T€",
+    "title": "Rund, in Tausend Euro",
+    "limit": {
+     "value": 48,
+     "label": "Eingezahlt: 48 T€"
+    }
    },
    "figure": {
     "pose": "look",
     "place": "left"
    },
-   "cap": "Mit Zinsen werden daraus rund 150.000 Euro."
+   "cap": "Nach 30 Jahren: 83.000",
+   "key": "dreiund"
   },
   {
-   "vo": "Am Ende sind die Zinsen größer als dein Einzahlen.",
+   "vo": "Nach 40 Jahren: rund hundertfünfzigtausend.",
    "head": "",
    "graphic": {
-    "kind": "statement",
-    "lines": [
-     "Zinsen größer",
-     "als dein *Einzahlen.*"
-    ]
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "20 Jahre",
+      "value": 41
+     },
+     {
+      "label": "30 Jahre",
+      "value": 83
+     },
+     {
+      "label": "40 Jahre",
+      "value": 150
+     }
+    ],
+    "show": 3,
+    "unit": "T€",
+    "title": "Rund, in Tausend Euro",
+    "limit": {
+     "value": 48,
+     "label": "Eingezahlt: 48 T€"
+    }
    },
    "figure": {
     "pose": "proud",
-    "place": "center"
-   }
-  },
-  {
-   "vo": "Mit jedem Jahrzehnt wächst der Stand schneller.",
-   "head": "Es wird|*schneller*",
-   "graphic": {
-    "kind": "bars",
-    "bars": [
-     {
-      "label": "20 J.",
-      "value": 41.1
-     },
-     {
-      "label": "30 J.",
-      "value": 83.2
-     },
-     {
-      "label": "40 J.",
-      "value": 152.6,
-      "hi": true
-     }
-    ],
-    "unit": "Tsd. €",
-    "decimals": 1
-   },
-   "figure": {
-    "pose": "stand",
-    "place": "right"
-   }
-  },
-  {
-   "vo": "Die letzten 10 Jahre bringen allein neunundsechzigtausendvierhundert Euro.",
-   "head": "Letzte|*10 Jahre*",
-   "graphic": {
-    "kind": "counter",
-    "to": 69400,
-    "unit": "Euro in 10 Jahren"
-   },
-   "figure": {
-    "pose": "think",
     "place": "left"
    },
-   "cap": "Die letzten 10 Jahre bringen allein 69.400 Euro."
+   "cap": "Nach 40 Jahren: rund 150.000",
+   "key": "hundert",
+   "hold": 0.25
   },
   {
-   "vo": "Mehr als die ersten 25 Jahre zusammen.",
-   "head": "*Mehr*|als 25 Jahre",
+   "vo": "Die letzten 10 Jahre bringen mehr als die ersten 25 Jahre.",
+   "head": "",
    "graphic": {
     "kind": "chips",
     "items": [
@@ -155,19 +199,20 @@
     ]
    },
    "figure": {
-    "pose": "slump",
-    "place": "center"
+    "pose": "think",
+    "place": "right"
    }
   },
   {
-   "vo": "Die Laufzeit zählt also mehr als der Betrag.",
+   "vo": "Zeit schlägt Betrag.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "*Zeit*",
-     "schlägt *Betrag.*"
-    ]
+     "*Zeit* schlägt",
+     "*Betrag.*"
+    ],
+    "invert": true
    },
    "figure": {
     "pose": "proud",
@@ -175,8 +220,8 @@
    }
   },
   {
-   "vo": "Der Späte kommt am Ende nur auf 55 % davon.",
-   "head": "Nur|*55 %*",
+   "vo": "Der Späte kommt nur auf 55 %.",
+   "head": "",
    "graphic": {
     "kind": "ring",
     "percent": 55,
@@ -189,26 +234,13 @@
     ]
    },
    "figure": {
-    "pose": "none",
-    "place": "center"
-   }
-  },
-  {
-   "vo": "Zum Aufholen bräuchte er 183 Euro im Monat.",
-   "head": "Aufholen|*183 Euro*",
-   "graphic": {
-    "kind": "counter",
-    "to": 183,
-    "unit": "Euro im Monat"
-   },
-   "figure": {
-    "pose": "look",
+    "pose": "slump",
     "place": "right"
    }
   },
   {
-   "vo": "Das sind 83 Euro mehr. Jeden Monat.",
-   "head": "*83 Euro*|mehr",
+   "vo": "Zum Aufholen: 183 Euro im Monat.",
+   "head": "",
    "graphic": {
     "kind": "compare",
     "left": {
@@ -227,14 +259,14 @@
    }
   },
   {
-   "vo": "Klar: Das ist ein Rechenbeispiel, keine Anlageempfehlung.",
-   "head": "Nur ein|*Beispiel*",
+   "vo": "Klar: ein Rechenbeispiel, keine Empfehlung.",
+   "head": "",
    "graphic": {
     "kind": "chips",
     "items": [
      {
-      "label": "Zins",
-      "value": "angenommen: 5 %"
+      "label": "Rechenbeispiel",
+      "value": "keine Anlageempfehlung"
      },
      {
       "label": "Inflation, Steuern",
@@ -244,22 +276,38 @@
    },
    "figure": {
     "pose": "think",
-    "place": "left"
+    "place": "center"
    }
   },
   {
-   "vo": "Setz heute deine eigenen Zahlen in einen Zinseszinsrechner ein.",
+   "vo": "Rechne heute mit deinen eigenen Zahlen.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Eigene Zahlen",
-     "*eintippen.*"
+     "Rechne heute",
+     "mit deinen",
+     "*eigenen Zahlen.*"
     ],
-    "chip": "Heute ist der früheste Tag."
+    "chip": "Womit würdest du starten?"
    },
    "figure": {
     "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und alles begann so:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und alles",
+     "*begann so:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
     "place": "center"
    }
   }

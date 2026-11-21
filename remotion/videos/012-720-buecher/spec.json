@@ -1,7 +1,7 @@
 {
  "id": "012-720-buecher",
  "title": "720 Bücher",
- "style": "action",
+ "style": "punch",
  "scenes": [
   {
    "vo": "1 Buch im Monat. Das sind 720 Bücher in 60 Jahren.",
@@ -9,8 +9,9 @@
    "graphic": {
     "kind": "statement",
     "lines": [
-     "720 Bücher",
-     "*in 60 Jahren*"
+     "1 Buch im Monat.",
+     "Das sind *720 Bücher*",
+     "in 60 Jahren."
     ]
    },
    "figure": {
@@ -19,69 +20,29 @@
    }
   },
   {
-   "vo": "Die Rechnung: 1 Buch im Monat.",
-   "head": "*1 Buch*|im Monat",
-   "graphic": {
-    "kind": "blocks",
-    "n": 12,
-    "hi": 12,
-    "label": "1",
-    "caption": "12 Bücher im Jahr"
-   },
-   "figure": {
-    "pose": "stand",
-    "place": "left"
-   }
-  },
-  {
-   "vo": "Über 60 Jahre gerechnet, sind das 720.",
-   "head": "In|*60 Jahren*",
-   "graphic": {
-    "kind": "chips",
-    "items": [
-     {
-      "label": "1 Buch im Monat",
-      "value": "12 pro Jahr"
-     },
-     {
-      "label": "60 Jahre lang",
-      "value": "× 60"
-     },
-     {
-      "label": "zusammen",
-      "value": "720 Bücher",
-      "hi": true
-     }
-    ]
-   },
-   "figure": {
-    "pose": "look",
-    "place": "right"
-   }
-  },
-  {
-   "vo": "Allein 2025 erschienen in Deutschland über zweiundfünfzigtausend neue Titel.",
-   "head": "*52.644*|neue Titel",
+   "vo": "Allein 2025 erschienen über zweiundfünfzigtausend neue Titel.",
+   "head": "",
    "graphic": {
     "kind": "counter",
     "to": 52644,
     "unit": "neue Titel 2025",
     "chips": [
      {
-      "label": "Börsenverein",
-      "value": "Erstauflagen"
+      "label": "Deutschland",
+      "value": "Börsenverein"
      }
     ]
    },
    "figure": {
-    "pose": "think",
-    "place": "center"
+    "pose": "look",
+    "place": "left"
    },
-   "cap": "Allein 2025 erschienen in Deutschland über 52.000 neue Titel."
+   "cap": "Allein 2025 erschienen über 52.000 neue Titel.",
+   "key": "zweiund"
   },
   {
    "vo": "Das sind 144 neue Bücher. Jeden Tag.",
-   "head": "*144*|pro Tag",
+   "head": "",
    "graphic": {
     "kind": "compare",
     "left": {
@@ -96,12 +57,13 @@
    },
    "figure": {
     "pose": "slump",
-    "place": "left"
-   }
+    "place": "right"
+   },
+   "hold": 0.25
   },
   {
-   "vo": "Alle 720 zusammen sind nicht einmal 2 % eines einzigen Jahrgangs.",
-   "head": "Nicht mal|*2 %*",
+   "vo": "Deine 720 sind nicht einmal 2 % dieses einen Jahrgangs.",
+   "head": "",
    "graphic": {
     "kind": "ring",
     "percent": 1.4,
@@ -115,7 +77,8 @@
     ]
    },
    "figure": {
-    "pose": "none"
+    "pose": "slump",
+    "place": "center"
    }
   },
   {
@@ -125,17 +88,18 @@
     "kind": "statement",
     "lines": [
      "Lesezeit",
-     "ist *knapp.*"
+     "ist also",
+     "*knapp.*"
     ]
    },
    "figure": {
     "pose": "think",
-    "place": "right"
+    "place": "left"
    }
   },
   {
-   "vo": "Im Schnitt lesen Menschen in Deutschland 27 Minuten am Tag.",
-   "head": "*27 Minuten*|Lesen",
+   "vo": "Im Schnitt lesen wir 27 Minuten am Tag.",
+   "head": "",
    "graphic": {
     "kind": "counter",
     "to": 27,
@@ -149,12 +113,12 @@
    },
    "figure": {
     "pose": "stand",
-    "place": "center"
+    "place": "right"
    }
   },
   {
    "vo": "Fernsehen und Streaming: 128 Minuten.",
-   "head": "*128 Minuten*|Bildschirm",
+   "head": "",
    "graphic": {
     "kind": "bars",
     "unit": "min",
@@ -176,23 +140,25 @@
    }
   },
   {
-   "vo": "Jetzt die gute Nachricht: 20 Seiten am Tag reichen.",
+   "vo": "Die gute Nachricht: 20 Seiten am Tag reichen.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
+     "Die gute Nachricht:",
      "*20 Seiten*",
-     "am Tag."
-    ]
+     "am Tag reichen."
+    ],
+    "invert": true
    },
    "figure": {
     "pose": "proud",
-    "place": "right"
+    "place": "center"
    }
   },
   {
-   "vo": "Bei 300 Seiten pro Buch sind das 24 Bücher im Jahr.",
-   "head": "*24 Bücher*|im Jahr",
+   "vo": "Bei 300 Seiten pro Buch: 24 Bücher im Jahr.",
+   "head": "",
    "graphic": {
     "kind": "counter",
     "to": 24,
@@ -206,12 +172,12 @@
    },
    "figure": {
     "pose": "proud",
-    "place": "center"
+    "place": "right"
    }
   },
   {
-   "vo": "In 60 Jahren: 1440 statt 720.",
-   "head": "*Doppelt*|so viele",
+   "vo": "In 60 Jahren sind das 1440 statt 720 Bücher.",
+   "head": "",
    "graphic": {
     "kind": "compare",
     "left": {
@@ -227,43 +193,38 @@
    "figure": {
     "pose": "proud",
     "place": "left"
-   }
-  },
-  {
-   "vo": "Und ein schwaches Buch? Darfst du weglegen.",
-   "head": "Du darfst|*aussuchen*",
-   "graphic": {
-    "kind": "chips",
-    "items": [
-     {
-      "label": "schwaches Buch",
-      "value": "weglegen"
-     },
-     {
-      "label": "gutes Buch",
-      "value": "weiterlesen",
-      "hi": true
-     }
-    ]
    },
-   "figure": {
-    "pose": "stand",
-    "place": "right"
-   }
+   "key": "1440"
   },
   {
-   "vo": "Leg heute Abend das Buch, das du lesen willst, auf dein Kopfkissen.",
+   "vo": "Leg heute Abend dein nächstes Buch aufs Kopfkissen.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Buch aufs",
-     "*Kopfkissen.*"
+     "Leg heute Abend",
+     "dein nächstes Buch",
+     "*aufs Kopfkissen.*"
     ],
-    "chip": "Welches liest du als Nächstes?"
+    "chip": "Welches Buch wird es?"
    },
    "figure": {
     "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Denn die Rechnung bleibt:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Denn die",
+     "*Rechnung bleibt:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
     "place": "center"
    }
   }

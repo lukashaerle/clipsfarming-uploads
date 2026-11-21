@@ -326,6 +326,25 @@ const Rise: React.FC<{g: Extract<Graphic, {kind: 'rise'}>; lt: number; kt?: numb
   const newest = g.bars[shown - 1];
   const over = g.limit ? clamp((newest.value * u - g.limit.value) / Math.max(1e-6, newest.value - g.limit.value)) : 0;
   const broke = g.limit && newest.value > g.limit.value ? over : 0;
+  const bigW = `${num(newest.value)} ${g.unit}`.length * 0.46 * 104;
+  // Where the limit is named: on the line at the left, or at the right, wherever no bar (with its value label) of the
+  // whole chart reaches the line; if both ends are taken, as a legend under the title. Decided for all bars at once,
+  // so the label stays where it is from scene to scene.
+  const yLim = g.limit ? Y(g.limit.value) : 0;
+  const limW = g.limit ? g.limit.label.length * (0.46 * 36 + 3) : 0;
+  const taken = (x0: number, x1: number) =>
+    g.bars.some((b, i) => {
+      const x = X0 + i * slot + (slot - bw) / 2;
+      return x < x1 && x + bw > x0 && YB - Math.max(12, (b.value / vmax) * H) - 110 < yLim + 6;
+    });
+  const limSide = !g.limit ? 'none' : !taken(X0, X0 + limW) ? 'left' : !taken(X1 - limW, X1) ? 'right' : 'legend';
+  const limCol = broke > 0 ? C.ink : C.dim;
+  // value labels carry an outline in the background colour, so the dashed limit line never strikes through a number
+  const label = (x: number, y: number, size: number, fill: string, opacity: number, text: string, ls = 1) => (
+    <text x={x} y={y} fontFamily={FONT} fontWeight={800} fontSize={size} fill={fill} textAnchor="middle" letterSpacing={ls} opacity={opacity} stroke={C.bg0} strokeWidth={size > 60 ? 14 : 10} strokeLinejoin="round" paintOrder="stroke" style={{fontVariantNumeric: 'tabular-nums'}}>
+      {text}
+    </text>
+  );
   return (
     <g opacity={first}>
       <Tx x={X0} y={606} size={48} fill={C.dim} anchor="start" weight={600} ls={4}>
@@ -335,9 +354,18 @@ const Rise: React.FC<{g: Extract<Graphic, {kind: 'rise'}>; lt: number; kt?: numb
       {g.limit ? (
         <g>
           <line x1={X0} y1={Y(g.limit.value)} x2={X1} y2={Y(g.limit.value)} stroke={broke > 0 ? C.ink : C.grey} strokeWidth={broke > 0 ? 6 : 4} strokeDasharray="14 12" strokeLinecap="round" />
-          <Tx x={X0} y={Y(g.limit.value) - 18} size={36} fill={broke > 0 ? C.ink : C.dim} anchor="start" weight={600} ls={3}>
-            {g.limit.label.toUpperCase()}
-          </Tx>
+          {limSide === 'legend' ? (
+            <g>
+              <line x1={X0} y1={640} x2={X0 + 58} y2={640} stroke={limCol} strokeWidth={4} strokeDasharray="14 12" strokeLinecap="round" />
+              <Tx x={X0 + 76} y={652} size={36} fill={limCol} anchor="start" weight={600} ls={3}>
+                {g.limit.label.toUpperCase()}
+              </Tx>
+            </g>
+          ) : (
+            <Tx x={limSide === 'left' ? X0 : X1} y={yLim - 18} size={36} fill={limCol} anchor={limSide === 'left' ? 'start' : 'end'} weight={600} ls={3}>
+              {g.limit.label.toUpperCase()}
+            </Tx>
+          )}
         </g>
       ) : null}
       {g.bars.map((b, i) => (
@@ -356,15 +384,10 @@ const Rise: React.FC<{g: Extract<Graphic, {kind: 'rise'}>; lt: number; kt?: numb
           <g key={i}>
             <rect x={x} y={YB - h} width={bw} height={h} rx={Math.min(14, h / 2)} fill={last ? C.you : C.ink} opacity={last ? 1 : 0.82} />
             {last && g.limit && YB - h < lim ? <rect x={x} y={YB - h} width={bw} height={lim - (YB - h)} rx={Math.min(14, (lim - (YB - h)) / 2)} fill={C.ink} /> : null}
-            {last ? (
-              <Tx x={cx} y={YB - h - 24} size={104} fill={C.you} ls={-1} opacity={clamp(u * 5)}>
-                {`${num(Math.round(v))} ${g.unit}`}
-              </Tx>
-            ) : (
-              <Tx x={cx} y={YB - h - 14} size={46} fill={C.ink} opacity={0.85}>
-                {`${num(b.value)} ${g.unit}`}
-              </Tx>
-            )}
+            {last
+              ? // the large label stays inside the chart even over the outermost bars
+                label(Math.max(X0 + bigW / 2, Math.min(cx, X1 + 40 - bigW / 2)), YB - h - 24, 104, C.you, clamp(u * 5), `${num(Math.round(v))} ${g.unit}`, -1)
+              : label(cx, YB - h - 14, 46, C.ink, 0.85, `${num(b.value)} ${g.unit}`)}
           </g>
         );
       })}

@@ -1,26 +1,40 @@
 {
  "id": "010-bewegung",
  "title": "1,5 Prozent deiner Woche",
- "style": "action",
+ "style": "punch",
  "scenes": [
   {
-   "vo": "Keine Zeit für Sport? Das stimmt fast nie.",
+   "vo": "Keine Zeit für Sport? Stimmt fast nie.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
      "Keine Zeit",
-     "*für Sport?*"
+     "für Sport?",
+     "*Stimmt fast nie.*"
     ]
    },
    "figure": {
-    "pose": "slump",
+    "pose": "think",
     "place": "center"
    }
   },
   {
-   "vo": "150 Minuten pro Woche reichen. Das sind nur 1,5 % deiner Woche.",
-   "head": "Nur|*1,5 %*",
+   "vo": "150 Minuten pro Woche reichen.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 150,
+    "unit": "Minuten pro Woche"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Das sind nur 1,5 % deiner Woche.",
+   "head": "",
    "graphic": {
     "kind": "ring",
     "percent": 1.5,
@@ -35,12 +49,13 @@
    },
    "figure": {
     "pose": "look",
-    "place": "left"
-   }
+    "place": "right"
+   },
+   "hold": 0.25
   },
   {
-   "vo": "So viel empfiehlt die WHO Erwachsenen. Mindestens.",
-   "head": "Die *Empfehlung*|der WHO",
+   "vo": "So viel empfiehlt die WHO. Mindestens.",
+   "head": "",
    "graphic": {
     "kind": "chips",
     "items": [
@@ -56,49 +71,12 @@
    },
    "figure": {
     "pose": "stand",
-    "place": "right"
-   }
-  },
-  {
-   "vo": "Eine Woche hat zehntausendachtzig Minuten.",
-   "head": "*10.080*|Minuten",
-   "graphic": {
-    "kind": "counter",
-    "to": 10080,
-    "unit": "Minuten pro Woche"
-   },
-   "figure": {
-    "pose": "think",
     "place": "center"
-   },
-   "cap": "Eine Woche hat 10.080 Minuten."
-  },
-  {
-   "vo": "150 davon sind ein winziger Streifen.",
-   "head": "Ein schmaler|*Streifen*",
-   "graphic": {
-    "kind": "bars",
-    "unit": "min",
-    "bars": [
-     {
-      "label": "eine Woche",
-      "value": 10080
-     },
-     {
-      "label": "Bewegung",
-      "value": 150,
-      "hi": true
-     }
-    ]
-   },
-   "figure": {
-    "pose": "look",
-    "place": "left"
    }
   },
   {
    "vo": "Pro Tag sind das 22 Minuten.",
-   "head": "*22 Minuten*|am Tag",
+   "head": "",
    "graphic": {
     "kind": "counter",
     "to": 22,
@@ -112,7 +90,7 @@
    },
    "figure": {
     "pose": "proud",
-    "place": "right"
+    "place": "left"
    }
   },
   {
@@ -122,31 +100,31 @@
     "kind": "statement",
     "lines": [
      "Weniger als",
-     "*eine Folge.*"
+     "*eine Serienfolge.*"
     ]
    },
    "figure": {
-    "pose": "proud",
-    "place": "center"
+    "pose": "phone",
+    "place": "right"
    }
   },
   {
-   "vo": "Und so lange sitzen Menschen in Deutschland an einem Werktag: 613 Minuten.",
-   "head": "*613 Minuten*|Sitzen",
+   "vo": "Im Schnitt sitzen wir werktags 613 Minuten.",
+   "head": "",
    "graphic": {
     "kind": "counter",
     "to": 613,
     "unit": "Minuten Sitzen",
     "chips": [
      {
-      "label": "Werktag, Schnitt",
+      "label": "Deutschland, Werktag",
       "value": "DKV-Report 2025"
      }
     ]
    },
    "figure": {
     "pose": "slump",
-    "place": "left"
+    "place": "center"
    }
   },
   {
@@ -161,12 +139,12 @@
    },
    "figure": {
     "pose": "slump",
-    "place": "right"
+    "place": "left"
    }
   },
   {
    "vo": "Auf 1 Minute Bewegung kommen 29 Minuten Sitzen.",
-   "head": "1 zu *29*",
+   "head": "",
    "graphic": {
     "kind": "compare",
     "left": {
@@ -181,12 +159,13 @@
    },
    "figure": {
     "pose": "slump",
-    "place": "center"
-   }
+    "place": "right"
+   },
+   "hold": 0.25
   },
   {
-   "vo": "Viele schaffen das schon. In Deutschland laut einer Befragung gut 2 von 3.",
-   "head": "*2 von 3*|schaffen es",
+   "vo": "Klar: Gut 2 von 3 schaffen das laut Befragung schon.",
+   "head": "",
    "graphic": {
     "kind": "ring",
     "percent": 68,
@@ -199,43 +178,25 @@
     ]
    },
    "figure": {
-    "pose": "proud",
-    "place": "left"
+    "pose": "stand",
+    "place": "center"
    }
   },
   {
-   "vo": "Weltweit aber fast jeder dritte Erwachsene nicht.",
-   "head": "Fast *jeder Dritte*|nicht",
+   "vo": "Aber 22 Minuten passen in fast jeden Tag.",
+   "head": "",
    "graphic": {
-    "kind": "counter",
-    "to": 31,
-    "unit": "weltweit zu wenig",
-    "chips": [
-     {
-      "label": "WHO, 2022",
-      "value": "1,8 Mrd."
-     }
+    "kind": "statement",
+    "lines": [
+     "Aber 22 Minuten",
+     "passen in",
+     "*fast jeden Tag.*"
     ],
-    "suffix": " %"
+    "invert": true
    },
    "figure": {
-    "pose": "think",
-    "place": "right"
-   }
-  },
-  {
-   "vo": "22 Minuten passen in fast jeden Tag.",
-   "head": "Passt in|*jeden Tag*",
-   "graphic": {
-    "kind": "grid",
-    "total": 65,
-    "hi": 1,
-    "cols": 13,
-    "label": "ein Tag",
-    "hiLabel": "22 Minuten"
-   },
-   "figure": {
-    "pose": "none"
+    "pose": "proud",
+    "place": "center"
    }
   },
   {
@@ -244,13 +205,29 @@
    "graphic": {
     "kind": "statement",
     "lines": [
-     "*22 Minuten.*",
-     "Heute."
+     "Geh heute",
+     "*22 Minuten*",
+     "zügig spazieren."
     ],
     "chip": "Wann gehst du los?"
    },
    "figure": {
     "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und wenn jemand sagt:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und wenn",
+     "*jemand sagt:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
     "place": "center"
    }
   }

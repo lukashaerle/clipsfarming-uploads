@@ -66,6 +66,9 @@ export type VideoSpec = {
   style?: 'action' | 'punch';
   /** punch style: the accent colour (default 'gelb', signal yellow) */
   accent?: 'gelb' | 'blau' | 'rot';
+  /** punch style: a short line that stays on screen for the whole video, e.g. the assumption the numbers rest on
+   *  ("angenommen: 5 % pro Jahr"); at most about 30 characters */
+  note?: string;
   scenes: Scene[];
 };
 

@@ -1,7 +1,7 @@
 {
  "id": "011-66-tage",
  "title": "66 Tage, nicht 21",
- "style": "action",
+ "style": "punch",
  "scenes": [
   {
    "vo": "21 Tage, dann sitzt die Gewohnheit?",
@@ -9,8 +9,9 @@
    "graphic": {
     "kind": "statement",
     "lines": [
-     "*21 Tage*",
-     "und es sitzt?"
+     "*21 Tage,*",
+     "dann sitzt",
+     "die Gewohnheit?"
     ]
    },
    "figure": {
@@ -19,8 +20,8 @@
    }
   },
   {
-   "vo": "Leider nein. Eher 66.",
-   "head": "Eher|*66 Tage*",
+   "vo": "Leider nein. Eher 66 Tage.",
+   "head": "",
    "graphic": {
     "kind": "compare",
     "left": {
@@ -34,13 +35,14 @@
     "hi": "right"
    },
    "figure": {
-    "pose": "look",
+    "pose": "slump",
     "place": "left"
-   }
+   },
+   "hold": 0.25
   },
   {
    "vo": "Das zeigt eine Studie aus London.",
-   "head": "Die *Studie*",
+   "head": "",
    "graphic": {
     "kind": "chips",
     "items": [
@@ -64,8 +66,8 @@
    }
   },
   {
-   "vo": "96 Freiwillige übten 12 Wochen lang jeden Tag eine neue Gewohnheit.",
-   "head": "*12 Wochen*|jeden Tag",
+   "vo": "96 Freiwillige übten 12 Wochen lang täglich.",
+   "head": "",
    "graphic": {
     "kind": "grid",
     "total": 84,
@@ -75,25 +77,26 @@
     "hiLabel": "jeden Tag"
    },
    "figure": {
-    "pose": "none"
+    "pose": "look",
+    "place": "center"
    }
   },
   {
-   "vo": "Im Mittel dauerte es 66 Tage, bis es von allein lief.",
-   "head": "*66 Tage*|im Mittel",
+   "vo": "Im Mittel lief es erst nach 66 Tagen von allein.",
+   "head": "",
    "graphic": {
     "kind": "counter",
     "to": 66,
     "unit": "Tage im Mittel"
    },
    "figure": {
-    "pose": "proud",
+    "pose": "think",
     "place": "left"
    }
   },
   {
-   "vo": "Bei manchen nur 18. Bei anderen 254.",
-   "head": "Von *18*|bis *254*",
+   "vo": "Bei manchen 18 Tage. Bei anderen 254 Tage.",
+   "head": "",
    "graphic": {
     "kind": "timeline",
     "from": 0,
@@ -118,40 +121,18 @@
    },
    "figure": {
     "pose": "look",
-    "place": "center"
-   }
-  },
-  {
-   "vo": "Das ist gut dreimal so lang wie die berühmten 21 Tage.",
-   "head": "Gut *dreimal*|so lang",
-   "graphic": {
-    "kind": "bars",
-    "unit": "Tage",
-    "bars": [
-     {
-      "label": "der Mythos",
-      "value": 21
-     },
-     {
-      "label": "im Mittel",
-      "value": 66,
-      "hi": true
-     }
-    ]
-   },
-   "figure": {
-    "pose": "think",
     "place": "right"
    }
   },
   {
-   "vo": "Und woher kommen die 21?",
+   "vo": "Und woher kommen die 21 Tage?",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Und woher kommt",
-     "die *21?*"
+     "Und woher",
+     "kommen die",
+     "*21 Tage?*"
     ]
    },
    "figure": {
@@ -160,8 +141,8 @@
    }
   },
   {
-   "vo": "Aus einem Buch von 1960. Von einem Schönheitschirurgen.",
-   "head": "Ein Buch|von *1960*",
+   "vo": "Aus einem Buch von 1960, von einem Schönheitschirurgen.",
+   "head": "",
    "graphic": {
     "kind": "chips",
     "items": [
@@ -182,26 +163,8 @@
    "figure": {
     "pose": "stand",
     "place": "left"
-   }
-  },
-  {
-   "vo": "Seine Patienten gewöhnten sich in etwa 21 Tagen an ihr neues Gesicht.",
-   "head": "*21 Tage*|neues Gesicht",
-   "graphic": {
-    "kind": "counter",
-    "to": 21,
-    "unit": "Tage, ungefähr",
-    "chips": [
-     {
-      "label": "neues Gesicht",
-      "value": "keine Studie"
-     }
-    ]
    },
-   "figure": {
-    "pose": "look",
-    "place": "right"
-   }
+   "key": "1960"
   },
   {
    "vo": "Eine Studie über Gewohnheiten war das nie.",
@@ -209,9 +172,11 @@
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Nie eine",
-     "*Studie.*"
-    ]
+     "Eine Studie",
+     "über Gewohnheiten",
+     "*war das nie.*"
+    ],
+    "invert": true
    },
    "figure": {
     "pose": "stand",
@@ -220,7 +185,7 @@
   },
   {
    "vo": "Und ein verpasster Tag? Schadete in der Studie kaum.",
-   "head": "Ein Tag *fehlt?*|Kaum Schaden",
+   "head": "",
    "graphic": {
     "kind": "blocks",
     "n": 7,
@@ -230,47 +195,12 @@
    },
    "figure": {
     "pose": "proud",
-    "place": "left"
-   }
-  },
-  {
-   "vo": "66 Tage sind 9 Wochen und 3 Tage.",
-   "head": "*9 Wochen*|und 3 Tage",
-   "graphic": {
-    "kind": "counter",
-    "to": 9,
-    "unit": "Wochen und 3 Tage",
-    "chips": [
-     {
-      "label": "66 Tage",
-      "value": "9 × 7 + 3"
-     }
-    ]
-   },
-   "figure": {
-    "pose": "stand",
     "place": "right"
    }
   },
   {
-   "vo": "Wer nach 3 Wochen noch kämpft, macht nichts falsch.",
-   "head": "",
-   "graphic": {
-    "kind": "statement",
-    "lines": [
-     "Nach 3 Wochen",
-     "noch *kämpfen?*",
-     "Ganz normal."
-    ]
-   },
-   "figure": {
-    "pose": "proud",
-    "place": "center"
-   }
-  },
-  {
    "vo": "Klar: Das sind Mittelwerte. Jeder ist anders.",
-   "head": "Nur ein|*Mittel*",
+   "head": "",
    "graphic": {
     "kind": "chips",
     "items": [
@@ -286,22 +216,38 @@
    },
    "figure": {
     "pose": "think",
-    "place": "left"
+    "place": "center"
    }
   },
   {
-   "vo": "Heute einen Tag verpasst? Mach morgen einfach weiter.",
+   "vo": "Tag verpasst? Mach morgen einfach weiter.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
      "Tag verpasst?",
-     "*Mach weiter.*"
+     "Mach morgen",
+     "*einfach weiter.*"
     ],
-    "chip": "Morgen zählt wieder."
+    "chip": "Welche Gewohnheit übst du?"
    },
    "figure": {
     "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und falls du noch denkst:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und falls du",
+     "*noch denkst:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
     "place": "center"
    }
   }
