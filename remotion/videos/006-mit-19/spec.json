@@ -1,7 +1,7 @@
 {
  "id": "006-mit-19",
  "title": "Mit 19 schon zu spät?",
- "style": "action",
+ "style": "punch",
  "scenes": [
   {
    "vo": "Mit 19 schon zu spät dran?",
@@ -9,8 +9,9 @@
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Mit 19 schon",
-     "*zu spät* dran?"
+     "Mit 19",
+     "schon *zu spät*",
+     "dran?"
     ]
    },
    "figure": {
@@ -20,7 +21,7 @@
   },
   {
    "vo": "Von wegen. In deinem Leben ist es erst 5:42 Uhr.",
-   "head": "*Von wegen.*",
+   "head": "",
    "graphic": {
     "kind": "clock",
     "times": [
@@ -31,11 +32,12 @@
    "figure": {
     "pose": "look",
     "place": "left"
-   }
+   },
+   "hold": 0.25
   },
   {
-   "vo": "Stell dir dein Leben als einen einzigen Tag vor.",
-   "head": "Dein Leben|als *ein Tag*",
+   "vo": "Stell dir dein Leben als einen Tag vor.",
+   "head": "",
    "graphic": {
     "kind": "blocks",
     "n": 24,
@@ -49,8 +51,8 @@
    }
   },
   {
-   "vo": "Rund 80 Jahre. So alt werden Menschen in Deutschland im Schnitt.",
-   "head": "Rund|*80 Jahre*",
+   "vo": "Im Schnitt dauert es rund 80 Jahre.",
+   "head": "",
    "graphic": {
     "kind": "chips",
     "items": [
@@ -72,11 +74,12 @@
    "figure": {
     "pose": "stand",
     "place": "left"
-   }
+   },
+   "key": "80"
   },
   {
-   "vo": "Dann dauert jedes Lebensjahr nur 18 Minuten.",
-   "head": "1 Jahr =|*18 Minuten*",
+   "vo": "Dann ist jedes Lebensjahr nur 18 Minuten.",
+   "head": "",
    "graphic": {
     "kind": "counter",
     "to": 18,
@@ -94,8 +97,8 @@
    }
   },
   {
-   "vo": "Mit 19 steht die Uhr auf 5:42. Draußen ist es noch dunkel.",
-   "head": "*5:42 Uhr*|noch dunkel",
+   "vo": "Mit 19 steht die Uhr auf 5:42 Uhr.",
+   "head": "",
    "graphic": {
     "kind": "ring",
     "percent": 23.75,
@@ -118,8 +121,9 @@
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Mit 25:",
-     "*7:30 Uhr*"
+     "Mit 25",
+     "ist es",
+     "*halb acht.*"
     ]
    },
    "figure": {
@@ -128,8 +132,8 @@
    }
   },
   {
-   "vo": "Und mit 30? Genau 9 Uhr. Der Tag fängt gerade erst an.",
-   "head": "Mit 30|erst *9 Uhr*",
+   "vo": "Und mit 30? Genau 9 Uhr.",
+   "head": "",
    "graphic": {
     "kind": "compare",
     "left": {
@@ -148,23 +152,8 @@
    }
   },
   {
-   "vo": "Knapp ein Viertel ist vorbei.",
-   "head": "Erst ein|*Viertel*",
-   "graphic": {
-    "kind": "grid",
-    "total": 80,
-    "hi": 19,
-    "cols": 10,
-    "label": "80 Jahre",
-    "hiLabel": "19 gelebt"
-   },
-   "figure": {
-    "pose": "none"
-   }
-  },
-  {
    "vo": "61 Jahre liegen noch vor dir.",
-   "head": "*61 Jahre*|vor dir",
+   "head": "",
    "graphic": {
     "kind": "counter",
     "to": 61,
@@ -179,74 +168,35 @@
    "figure": {
     "pose": "proud",
     "place": "left"
-   }
-  },
-  {
-   "vo": "Das sind über 3000 Wochen.",
-   "head": "",
-   "graphic": {
-    "kind": "statement",
-    "lines": [
-     "*3.172*",
-     "Wochen"
-    ]
    },
-   "figure": {
-    "pose": "proud",
-    "place": "right"
-   }
+   "key": "61"
   },
   {
-   "vo": "Und bis zur Rente? 48 Jahre.",
-   "head": "*48 Jahre*|bis zur Rente",
-   "graphic": {
-    "kind": "timeline",
-    "from": 0,
-    "to": 80,
-    "unit": "Alter",
-    "marks": [
-     {
-      "at": 19,
-      "label": "heute"
-     },
-     {
-      "at": 67,
-      "label": "Rente"
-     }
-    ],
-    "hiFrom": 19,
-    "hiTo": 67
-   },
-   "figure": {
-    "pose": "look",
-    "place": "center"
-   }
-  },
-  {
-   "vo": "Genug Zeit, um in etwas richtig gut zu werden.",
+   "vo": "Genug Zeit, um richtig gut zu werden.",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
      "Genug Zeit,",
-     "um *richtig gut*",
-     "zu werden."
-    ]
+     "um richtig",
+     "*gut zu werden.*"
+    ],
+    "invert": true
    },
    "figure": {
     "pose": "proud",
-    "place": "left"
+    "place": "center"
    }
   },
   {
-   "vo": "Klar: Das ist ein Durchschnitt, keine Garantie.",
-   "head": "Durchschnitt,|*keine* Garantie",
+   "vo": "Klar: Das ist nur ein Durchschnitt.",
+   "head": "",
    "graphic": {
     "kind": "chips",
     "items": [
      {
-      "label": "Lebenserwartung",
-      "value": "Durchschnitt"
+      "label": "Rechnung",
+      "value": "mit Durchschnitt"
      },
      {
       "label": "Quelle",
@@ -260,14 +210,16 @@
    }
   },
   {
-   "vo": "Aber zu spät? Um 5:42 Uhr? Ganz sicher nicht.",
-   "head": "*Zu spät?*|Sicher nicht.",
+   "vo": "Schreib heute auf, was du mit 25 können willst.",
+   "head": "",
    "graphic": {
-    "kind": "clock",
-    "times": [
-     "05:42"
+    "kind": "statement",
+    "lines": [
+     "Schreib heute auf,",
+     "was du *mit 25*",
+     "können willst."
     ],
-    "total": "der Tag liegt vor dir"
+    "chip": "Was willst du mit 25 können?"
    },
    "figure": {
     "pose": "proud",
@@ -275,18 +227,17 @@
    }
   },
   {
-   "vo": "Schreib heute eine Sache auf, die du mit 25 können willst.",
+   "vo": "Und wenn du dich fragst:",
    "head": "",
    "graphic": {
     "kind": "statement",
     "lines": [
-     "Was willst du",
-     "mit *25* können?"
-    ],
-    "chip": "Schreib es heute auf."
+     "Und wenn du",
+     "*dich fragst:*"
+    ]
    },
    "figure": {
-    "pose": "proud",
+    "pose": "look",
     "place": "center"
    }
   }
