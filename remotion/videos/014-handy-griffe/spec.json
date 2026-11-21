@@ -1,0 +1,228 @@
+{
+ "id": "014-handy-griffe",
+ "title": "Alle zehn Minuten",
+ "style": "punch",
+ "note": "angenommen: 8 Stunden Schlaf",
+ "scenes": [
+  {
+   "vo": "Wie oft entsperrst du dein Handy am Tag?",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Wie oft entsperrst",
+     "du dein Handy",
+     "*am Tag?*"
+    ]
+   },
+   "figure": {
+    "pose": "phone",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Bei 96-mal ist es alle 10 Minuten.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Bei *96-mal* ist",
+     "es alle",
+     "*10 Minuten.*"
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Wach bist du dann 16 Stunden, also 960 Minuten.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 960,
+    "unit": "Minuten wach"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "960 Minuten durch 96 Griffe: alle 10 Minuten.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "wache Zeit",
+      "value": "960 Min."
+     },
+     {
+      "label": "Griffe",
+      "value": "96"
+     },
+     {
+      "label": "Abstand",
+      "value": "10 Min.",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Bei 200-mal bleiben nur knapp 5 Minuten.",
+   "head": "",
+   "graphic": {
+    "kind": "bars",
+    "bars": [
+     {
+      "label": "60-mal",
+      "value": 16
+     },
+     {
+      "label": "96-mal",
+      "value": 10
+     },
+     {
+      "label": "120-mal",
+      "value": 8
+     },
+     {
+      "label": "200-mal",
+      "value": 5,
+      "hi": true
+     }
+    ],
+    "unit": "min"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Im Jahr sind das fünfunddreißigtausendvierzig Griffe.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 35040,
+    "unit": "Griffe im Jahr"
+   },
+   "figure": {
+    "pose": "phone",
+    "place": "center"
+   },
+   "cap": "Im Jahr sind das 35.040 Griffe.",
+   "key": "fünfund"
+  },
+  {
+   "vo": "Bei 4 Stunden am Handy: 2,5 Minuten pro Griff.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "240",
+     "label": "Minuten Handyzeit"
+    },
+    "right": {
+     "value": "2,5",
+     "label": "Minuten pro Griff"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Klar: 2015 waren es im Schnitt 53-mal am Tag.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "2015, App-Nutzer",
+      "value": "53-mal"
+     },
+     {
+      "label": "nicht repräsentativ",
+      "value": "nur Richtwert"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Es sind die vielen kleinen Griffe.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Es sind die",
+     "vielen kleinen",
+     "*Griffe.*"
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Deine Zahl steht in der Bildschirmzeit.",
+   "head": "",
+   "graphic": {
+    "kind": "none"
+   },
+   "figure": {
+    "pose": "phone",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Schau nach und nimm dir morgen die Hälfte vor.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Schau nach und",
+     "nimm dir morgen",
+     "die *Hälfte vor.*"
+    ],
+    "chip": "Wie viele Griffe sind es?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und frag dich:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und",
+     "*frag dich:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}

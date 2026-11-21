@@ -1,0 +1,255 @@
+{
+ "id": "015-20-minuten",
+ "title": "20 Minuten",
+ "style": "punch",
+ "note": "angenommen: jeden Tag",
+ "scenes": [
+  {
+   "vo": "Er hat abends nur 20 Minuten für Englisch.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Er hat abends",
+     "nur *20 Minuten*",
+     "für Englisch."
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Daraus werden in 3 Jahren 365 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Daraus werden in",
+     "3 Jahren *365*",
+     "*Stunden.*"
+    ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Wenn er keinen Tag auslässt, sind es 122 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 122,
+    "unit": "Stunden im Jahr"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Nach einem Jahr: 122 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "Jahr 1",
+      "value": 122
+     },
+     {
+      "label": "Jahr 2",
+      "value": 243
+     },
+     {
+      "label": "Jahr 3",
+      "value": 365
+     }
+    ],
+    "show": 1,
+    "unit": "h",
+    "title": "Stunden gelernt",
+    "limit": {
+     "value": 350,
+     "label": "B1: etwa 350 h"
+    }
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Nach 2 Jahren: 243 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "Jahr 1",
+      "value": 122
+     },
+     {
+      "label": "Jahr 2",
+      "value": 243
+     },
+     {
+      "label": "Jahr 3",
+      "value": 365
+     }
+    ],
+    "show": 2,
+    "unit": "h",
+    "title": "Stunden gelernt",
+    "limit": {
+     "value": 350,
+     "label": "B1: etwa 350 h"
+    }
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Nach 3 Jahren: schon 365 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "Jahr 1",
+      "value": 122
+     },
+     {
+      "label": "Jahr 2",
+      "value": 243
+     },
+     {
+      "label": "Jahr 3",
+      "value": 365
+     }
+    ],
+    "show": 3,
+    "unit": "h",
+    "title": "Stunden gelernt",
+    "limit": {
+     "value": 350,
+     "label": "B1: etwa 350 h"
+    }
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Bis B1 nennt Cambridge 350 bis 400 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "350–400",
+     "label": "Stunden bis B1"
+    },
+    "right": {
+     "value": "365",
+     "label": "Stunden in 3 Jahren"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   },
+   "key": "350"
+  },
+  {
+   "vo": "Klar: Richtwert, allein dauert es länger.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Richtwert",
+      "value": "angeleitetes Lernen"
+     },
+     {
+      "label": "allein",
+      "value": "kann länger dauern"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Dabei sind 20 Minuten nur 1,4 % eines Tages.",
+   "head": "",
+   "graphic": {
+    "kind": "ring",
+    "percent": 1.4,
+    "center": "1,4 %"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Zwanzig Minuten sind genug zum Anfangen.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Zwanzig Minuten",
+     "sind genug",
+     "*zum Anfangen.*"
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Stell dir heute einen Timer auf zwanzig Minuten.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Stell dir heute",
+     "einen Timer auf",
+     "*zwanzig Minuten.*"
+    ],
+    "chip": "Was lernst du?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und stell dir vor:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und",
+     "*stell dir vor:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}
