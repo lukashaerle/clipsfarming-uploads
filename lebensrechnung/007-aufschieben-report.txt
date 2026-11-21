@@ -1,0 +1,26 @@
+== 007-aufschieben | start 2026-11-21T16:55:44Z | Darwin arm64, 8 cpus
+  s11 27.56-29.15  Die Arbeit wird durchs Warten nicht mehr.
+  s12 29.31-30.61  Nur die Tage werden weniger.
+  s13 30.81-32.95  Also: Mach heute die erste Stunde.
+  s14 33.06-33.70  Und denk dran:
+ton: fertig in 17 s
+CUTS   14 sentences | loudest sound right outside a cut: -41 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -77 dB
+WORDS  87 of 88 script words heard, each sentence listened to on its own | words the recognition was unsure about: s10 'ein' (0.40), s07 'zwei' (0.50)
+LEVEL  sentences between -16.5 and -13.4 dBFS (middle -15.2)
+FLOW   pauses between sentences 0.10 to 0.63 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s03 after '30' 0.35 s, s05 after 'an,' 0.30 s, s06 after 'an,' 0.24 s, s06 after 'Minuten.' 0.27 s, s07 after 'warten,' 0.23 s, s08 after 'schon' 0.20 s, s09 after '15' 0.25 s, s10 after '30' 0.32 s, s10 after 'Mehr' 0.23 s, s13 after 'Also,' 0.28 s
+hoerpruefung: bitte anhoeren
+  - s14: script 'Und denk dran:' | heard 'und denkt dran!'
+  - s03: a pause of 0.35 s after '30', where the script has no comma or full stop
+  - s08: a pause of 0.20 s after 'schon', where the script has no comma or full stop
+  - s09: a pause of 0.25 s after '15', where the script has no comma or full stop
+  - s10: a pause of 0.32 s after '30', where the script has no comma or full stop
+  - s10: a pause of 0.23 s after 'Mehr', where the script has no comma or full stop
+laenge: 34.0 s (2040 Bilder)
+SAFE ZONE  28 stills | all clear
+full hd: fertig in 29 s
+4k: fertig in 342 s (4 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=34.005000|size=12240273 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=34.000000|size=39456926 
+== 007-aufschieben | fertig 2026-11-21T17:02:39Z
