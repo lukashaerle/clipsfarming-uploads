@@ -1,6 +1,12 @@
 {
  "_info": "Hook-Typ je Video (frage, zahl, mythos, szene). Die Tagesauswertung vergleicht Aufrufe nach Typ. Neue Skripte tragen sich hier ein.",
  "bevorzugt": null,
+ "beworben": {
+  "_info": "Aufrufe auf diesen Plattformen sind gekauft (Werbung). Sie zählen nicht für den Hook-Vergleich.",
+  "004-ein-prozent": [
+   "tiktok"
+  ]
+ },
  "videos": {
   "001-5-stunden-am-handy": "zahl",
   "002-schlummertaste": "zahl",
