@@ -3,6 +3,7 @@ import {AbsoluteFill, Audio, CalculateMetadataFunction, interpolate, staticFile,
 import {C, FONT, FPS, setPalette} from '../motiv/theme';
 import {Bg, clamp, Defs, Figure, Headline, lerp, seg, smooth} from '../motiv/kit';
 import {chunksOf} from './captions';
+import {PunchVideo} from './Punch';
 import {GraphicLayer} from './scenes';
 import type {FigurePlace, FigurePose, LrProps, Timeline, VideoSpec} from './spec';
 
@@ -15,10 +16,10 @@ import type {FigurePlace, FigurePose, LrProps, Timeline, VideoSpec} from './spec
 const FLOOR = 1480;
 const PLACE_X: Record<FigurePlace, number> = {left: 250, center: 540, right: 830};
 // action style: everything stays left of the app's buttons (x 886)
-const PLACE_X_ACTION: Record<FigurePlace, number> = {left: 190, center: 465, right: 740};
+export const PLACE_X_ACTION: Record<FigurePlace, number> = {left: 190, center: 465, right: 740};
 
-type Pose = {x: number; op: number; phone: number; slump: number; lookX: number; lookY: number; aura: number};
-const poseOf = (pose: FigurePose | undefined, place: FigurePlace | undefined, px: Record<FigurePlace, number>): Pose => {
+export type Pose = {x: number; op: number; phone: number; slump: number; lookX: number; lookY: number; aura: number};
+export const poseOf = (pose: FigurePose | undefined, place: FigurePlace | undefined, px: Record<FigurePlace, number>): Pose => {
   const x = px[place ?? 'center'];
   switch (pose ?? 'stand') {
     case 'none':
@@ -37,7 +38,7 @@ const poseOf = (pose: FigurePose | undefined, place: FigurePlace | undefined, px
       return {x, op: 1, phone: 0, slump: 0, lookX: 0, lookY: 0, aura: 0.3};
   }
 };
-const mixPose = (a: Pose, b: Pose, u: number): Pose => ({
+export const mixPose = (a: Pose, b: Pose, u: number): Pose => ({
   x: lerp(a.x, b.x, u),
   op: lerp(a.op, b.op, u),
   phone: lerp(a.phone, b.phone, u),
@@ -91,7 +92,7 @@ const Captions: React.FC<{spec: VideoSpec; timeline: Timeline; t: number; idx: n
   );
 };
 
-export const LrVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
+const ClassicVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
   setPalette('sw');
   const frame = useCurrentFrame();
   const t = frame / FPS;
@@ -183,6 +184,9 @@ export const LrVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
     </AbsoluteFill>
   );
 };
+
+/** the punch style has its own stage (Punch.tsx); everything else is drawn above */
+export const LrVideo: React.FC<LrProps> = (props) => (props.spec.style === 'punch' ? <PunchVideo {...props} /> : <ClassicVideo {...props} />);
 
 export const lrMetadata: CalculateMetadataFunction<LrProps> = ({props}) => ({
   durationInFrames: Math.max(1, Math.round(props.timeline.length * FPS)),

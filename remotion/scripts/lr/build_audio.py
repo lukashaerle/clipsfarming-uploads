@@ -43,6 +43,10 @@ MUSIC_BED, MUSIC_DUCK, MUSIC_OPEN = 0.52, 0.42, 0.80
 STYLES = {
     None: dict(lead_in=LEAD_IN, gap_min=GAP_MIN, gap_max=GAP_MAX, early=SCENE_EARLY, tail=TAIL, tempo=1.0, grid=0.0, music="ambient"),
     "action": dict(lead_in=0.15, gap_min=0.10, gap_max=0.22, early=0.06, tail=1.1, tempo=1.10, grid=0.25, music="beat"),
+    # 'punch': the action sound, but the video loops: no fade at the end, the length is a whole number of bars (2 s), so
+    # the beat runs on when the app starts the video again; a scene may ask for a breath after it ("hold" in the spec);
+    # the sounds follow the key word of every scene instead of a fixed time after the cut (cues_punch)
+    "punch": dict(lead_in=0.15, gap_min=0.10, gap_max=0.22, early=0.06, tail=0.30, tempo=1.10, grid=0.25, music="beat", loop=2.0),
 }
 
 
@@ -144,6 +148,75 @@ def cues_for(spec):
     return out
 
 
+def key_time(sc, tl):
+    """When the picture of a scene punches in (the same rule as timesOf in src/lr/Punch.tsx), in seconds of the video."""
+    tok, s, e = tl.get("tok") or [], tl["start"], tl["end"]
+    k = None
+    if sc.get("key"):
+        k = next((w["s"] for w in tok if w["t"].lower().startswith(sc["key"].lower())), None)
+    g = sc["graphic"]
+    if k is None and g["kind"] == "statement":
+        words, hi, first = [], False, None
+        for line in g["lines"]:
+            for raw in line.split():
+                if raw.startswith("*"):
+                    hi = True
+                if hi and first is None:
+                    first = len(words)
+                words.append(raw)
+                if raw.endswith("*") and len(raw) > 1:
+                    hi = False
+        if first is not None and len(words) == len(tok):
+            k = tok[first]["s"]
+    if k is None:
+        d = [w for w in tok if re.search(r"\d", w["t"])]
+        k = d[-1]["s"] if d else None
+    if k is None:
+        k = s + (e - s) * 0.45
+    return min(max(k - 0.06, s + 0.2), max(s + 0.2, e - 0.35))   # a moment before the word: the hit must not cover its first sound
+
+
+def cues_punch(spec, scenes):
+    """Sounds of the punch style: a thump on every cut, the sound of the graphic on the key word, a riser and a boom
+    for the big reveals (a statement's accent words, a bar that breaks its limit)."""
+    cues = {}
+    n = len(spec["scenes"])
+    for i, (sc, tl) in enumerate(zip(spec["scenes"], scenes)):
+        g, ev = sc["graphic"], []
+        k = g["kind"]
+        kt = round(key_time(sc, tl) - tl["start"], 3)
+        if i > 0:
+            ev.append({"k": "impulse", "at": 0.0, "v": 0.45})
+        if k == "statement":
+            big = i in (0, 1) or g.get("invert")
+            if big and i > 0:
+                ev.append({"k": "riser", "at": round(kt - 0.7, 3), "d": 0.7, "v": 1.0})
+            ev.append({"k": "boom" if big and i > 0 else "impulse", "at": kt, "v": 0.85 if big else 0.75})
+        elif k == "rise":
+            last = g["bars"][min(len(g["bars"]), max(1, g["show"])) - 1]
+            broke = bool(g.get("limit")) and last["value"] > g["limit"]["value"]
+            ev.append({"k": "slide", "at": max(0.0, kt - 0.1), "d": 0.45, "x": 300, "x2": 800, "v": 1.2})
+            ev.append({"k": "tok", "at": kt, "x": 540, "p": g["show"] * 3, "v": 1.0})
+            if broke:
+                ev.append({"k": "riser", "at": round(kt - 0.8, 3), "d": 0.8, "v": 1.1})
+                ev.append({"k": "boom", "at": round(kt + 0.3, 3), "v": 0.9})
+            elif g["show"] >= 4:
+                ev.append({"k": "impulse", "at": round(kt + 0.3, 3), "v": 0.8})
+        elif k == "counter":
+            ev += [{"k": "bloom", "at": 0.05, "d": 0.7, "v": 0.9}, {"k": "impulse", "at": kt, "v": 0.75}]
+        elif k == "grid":
+            ev += [{"k": "click", "v": 0.8, "roll": {"n": min(8, max(3, g["hi"])), "at": 0.2, "step": 0.11, "x": 300, "dx": 60}}]
+        elif k == "compare":
+            ev += [{"k": "tok", "at": 0.08, "x": 315, "v": 1.2}, {"k": "impulse", "at": kt, "v": 0.75}]
+        elif k == "timeline":
+            ev += [{"k": "click", "at": 0.25 + j * 0.2, "x": 540, "p": j, "v": 1.2} for j in range(len(g["marks"]))]
+            ev.append({"k": "impulse", "at": kt, "v": 0.7})
+        elif k in ("bars", "chips", "blocks", "ring", "clock", "curve"):
+            ev.append({"k": "impulse", "at": kt, "v": 0.75})
+        cues["s%02d" % (i + 1)] = ev
+    return {"whoosh": {"default": 1.2}, "slots": cues}
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     opt = dict(zip([a for a in sys.argv[1:] if a.startswith("--")], [None] * 9))
@@ -188,13 +261,19 @@ def main():
                           "take_a": round(c["a"], 3), "take_b": round(c["b"], 3), "take_on": round(c["on"], 3), "take_off": round(c["off"], 3),
                           "pause_cut": 0.0, "tempo": 1.0, "early": 0.0, "late": 0.0, "glued": bool(c["glued_in"] or c["glued_out"])})
         natural = c["gap_after"] if i + 1 < len(slots) else 0
-        nxt = t + dur + min(sty["gap_max"], max(sty["gap_min"], natural))
+        hold = float(spec["scenes"][i].get("hold", 0) or 0)
+        nxt = t + dur + min(sty["gap_max"], max(sty["gap_min"], natural)) + hold
         if sty["grid"]:
             # the cut of the next scene (a moment before its first word) lands on the beat grid
             g = sty["grid"]
-            nxt = float(np.ceil((t + dur + sty["gap_min"] - sty["early"]) / g - 1e-6) * g + sty["early"])
+            nxt = float(np.ceil((t + dur + sty["gap_min"] + hold - sty["early"]) / g - 1e-6) * g + sty["early"])
         t = nxt
     length = round(sentences[-1]["end"] + sty["tail"], 2)
+    loop = sty.get("loop")
+    if loop:
+        # the video starts again right after its last frame: end on a bar line so the beat runs on
+        length = round(float(np.ceil(length / loop - 1e-6) * loop), 2)
+        print("loop: last word ends %.2f s, bar line at %.2f s, %.2f s of beat alone before the video starts again" % (sentences[-1]["end"], length, length - sentences[-1]["end"]))
     n = int(length * SR)
     scenes = []
     for i, s in enumerate(sentences):
@@ -234,7 +313,7 @@ def main():
         bed_g, open_g = duck_g * 1.45, duck_g * 2.1
     else:
         subprocess.run([py, "-I", os.path.join(HERE, "..", "music", "ambient.py"), os.path.join(out_dir, "music"), str(length + 0.5), "generic"], check=True, capture_output=True)
-    json.dump(cues_for(spec), open(os.path.join(out_dir, "cues.json"), "w"), indent=1)
+    json.dump(cues_punch(spec, scenes) if spec.get("style") == "punch" else cues_for(spec), open(os.path.join(out_dir, "cues.json"), "w"), indent=1)
     subprocess.run([py, "-I", os.path.join(HERE, "..", "motiv", "sfx.py"), os.path.join(out_dir, "cues.json"), os.path.join(out_dir, "timeline.json"),
                     os.path.join(out_dir, "sfx.wav"), str(length)], check=True, capture_output=True)
     ml, mr = (bl, br) if sty["music"] == "beat" else vm.load_stereo(os.path.join(out_dir, "music.wav"))
@@ -249,10 +328,18 @@ def main():
     tt = np.arange(n) / SR
     fw, lw = sentences[0]["start"], sentences[-1]["end"]
     bed = np.interp(tt, [0, max(0.01, fw - 0.05), fw + 0.4, lw + 0.3, lw + 1.4], [open_g, open_g, bed_g, bed_g, open_g])
+    if loop:
+        bed = np.full(n, bed_g, np.float32)   # the same level at the last and the first frame
     gain = (bed - (bed_g - duck_g) * env).astype(np.float32)
     left, right = ml * gain + track + fl, mr * gain + track + fr
-    fade = np.interp(tt, [length - 1.0, length - 0.1], [1.0, 0.0]).astype(np.float32)   # the end fade lives in the mix
-    left, right = left * fade, right * fade
+    if loop:
+        # what still rings after the last frame (reverb, a boom) continues at the start, as it would in a real loop;
+        # a 5 ms fade at both edges avoids a click where the app joins the end to the beginning
+        edge = np.interp(tt, [0, 0.005, length - 0.005, length], [0.0, 1.0, 1.0, 0.0]).astype(np.float32)
+        left, right = left * edge, right * edge
+    else:
+        fade = np.interp(tt, [length - 1.0, length - 0.1], [1.0, 0.0]).astype(np.float32)   # the end fade lives in the mix
+        left, right = left * fade, right * fade
     peak = max(float(np.max(np.abs(left))), float(np.max(np.abs(right))))
     if peak > 0.95:
         left, right = left * (0.95 / peak), right * (0.95 / peak)

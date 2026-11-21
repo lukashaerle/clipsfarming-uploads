@@ -23,8 +23,9 @@ const ChipStack: React.FC<{items: ChipItem[]; lt: number; y0: number; start: num
   </g>
 );
 
-const Counter: React.FC<{g: Extract<Graphic, {kind: 'counter'}>; lt: number; dur: number}> = ({g, lt, dur}) => {
-  const u = grow(lt, dur, 0.25, 1.4);
+const Counter: React.FC<{g: Extract<Graphic, {kind: 'counter'}>; lt: number; dur: number; kt?: number}> = ({g, lt, dur, kt}) => {
+  // punch style (kt given): the number arrives exactly when it is spoken
+  const u = kt !== undefined ? smooth(seg(lt, 0.05, Math.max(0.5, kt))) : grow(lt, dur, 0.25, 1.4);
   const v = lerp(g.from ?? 0, g.to, u);
   const text = `${g.prefix ?? ''}${num(v, g.decimals ?? 0)}${g.suffix ?? ''}`;
   const size = Math.min(320, 1500 / Math.max(3, text.length));
@@ -82,15 +83,17 @@ const Grid: React.FC<{g: Extract<Graphic, {kind: 'grid'}>; lt: number; dur: numb
   const x0 = 540 - (cols * cell) / 2 + cell / 2;
   const y0 = 690;
   const fillU = clamp(seg(lt, 0.5, 0.5 + Math.min(2.4, dur * 0.55)));
-  const lit = g.hi * fillU;
+  // `gone`: all cells are lit at once and then go out from the first one (days running out)
+  const out = (g.gone ?? 0) * clamp(seg(lt, 0.4, 0.4 + Math.min(1.8, dur * 0.5)));
+  const lit = g.gone ? g.hi : g.hi * fillU;
   return (
     <g>
       <Tx x={110} y={620} size={44} fill={C.dim} anchor="start" weight={600} ls={3} opacity={smooth(seg(lt, 0.1, 0.5))}>
-        <tspan fill={C.you}>{num(Math.round(lit))}</tspan> {(g.hiLabel ?? `von ${num(g.total)}`).toUpperCase()}
+        <tspan fill={C.you}>{num(Math.round(lit - out))}</tspan> {(g.hiLabel ?? `von ${num(g.total)}`).toUpperCase()}
       </Tx>
       {Array.from({length: g.total}, (_, i) => {
         const r = Math.floor(i / cols);
-        const on = clamp(lit - i);
+        const on = clamp(lit - i) * (1 - clamp(out - i));
         const a = smooth(seg(lt, r * 0.015, 0.35 + r * 0.015));
         return <circle key={i} cx={x0 + (i % cols) * cell} cy={y0 + r * cell} r={cell * lerp(0.32, 0.46, on)} fill={on > 0 ? C.you : C.grey} opacity={a * (on > 0 ? lerp(0.5, 1, on) : 0.35)} />;
       })}
@@ -218,7 +221,7 @@ const Timeline: React.FC<{g: Extract<Graphic, {kind: 'timeline'}>; lt: number; d
   );
 };
 
-const Compare: React.FC<{g: Extract<Graphic, {kind: 'compare'}>; lt: number}> = ({g, lt}) => {
+const Compare: React.FC<{g: Extract<Graphic, {kind: 'compare'}>; lt: number; kt?: number}> = ({g, lt, kt}) => {
   const side = (s: {value: string; label: string}, x: number, hi: boolean, at: number) => {
     const a = pop(lt, at, 0.28);
     const size = Math.min(200, 900 / Math.max(3, s.value.length));
@@ -238,7 +241,7 @@ const Compare: React.FC<{g: Extract<Graphic, {kind: 'compare'}>; lt: number}> = 
   return (
     <g>
       {side(g.left, 315, g.hi === 'left', 0.3)}
-      {side(g.right, 765, g.hi === 'right', 1.0)}
+      {side(g.right, 765, g.hi === 'right', kt !== undefined ? Math.max(0.35, kt - 0.12) : 1.0)}
     </g>
   );
 };
@@ -305,10 +308,74 @@ const Statement: React.FC<{g: Extract<Graphic, {kind: 'statement'}>; lt: number}
   );
 };
 
-export const GraphicLayer: React.FC<{g: Graphic; lt: number; dur: number}> = ({g, lt, dur}) => {
+/** Bars that grow from scene to scene (punch style). `kt` = the moment (in lt) the newest bar starts to grow,
+ *  which is when its number is spoken. The scale is the same in every scene, so the chart stands still across the cuts. */
+const Rise: React.FC<{g: Extract<Graphic, {kind: 'rise'}>; lt: number; kt?: number}> = ({g, lt, kt = 0.9}) => {
+  const n = g.bars.length;
+  const vmax = Math.max(...g.bars.map((b) => b.value), g.limit?.value ?? 0);
+  const X0 = 120;
+  const X1 = 960;
+  const YB = 1076;
+  const H = 430;
+  const slot = (X1 - X0) / n;
+  const bw = Math.min(118, slot * 0.7);
+  const Y = (v: number) => YB - (v / vmax) * H;
+  const shown = Math.min(n, Math.max(1, g.show));
+  const u = 1 - Math.pow(1 - clamp(seg(lt, kt - 0.15, kt + 0.55)), 3);
+  const first = shown === 1 ? smooth(seg(lt, 0, 0.3)) : 1;
+  const newest = g.bars[shown - 1];
+  const over = g.limit ? clamp((newest.value * u - g.limit.value) / Math.max(1e-6, newest.value - g.limit.value)) : 0;
+  const broke = g.limit && newest.value > g.limit.value ? over : 0;
+  return (
+    <g opacity={first}>
+      <Tx x={X0} y={606} size={48} fill={C.dim} anchor="start" weight={600} ls={4}>
+        {(g.title ?? `${g.unit} pro Tag`).toUpperCase()}
+      </Tx>
+      <line x1={X0} y1={YB} x2={X1} y2={YB} stroke={C.line} strokeWidth={5} strokeLinecap="round" />
+      {g.limit ? (
+        <g>
+          <line x1={X0} y1={Y(g.limit.value)} x2={X1} y2={Y(g.limit.value)} stroke={broke > 0 ? C.ink : C.grey} strokeWidth={broke > 0 ? 6 : 4} strokeDasharray="14 12" strokeLinecap="round" />
+          <Tx x={X0} y={Y(g.limit.value) - 18} size={36} fill={broke > 0 ? C.ink : C.dim} anchor="start" weight={600} ls={3}>
+            {g.limit.label.toUpperCase()}
+          </Tx>
+        </g>
+      ) : null}
+      {g.bars.map((b, i) => (
+        <Tx key={`l${i}`} x={X0 + i * slot + slot / 2} y={YB + 52} size={32} fill={i === shown - 1 ? C.ink : C.dim} weight={600} ls={1} opacity={i < shown ? 1 : 0.55}>
+          {b.label.toUpperCase()}
+        </Tx>
+      ))}
+      {g.bars.slice(0, shown).map((b, i) => {
+        const last = i === shown - 1;
+        const v = last ? b.value * u : b.value;
+        const h = Math.max(last ? 12 * clamp(u * 4) : 12, (v / vmax) * H);
+        const x = X0 + i * slot + (slot - bw) / 2;
+        const cx = x + bw / 2;
+        const lim = g.limit ? Y(g.limit.value) : -1;
+        return (
+          <g key={i}>
+            <rect x={x} y={YB - h} width={bw} height={h} rx={Math.min(14, h / 2)} fill={last ? C.you : C.ink} opacity={last ? 1 : 0.82} />
+            {last && g.limit && YB - h < lim ? <rect x={x} y={YB - h} width={bw} height={lim - (YB - h)} rx={Math.min(14, (lim - (YB - h)) / 2)} fill={C.ink} /> : null}
+            {last ? (
+              <Tx x={cx} y={YB - h - 24} size={104} fill={C.you} ls={-1} opacity={clamp(u * 5)}>
+                {`${num(Math.round(v))} ${g.unit}`}
+              </Tx>
+            ) : (
+              <Tx x={cx} y={YB - h - 14} size={46} fill={C.ink} opacity={0.85}>
+                {`${num(b.value)} ${g.unit}`}
+              </Tx>
+            )}
+          </g>
+        );
+      })}
+    </g>
+  );
+};
+
+export const GraphicLayer: React.FC<{g: Graphic; lt: number; dur: number; kt?: number}> = ({g, lt, dur, kt}) => {
   switch (g.kind) {
     case 'counter':
-      return <Counter g={g} lt={lt} dur={dur} />;
+      return <Counter g={g} lt={lt} dur={dur} kt={kt} />;
     case 'bars':
       return <Bars g={g} lt={lt} dur={dur} />;
     case 'grid':
@@ -322,13 +389,15 @@ export const GraphicLayer: React.FC<{g: Graphic; lt: number; dur: number}> = ({g
     case 'timeline':
       return <Timeline g={g} lt={lt} dur={dur} />;
     case 'compare':
-      return <Compare g={g} lt={lt} />;
+      return <Compare g={g} lt={lt} kt={kt} />;
     case 'chips':
       return <ChipStack items={g.items} lt={lt} y0={700} start={0.3} />;
     case 'curve':
       return <Curve g={g} lt={lt} dur={dur} />;
     case 'statement':
       return <Statement g={g} lt={lt} />;
+    case 'rise':
+      return <Rise g={g} lt={lt} kt={kt} />;
     default:
       return null;
   }

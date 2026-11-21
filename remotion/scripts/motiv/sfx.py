@@ -29,8 +29,8 @@ import darkbeat as db  # noqa: E402  (filters, reverb, file writer)
 SR = db.SR
 rng = np.random.default_rng(7)
 
-LEVEL = dict(click=0.11, tok=0.10, impulse=0.18, bloom=0.08, slide=0.08, whoosh=0.09)   # peak of one sound; the narrator peaks near 0.9
-SEND = dict(click=0.05, tok=0.12, impulse=0.30, bloom=0.35, slide=0.25, whoosh=0.20)
+LEVEL = dict(click=0.11, tok=0.10, impulse=0.18, bloom=0.08, slide=0.08, whoosh=0.09, riser=0.10, boom=0.26)   # peak of one sound; the narrator peaks near 0.9
+SEND = dict(click=0.05, tok=0.12, impulse=0.30, bloom=0.35, slide=0.25, whoosh=0.20, riser=0.25, boom=0.30)
 REVERB = 0.5
 
 
@@ -80,6 +80,32 @@ def impulse():
     air = unit(band(rng.standard_normal(n), 1500, 4000)) * np.exp(-t / 0.04) * 0.07
     y = (body + knock + air) * np.minimum(1, t / 0.006)
     return db.fade(y / np.max(np.abs(y)), 0.0, 0.1)
+
+
+def riser(dur):
+    """Tension before a reveal: noise that gets brighter and a tone that climbs two octaves, growing until it stops dead."""
+    n = int(dur * SR)
+    x = np.arange(n) / n
+    nz = rng.standard_normal(n)
+    lo, mid, hi = unit(band(nz, 300, 900)), unit(band(nz, 900, 2800)), unit(band(nz, 2800, 8000)) * 0.8
+    y = lo * np.clip(1 - 2 * x, 0, 1) + mid * (1 - np.abs(2 * x - 1)) + hi * np.clip(2 * x - 1, 0, 1)
+    tone = np.sin(2 * np.pi * np.cumsum(180.0 * 2 ** (2.0 * x)) / SR) * 0.3
+    y = (y + tone) * x ** 2.2
+    k = int(0.004 * SR)
+    y[-k:] *= np.linspace(1, 0, k)
+    return y / np.max(np.abs(y))
+
+
+def boom():
+    """The reveal itself: a low drop with a knock small speakers can play and a short crack on top."""
+    n = int(1.6 * SR)
+    t = np.arange(n) / SR
+    ph = 2 * np.pi * np.cumsum(38 + 70 * np.exp(-t / 0.06)) / SR
+    body = (np.sin(ph) + 0.5 * np.sin(2 * ph) + 0.25 * np.sin(3 * ph)) * np.exp(-t / 0.35)
+    knock = np.sin(2 * np.pi * 240 * t) * np.exp(-t / 0.05) * 0.5
+    crack = unit(band(rng.standard_normal(n), 1200, 6000)) * np.exp(-t / 0.03) * 0.12
+    y = (body + knock + crack) * np.minimum(1, t / 0.004)
+    return db.fade(y / np.max(np.abs(y)), 0.0, 0.2)
 
 
 def sweep_noise(dur, up=True):
@@ -183,6 +209,13 @@ def main():
                     d = it.get("d", 1.2)
                     sl, sr = moving(soft_noise(d, 500, 2500), x, it.get("x2", x))
                     put(sl, sr, t, k, LEVEL[k] * v)
+                elif k == "riser":
+                    d = it.get("d", 0.8)
+                    sig = riser(d)
+                    put(sig, sig, t, k, LEVEL[k] * v)   # `at` is where it starts; it ends d seconds later
+                elif k == "boom":
+                    sig = boom()
+                    put(sig, sig, t - 0.004, k, LEVEL[k] * v)
                 else:
                     raise SystemExit("unknown kind: %s" % k)
                 events.append({"t": round(t, 3), "k": k, "slot": sid, "v": v})

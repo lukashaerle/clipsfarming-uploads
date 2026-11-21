@@ -5,6 +5,8 @@
 //   gold:  black and white, gold accent
 //   lime:  black and white, neon lime accent
 //   rot:   black and white, red accent
+//   gelb:  black and white, signal yellow accent (punch style of the LR videos)
+//   blau:  black and white, bright blue accent (alternative accent of the punch style)
 //   hell:  light paper stage, red = you, blue = the phone
 export type Palette = {
   bg0: string;
@@ -177,6 +179,8 @@ const PALETTES = {
   gold: accent('#F2C14E', '#FFE08A', '#4A3608'),
   lime: accent('#C8FF2E', '#E6FF8A', '#26360A'),
   rot: accent('#FF3B30', '#FF8A80', '#4A0D0A'),
+  gelb: accent('#FFD60A', '#FFE980', '#3A3206'),
+  blau: accent('#3B9DFF', '#9CCBFF', '#0A2440'),
   hell: HELL,
 };
 
