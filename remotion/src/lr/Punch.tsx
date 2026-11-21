@@ -24,6 +24,14 @@ const CAP = {x0: 44, x1: 886, y: 1076, max: 118, fit: 780};
 const INK_DARK = '#0B0B0B';
 const easeOut = (u: number) => 1 - Math.pow(1 - clamp(u), 3);
 
+/** A stack of chips is small for a stage without a headline: it is drawn 1.3 times as large and centred on the stage
+ *  (the stack sits at x 170-910 from y 700 in the band, 96 px per row; at 1.3 it spans x 59-1021). */
+const chipsTransform = (rows: number) => {
+  const k = 1.3;
+  const cy = 700 + (84 + (rows - 1) * 96) / 2;
+  return `translate(540 ${STAGE.cy - 20}) scale(${k}) translate(-540 ${-cy})`;
+};
+
 type W = {text: string; s: number; e: number};
 
 /** the words of a text with the times of the spoken tokens; when the counts differ the time is shared by length */
@@ -335,7 +343,7 @@ export const PunchVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
         ) : (
           <svg viewBox="0 0 1080 1920" width={1080} height={1920} style={{position: 'absolute'}}>
             <Defs />
-            <g transform={`translate(0 ${STAGE.shift})`}>
+            <g transform={g.kind === 'chips' ? chipsTransform(g.items.length) : `translate(0 ${STAGE.shift})`}>
               <GraphicLayer g={g} lt={raw * 1.5 + (idx === 0 ? 1.4 : 0.22)} dur={len * 1.5 + 0.22} kt={(tm.kt - tm.s) * 1.5 + 0.22} />
             </g>
           </svg>
