@@ -1,0 +1,20 @@
+== 009-freundschaft | start 2026-11-22T01:44:26Z | Linux x86_64, 4 cpus
+  s10 22.81-26.11  Wer neu anfängt, ist nicht unbeliebt. Nur bei Stunde null.
+  s11 26.31-30.02  Klar: Zeit ist keine Garantie. Aber ohne geht es nicht.
+  s12 30.31-33.16  Schreib heute einer Person: Hast du 2 Stunden Zeit?
+  s13 33.31-34.38  Denn so fängt es an:
+ton: fertig in 21 s
+CUTS   13 sentences | loudest sound right outside a cut: -21 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -78 dB
+WORDS  skipped, no recognition model here (LocalEntryNotFoundError)
+LEVEL  sentences between -16.3 and -14.0 dBFS (middle -15.1)
+FLOW   pauses between sentences 0.11 to 0.44 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s01 after 'Stadt.' 0.20 s, s01 after 'Job.' 0.26 s, s09 after 'Woche:' 0.25 s, s10 after 'unbeliebt.' 0.27 s, s11 after 'Klar:' 0.19 s, s11 after 'Garantie.' 0.30 s, s12 after 'Person:' 0.28 s
+hoerpruefung: ok
+laenge: 36.0 s (2160 Bilder)
+SAFE ZONE  26 stills | all clear
+full hd: fertig in 398 s
+4k: fertig in 1319 s (4 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=36.011000|size=12047831 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=36.000000|size=38455003 
+== 009-freundschaft | fertig 2026-11-22T02:13:40Z
