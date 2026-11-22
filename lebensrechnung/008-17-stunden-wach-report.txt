@@ -1,0 +1,20 @@
+== 008-17-stunden-wach | start 2026-11-22T01:14:15Z | Linux x86_64, 4 cpus
+  s10 26.56-28.57  Klar: Das ist nur ein Laborvergleich.
+  s11 28.81-32.20  Die gute Nachricht: 17 Stunden wach, 7 Stunden Schlaf.
+  s12 32.31-34.13  Wann enden heute deine 17 Stunden?
+  s13 34.31-35.06  Und denk an sie:
+ton: fertig in 22 s
+CUTS   13 sentences | loudest sound right outside a cut: -67 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -77 dB
+WORDS  skipped, no recognition model here (LocalEntryNotFoundError)
+LEVEL  sentences between -17.3 and -14.1 dBFS (middle -15.1)
+FLOW   pauses between sentences 0.11 to 0.46 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s03 after 'Grund?' 0.30 s, s04 after 'Uhr.' 0.17 s, s06 after 'wach.' 0.28 s, s09 after 'dabei:' 0.25 s, s10 after 'Klar:' 0.23 s, s11 after 'Nachricht:' 0.22 s
+hoerpruefung: ok
+laenge: 36.0 s (2160 Bilder)
+SAFE ZONE  26 stills | all clear
+full hd: fertig in 400 s
+4k: fertig in 1364 s (4 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=36.011000|size=11640532 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=36.000000|size=37182632 
+== 008-17-stunden-wach | fertig 2026-11-22T01:44:18Z
