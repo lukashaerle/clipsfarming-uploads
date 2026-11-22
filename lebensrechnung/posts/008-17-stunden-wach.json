@@ -15,8 +15,9 @@
   "shorts"
  ],
  "id": "008-17-stunden-wach",
- "status": "fehler",
+ "status": "freigegeben-warten",
  "style": "punch",
- "fehler": "vidIQ hat das Veröffentlichen abgelehnt: die 3 YouTube-Uploads pro Tag sind aufgebraucht (Reset 2026-11-23T08:00:00Z). Nichts veröffentlicht; Entwurf bleibt in vidIQ.",
- "draftId": "dee7dfcd-a89f-49a9-be95-e657979aabd1"
+ "draftId": "dee7dfcd-a89f-49a9-be95-e657979aabd1",
+ "retryAfter": "2026-11-23T08:05:00Z",
+ "fehler_vorher": "vidIQ hat das Veröffentlichen abgelehnt: die 3 YouTube-Uploads pro Tag sind aufgebraucht (Reset 2026-11-23T08:00:00Z). Nichts veröffentlicht; Entwurf bleibt in vidIQ."
 }
