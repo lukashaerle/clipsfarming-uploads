@@ -1,0 +1,23 @@
+== 016-39-tage | start 2026-11-22T11:50:32Z | Darwin arm64, 8 cpus
+  s09 20.31-22.13  Jeder Fehler ist eine Stufe nach oben.
+  s10 22.31-24.50  Scheitern ist okay. Nicht versuchen nicht.
+  s11 24.81-26.30  Was ist dein erster Schritt heute?
+  s12 26.56-27.52  Denn noch sind es:
+ton: fertig in 16 s
+CUTS   12 sentences | loudest sound right outside a cut: -23 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -75 dB
+WORDS  72 of 76 script words heard, each sentence listened to on its own | words the recognition was unsure about: s04 'Auf' (0.10), s04 '1.' (0.48), s02 'noch' (0.48)
+LEVEL  sentences between -16.7 and -13.9 dBFS (middle -15.7)
+FLOW   pauses between sentences 0.11 to 0.53 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s02 after 'dann,' 0.29 s, s03 after 'Sonntag,' 0.17 s, s04 after 'Montag,' 0.24 s, s04 after 'ersten,' 0.28 s, s06 after 'immer,' 0.23 s, s07 after 'an,' 0.22 s, s08 after 'scheitern,' 0.24 s, s10 after 'okay,' 0.27 s
+hoerpruefung: bitte anhoeren
+  - s02: script 'Und dann? Dasselbe Jahr noch mal?' | heard 'Und dann dasselbe ja noch mal.'
+  - s04: script 'Du wartest auf Montag. Auf den Ersten. Auf Januar.' | heard 'Du wartest auf Montag. Auf den 1. Auf Januar.'
+  - s08: script 'Du wirst scheitern. Bestimmt 10 Mal.' | heard 'Du wirst scheitern. Bestimmt zehnmal.'
+laenge: 28.0 s (1680 Bilder)
+SAFE ZONE  24 stills | all clear
+full hd: fertig in 23 s
+4k: fertig in 205 s (3 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=28.011000|size=9323129 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=28.000000|size=30106019 
+== 016-39-tage | fertig 2026-11-22T11:55:01Z

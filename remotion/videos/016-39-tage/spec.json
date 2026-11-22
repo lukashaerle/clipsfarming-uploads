@@ -1,0 +1,214 @@
+{
+ "id": "016-39-tage",
+ "title": "Noch 39 Tage",
+ "style": "punch",
+ "scenes": [
+  {
+   "vo": "Noch 39 Tage bis Silvester.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Noch *39 Tage*",
+     "bis Silvester."
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und dann? Dasselbe Jahr noch mal?",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und dann?",
+     "Dasselbe Jahr",
+     "*noch mal?*"
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Montag bis Sonntag. Immer wieder von vorn.",
+   "head": "",
+   "graphic": {
+    "kind": "blocks",
+    "n": 7,
+    "hi": 7,
+    "label": "",
+    "caption": "Mo bis So, immer gleich"
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Du wartest auf Montag. Auf den Ersten. Auf Januar.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "warten auf",
+      "value": "Montag"
+     },
+     {
+      "label": "warten auf",
+      "value": "den Ersten"
+     },
+     {
+      "label": "warten auf",
+      "value": "Januar",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "left"
+   },
+   "key": "Januar"
+  },
+  {
+   "vo": "Aber der perfekte Tag kommt nicht.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Aber der",
+     "perfekte Tag",
+     "*kommt nicht.*"
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Probleme gibt es immer. Stress auch.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Probleme",
+      "value": "immer"
+     },
+     {
+      "label": "Stress",
+      "value": "auch",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Also fang heute an. Nicht erst morgen früh.",
+   "head": "",
+   "graphic": {
+    "kind": "grid",
+    "total": 39,
+    "hi": 1,
+    "cols": 13,
+    "label": "39 Tage",
+    "hiLabel": "heute"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   },
+   "key": "heute"
+  },
+  {
+   "vo": "Du wirst scheitern. Bestimmt 10 Mal.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 10,
+    "unit": "Fehler, mindestens"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Jeder Fehler ist eine Stufe nach oben.",
+   "head": "",
+   "graphic": {
+    "kind": "blocks",
+    "n": 10,
+    "hi": 10,
+    "label": "X",
+    "caption": "jeder Fehler: eine Stufe"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "right"
+   },
+   "key": "Stufe"
+  },
+  {
+   "vo": "Scheitern ist okay. Nicht versuchen nicht.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Scheitern ist okay.",
+     "*Nicht versuchen*",
+     "*nicht.*"
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Was ist dein erster Schritt heute?",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Was ist dein",
+     "*erster Schritt*",
+     "heute?"
+    ],
+    "chip": "Schreib ihn unten rein."
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Denn noch sind es:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Denn noch",
+     "*sind es:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}
