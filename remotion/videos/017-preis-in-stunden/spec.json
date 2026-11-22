@@ -1,0 +1,243 @@
+{
+ "id": "017-preis-in-stunden",
+ "title": "Preis in Stunden",
+ "style": "punch",
+ "note": "angenommen: 12 €/h, 40 h/Woche",
+ "scenes": [
+  {
+   "vo": "Ein Handy kostet 1200 Euro?",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Ein Handy kostet",
+     "*1200 Euro?*"
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Von wegen. Es kostet 100 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Von wegen.",
+     "Es kostet",
+     "*100 Stunden.*"
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Wenn du 12 Euro netto pro Stunde verdienst.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 12,
+    "unit": "Euro netto pro Stunde"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   },
+   "key": "12"
+  },
+  {
+   "vo": "Das neue Handy kostet 1200 Euro.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "12",
+     "label": "Euro, eine Stunde"
+    },
+    "right": {
+     "value": "1200",
+     "label": "Euro, das Handy"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Teile 1200 Euro durch 12 Euro. Das sind 100 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 100,
+    "unit": "Stunden Arbeit"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Eine Arbeitswoche: 40 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "1 Woche",
+      "value": 40
+     },
+     {
+      "label": "2 Wochen",
+      "value": 80
+     },
+     {
+      "label": "2,5 Wochen",
+      "value": 100
+     }
+    ],
+    "show": 1,
+    "unit": "h",
+    "title": "Stunden Arbeit"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Zwei Arbeitswochen: 80 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "1 Woche",
+      "value": 40
+     },
+     {
+      "label": "2 Wochen",
+      "value": 80
+     },
+     {
+      "label": "2,5 Wochen",
+      "value": 100
+     }
+    ],
+    "show": 2,
+    "unit": "h",
+    "title": "Stunden Arbeit"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Zweieinhalb Wochen: 100 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "1 Woche",
+      "value": 40
+     },
+     {
+      "label": "2 Wochen",
+      "value": 80
+     },
+     {
+      "label": "2,5 Wochen",
+      "value": 100
+     }
+    ],
+    "show": 3,
+    "unit": "h",
+    "title": "Stunden Arbeit"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   },
+   "cap": "2,5 Wochen: 100 Stunden.",
+   "hold": 0.25
+  },
+  {
+   "vo": "Das Handy kostet zweieinhalb Arbeitswochen.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Das Handy kostet",
+     "*zweieinhalb*",
+     "*Arbeitswochen.*"
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Klar: nur ein Rechenbeispiel. Dein Lohn ist ein anderer.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Rechenbeispiel",
+      "value": "12 € netto pro h"
+     },
+     {
+      "label": "Dein Lohn",
+      "value": "rechne selbst"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Teile heute einen Preis durch deinen Stundenlohn.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Teile heute einen",
+     "Preis durch deinen",
+     "*Stundenlohn.*"
+    ],
+    "chip": "Was kaufst du als Nächstes?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und rechne nach:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und",
+     "*rechne nach:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}

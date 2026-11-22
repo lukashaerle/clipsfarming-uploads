@@ -1,0 +1,250 @@
+{
+ "id": "018-dein-tag-in-zahlen",
+ "title": "Dein Tag in Zahlen",
+ "style": "punch",
+ "scenes": [
+  {
+   "vo": "Wofür nimmst du dir am meisten Zeit?",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Wofür nimmst du",
+     "dir am meisten",
+     "*Zeit?*"
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Im Schnitt: Fernsehen.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Im Schnitt:",
+     "*Fernsehen.*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Fürs Lesen nehmen wir uns 27 Minuten am Tag.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "Lesen",
+      "value": 27
+     },
+     {
+      "label": "Kontakte",
+      "value": 75
+     },
+     {
+      "label": "Fernsehen",
+      "value": 127
+     }
+    ],
+    "show": 1,
+    "unit": "min",
+    "title": "Minuten pro Tag"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Für Menschen sind es 75 Minuten am Tag.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "Lesen",
+      "value": 27
+     },
+     {
+      "label": "Kontakte",
+      "value": 75
+     },
+     {
+      "label": "Fernsehen",
+      "value": 127
+     }
+    ],
+    "show": 2,
+    "unit": "min",
+    "title": "Minuten pro Tag"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Fürs Fernsehen sind es 127 Minuten am Tag.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "Lesen",
+      "value": 27
+     },
+     {
+      "label": "Kontakte",
+      "value": 75
+     },
+     {
+      "label": "Fernsehen",
+      "value": 127
+     }
+    ],
+    "show": 3,
+    "unit": "min",
+    "title": "Minuten pro Tag"
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "left"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Das sind 52 Minuten mehr als für Menschen.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "75",
+     "label": "Minuten Kontakte"
+    },
+    "right": {
+     "value": "127",
+     "label": "Minuten Fernsehen"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   },
+   "key": "52"
+  },
+  {
+   "vo": "Fast fünfmal so viel wie fürs Lesen.",
+   "head": "",
+   "graphic": {
+    "kind": "bars",
+    "unit": "min",
+    "bars": [
+     {
+      "label": "Lesen",
+      "value": 27
+     },
+     {
+      "label": "Fernsehen",
+      "value": 127,
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   },
+   "key": "fünf"
+  },
+  {
+   "vo": "Klar: Das ist ein Durchschnitt für Menschen ab 10 Jahren.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Durchschnitt",
+      "value": "Menschen ab 10 J."
+     },
+     {
+      "label": "Dein Tag",
+      "value": "kann anders sein"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Im Jahr 2022 hat das Statistische Bundesamt gemessen.",
+   "head": "",
+   "graphic": {
+    "kind": "none"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Die Zeit ist da. Sie liegt nur woanders.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Die Zeit ist da.",
+     "Sie liegt nur",
+     "*woanders.*"
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Gib heute 30 Minuten einem Menschen.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Gib heute",
+     "30 Minuten",
+     "*einem Menschen.*"
+    ],
+    "chip": "Wen rufst du an?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und frag dich:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und",
+     "*frag dich:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}

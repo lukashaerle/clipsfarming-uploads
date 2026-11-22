@@ -23,6 +23,8 @@
   "013-zeit-schlaegt-betrag": "szene",
   "014-handy-griffe": "frage",
   "015-20-minuten": "szene",
-  "016-39-tage": "zahl"
+  "016-39-tage": "zahl",
+  "017-preis-in-stunden": "mythos",
+  "018-dein-tag-in-zahlen": "frage"
  }
 }
