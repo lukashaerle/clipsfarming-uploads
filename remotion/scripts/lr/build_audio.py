@@ -47,6 +47,9 @@ STYLES = {
     # the beat runs on when the app starts the video again; a scene may ask for a breath after it ("hold" in the spec);
     # the sounds follow the key word of every scene instead of a fixed time after the cut (cues_punch)
     "punch": dict(lead_in=0.15, gap_min=0.10, gap_max=0.22, early=0.06, tail=0.30, tempo=1.10, grid=0.25, music="beat", loop=2.0),
+    # 'story': the punch sound for videos told as a story: `room` scenes flow into each other, so a cut is only heard
+    # where the picture really cuts, and what happens in the room (clock, phone, number) gets its own sound
+    "story": dict(lead_in=0.15, gap_min=0.12, gap_max=0.26, early=0.06, tail=0.30, tempo=1.10, grid=0.25, music="beat", loop=2.0),
 }
 
 
@@ -181,12 +184,59 @@ def cues_punch(spec, scenes):
     for the big reveals (a statement's accent words, a bar that breaks its limit)."""
     cues = {}
     n = len(spec["scenes"])
+    off, room, prev_kind = [], {}, None
     for i, (sc, tl) in enumerate(zip(spec["scenes"], scenes)):
         g, ev = sc["graphic"], []
         k = g["kind"]
         kt = round(key_time(sc, tl) - tl["start"], 3)
-        if i > 0:
+        joined = k == "room" and prev_kind == "room"
+        prev_kind = k
+        if joined:
+            off.append("s%02d" % (i + 1))      # one continuous take: no whoosh, no thump
+        elif i > 0:
             ev.append({"k": "impulse", "at": 0.0, "v": 0.45})
+        if k == "room":
+            # when the time of day is spoken the clock hand starts (the first number of the sentence), as in Punch.tsx
+            nums = [w for w in (tl.get("tok") or []) if re.search(r"\d", w["t"])]
+            ct = round(max(0.05, nums[0]["s"] - 0.03 - tl["start"]), 3) if nums else kt
+            first = i == 0
+            if g.get("time") and g["time"] != room.get("time") and not first:
+                ev.append({"k": "tok", "at": ct, "x": 800, "p": 0, "v": 1.0})
+            marks = g.get("marks", room.get("marks", []))
+            for j, m in enumerate([m for m in marks if m not in room.get("marks", [])][:6]):
+                if not first:
+                    ev.append({"k": "click", "at": round(ct + 0.14 + j * 0.09, 3), "x": 800, "p": j, "v": 0.9})
+            if g.get("wedge") and not first:
+                ev.append({"k": "impulse", "at": kt, "v": 0.7})
+            num = g.get("num")
+            if num and num != room.get("num") and not first:
+                big = num["to"] >= 10000
+                ev.append({"k": "bloom", "at": round(max(0.05, kt - 0.9), 3), "d": 0.8, "x": 300, "v": 0.9})
+                if big:
+                    ev.append({"k": "riser", "at": round(kt - 0.8, 3), "d": 0.8, "v": 1.0})
+                ev.append({"k": "boom" if big else "impulse", "at": kt, "v": 0.85 if big else 0.9})
+            ph, before = g.get("phone", room.get("phone", "dark")), room.get("phone", "dark")
+            if ph == "lit" and (before != "lit" or first):
+                ev.append({"k": "ping", "at": 0.15 if first else round(max(0.03, kt - 0.05), 3), "x": 690, "v": 1.0})
+            if ph == "hand" and (before != "hand" or g.get("regrab")):
+                ev.append({"k": "ping", "at": round(max(0.03, kt - 0.32), 3), "x": 690, "v": 0.9})
+                ev.append({"k": "tok", "at": kt, "x": 600, "p": 2, "v": 0.9})
+            if ph in ("down", "dark") and before == "hand":
+                ev.append({"k": "tok", "at": kt, "x": 690, "p": -4, "v": 0.9})
+            if ph == "screen":
+                ev.append({"k": "click", "at": kt, "x": 690, "v": 1.0})
+            if joined and g.get("cam", "wide") != room.get("cam", "wide"):
+                ev.append({"k": "slide", "at": 0.0, "d": 0.7, "x": 300, "x2": 800, "v": 0.9})
+            if g.get("light", room.get("light", 0.6)) > room.get("light", 0.6) + 0.1:
+                ev.append({"k": "bloom", "at": 0.1, "d": 1.2, "x": 540, "v": 1.1})
+            if g.get("chip"):
+                ev.append({"k": "click", "at": round(kt + 0.3, 3), "x": 540, "v": 1.0})
+            for f in ("time", "marks", "phone", "light"):
+                if f in g:
+                    room[f] = g[f]
+            if "num" in g:
+                room["num"] = g["num"]
+            room["cam"] = g.get("cam", "wide")
         if k == "statement":
             big = i in (0, 1) or g.get("invert")
             if big and i > 0:
@@ -214,7 +264,7 @@ def cues_punch(spec, scenes):
         elif k in ("bars", "chips", "blocks", "ring", "clock", "curve"):
             ev.append({"k": "impulse", "at": kt, "v": 0.75})
         cues["s%02d" % (i + 1)] = ev
-    return {"whoosh": {"default": 1.2}, "slots": cues}
+    return {"whoosh": {"default": 1.2, "off": off}, "slots": cues}
 
 
 def main():
@@ -313,7 +363,7 @@ def main():
         bed_g, open_g = duck_g * 1.45, duck_g * 2.1
     else:
         subprocess.run([py, "-I", os.path.join(HERE, "..", "music", "ambient.py"), os.path.join(out_dir, "music"), str(length + 0.5), "generic"], check=True, capture_output=True)
-    json.dump(cues_punch(spec, scenes) if spec.get("style") == "punch" else cues_for(spec), open(os.path.join(out_dir, "cues.json"), "w"), indent=1)
+    json.dump(cues_punch(spec, scenes) if spec.get("style") in ("punch", "story") else cues_for(spec), open(os.path.join(out_dir, "cues.json"), "w"), indent=1)
     subprocess.run([py, "-I", os.path.join(HERE, "..", "motiv", "sfx.py"), os.path.join(out_dir, "cues.json"), os.path.join(out_dir, "timeline.json"),
                     os.path.join(out_dir, "sfx.wav"), str(length)], check=True, capture_output=True)
     ml, mr = (bl, br) if sty["music"] == "beat" else vm.load_stereo(os.path.join(out_dir, "music.wav"))

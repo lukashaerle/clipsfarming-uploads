@@ -37,6 +37,26 @@ export type Graphic =
   /** a bar chart that grows from scene to scene: all scenes carry the same `bars`, `show` of them are visible and the
    *  last visible one grows when its number is spoken; `limit` draws a line the last bar can break through */
   | {kind: 'rise'; bars: {label: string; value: number}[]; show: number; unit: string; title?: string; limit?: {value: number; label: string}}
+  /** story style: the room the video stays in (src/lr/sets.tsx). Fields left out keep the value of the room scene before.
+   *  cam: the framing the camera glides to. time: the wall clock ("08:10"), the hand runs there on the key word.
+   *  marks: minutes on the dial that carry a mark. wedge: one gap between marks, named. num: the large number on the wall
+   *  (null removes it). phone: dark, lit (rings), hand (the figure holds it), down (put away) or screen (shows `screen`:
+   *  title, label, value, for the close-up). mood: what the figure does. light: the lamp, 0..1. chip: a question on the wall. */
+  | {
+      kind: 'room';
+      cam?: 'wide' | 'desk' | 'day' | 'clock' | 'number' | 'phone';
+      time?: string;
+      marks?: number[];
+      wedge?: {from: number; to: number; label: string};
+      num?: {to: number; unit: string; from?: number; decimals?: number; prefix?: string; suffix?: string} | null;
+      phone?: 'dark' | 'lit' | 'hand' | 'down' | 'screen';
+      /** the phone is in the hand already: it is put down at the cut and picked up again on the key word */
+      regrab?: boolean;
+      screen?: string[];
+      mood?: 'work' | 'phone' | 'look' | 'proud' | 'slump';
+      light?: number;
+      chip?: string;
+    }
   /** nothing but the figure and the headline */
   | {kind: 'none'};
 
@@ -55,6 +75,10 @@ export type Scene = {
   key?: string;
   /** punch style: extra seconds of pause after this scene (a breath after a punchline) */
   hold?: number;
+  /** story style: one line of the running calculation shown under the captions ("96 × 365 = 35.040");
+   *  calcTotal marks the result line */
+  calc?: string;
+  calcTotal?: boolean;
 };
 
 export type VideoSpec = {
@@ -62,8 +86,10 @@ export type VideoSpec = {
   title: string;
   /** 'action': short scenes, hard cuts on the beat, captions, energetic voice. Without it: the calm style.
    *  'punch': action plus an accent colour, large word-by-word captions, a punch-in on the key word of every scene,
-   *  no headlines, and an ending that loops into the first frame (src/lr/Punch.tsx). */
-  style?: 'action' | 'punch';
+   *  no headlines, and an ending that loops into the first frame (src/lr/Punch.tsx).
+   *  'story': punch with a protagonist: `room` scenes that flow into each other with camera moves instead of cuts,
+   *  numbers inside the scene, a running calculation under the captions, no figure at the bottom. */
+  style?: 'action' | 'punch' | 'story';
   /** punch style: the accent colour (default 'gelb', signal yellow) */
   accent?: 'gelb' | 'blau' | 'rot';
   /** punch style: a short line that stays on screen for the whole video, e.g. the assumption the numbers rest on

@@ -1,228 +1,205 @@
 {
- "id": "014-handy-griffe",
- "title": "Alle zehn Minuten",
- "style": "punch",
- "note": "angenommen: 8 Stunden Schlaf",
- "scenes": [
-  {
-   "vo": "Wie oft entsperrst du dein Handy am Tag?",
-   "head": "",
-   "graphic": {
-    "kind": "statement",
-    "lines": [
-     "Wie oft entsperrst",
-     "du dein Handy",
-     "*am Tag?*"
-    ]
-   },
-   "figure": {
-    "pose": "phone",
-    "place": "center"
-   }
-  },
-  {
-   "vo": "Bei 96-mal ist es alle 10 Minuten.",
-   "head": "",
-   "graphic": {
-    "kind": "statement",
-    "lines": [
-     "Bei *96-mal* ist",
-     "es alle",
-     "*10 Minuten.*"
-    ]
-   },
-   "figure": {
-    "pose": "slump",
-    "place": "center"
-   },
-   "hold": 0.25
-  },
-  {
-   "vo": "Wach bist du dann 16 Stunden, also 960 Minuten.",
-   "head": "",
-   "graphic": {
-    "kind": "counter",
-    "to": 960,
-    "unit": "Minuten wach"
-   },
-   "figure": {
-    "pose": "stand",
-    "place": "left"
-   }
-  },
-  {
-   "vo": "960 Minuten durch 96 Griffe: alle 10 Minuten.",
-   "head": "",
-   "graphic": {
-    "kind": "chips",
-    "items": [
-     {
-      "label": "wache Zeit",
-      "value": "960 Min."
-     },
-     {
-      "label": "Griffe",
-      "value": "96"
-     },
-     {
-      "label": "Abstand",
-      "value": "10 Min.",
-      "hi": true
-     }
-    ]
-   },
-   "figure": {
-    "pose": "think",
-    "place": "right"
-   }
-  },
-  {
-   "vo": "Bei 200-mal bleiben nur knapp 5 Minuten.",
-   "head": "",
-   "graphic": {
-    "kind": "bars",
-    "bars": [
-     {
-      "label": "60-mal",
-      "value": 16
-     },
-     {
-      "label": "96-mal",
-      "value": 10
-     },
-     {
-      "label": "120-mal",
-      "value": 8
-     },
-     {
-      "label": "200-mal",
-      "value": 5,
-      "hi": true
-     }
-    ],
-    "unit": "min"
-   },
-   "figure": {
-    "pose": "look",
-    "place": "left"
-   }
-  },
-  {
-   "vo": "Im Jahr sind das fünfunddreißigtausendvierzig Griffe.",
-   "head": "",
-   "graphic": {
-    "kind": "counter",
-    "to": 35040,
-    "unit": "Griffe im Jahr"
-   },
-   "figure": {
-    "pose": "phone",
-    "place": "center"
-   },
-   "cap": "Im Jahr sind das 35.040 Griffe.",
-   "key": "fünfund"
-  },
-  {
-   "vo": "Bei 4 Stunden am Handy: 2,5 Minuten pro Griff.",
-   "head": "",
-   "graphic": {
-    "kind": "compare",
-    "left": {
-     "value": "240",
-     "label": "Minuten Handyzeit"
+  "id": "014-handy-griffe",
+  "title": "Alle zehn Minuten",
+  "style": "story",
+  "scenes": [
+    {
+      "vo": "Nur kurz aufs Handy schauen.",
+      "head": "",
+      "graphic": {
+        "kind": "room",
+        "cam": "desk",
+        "time": "07:30",
+        "phone": "lit",
+        "mood": "phone"
+      }
     },
-    "right": {
-     "value": "2,5",
-     "label": "Minuten pro Griff"
+    {
+      "vo": "Sagen wir, das passiert 96-mal am Tag.",
+      "head": "",
+      "graphic": {
+        "kind": "room",
+        "cam": "wide",
+        "phone": "hand",
+        "num": {
+          "to": 96,
+          "unit": "Griffe am Tag"
+        }
+      }
     },
-    "hi": "right"
-   },
-   "figure": {
-    "pose": "think",
-    "place": "center"
-   }
-  },
-  {
-   "vo": "Klar: 2015 waren es im Schnitt 53-mal am Tag.",
-   "head": "",
-   "graphic": {
-    "kind": "chips",
-    "items": [
-     {
-      "label": "2015, App-Nutzer",
-      "value": "53-mal"
-     },
-     {
-      "label": "nicht repräsentativ",
-      "value": "nur Richtwert"
-     }
-    ]
-   },
-   "figure": {
-    "pose": "stand",
-    "place": "right"
-   }
-  },
-  {
-   "vo": "Es sind die vielen kleinen Griffe.",
-   "head": "",
-   "graphic": {
-    "kind": "statement",
-    "lines": [
-     "Es sind die",
-     "vielen kleinen",
-     "*Griffe.*"
-    ],
-    "invert": true
-   },
-   "figure": {
-    "pose": "slump",
-    "place": "center"
-   },
-   "hold": 0.25
-  },
-  {
-   "vo": "Deine Zahl steht in der Bildschirmzeit.",
-   "head": "",
-   "graphic": {
-    "kind": "none"
-   },
-   "figure": {
-    "pose": "phone",
-    "place": "center"
-   }
-  },
-  {
-   "vo": "Schau nach und nimm dir morgen die Hälfte vor.",
-   "head": "",
-   "graphic": {
-    "kind": "statement",
-    "lines": [
-     "Schau nach und",
-     "nimm dir morgen",
-     "die *Hälfte vor.*"
-    ],
-    "chip": "Wie viele Griffe sind es?"
-   },
-   "figure": {
-    "pose": "proud",
-    "place": "center"
-   }
-  },
-  {
-   "vo": "Und frag dich:",
-   "head": "",
-   "graphic": {
-    "kind": "statement",
-    "lines": [
-     "Und",
-     "*frag dich:*"
-    ]
-   },
-   "figure": {
-    "pose": "look",
-    "place": "center"
-   }
-  }
- ]
+    {
+      "vo": "8 Uhr: Du setzt dich hin und willst loslegen.",
+      "head": "",
+      "graphic": {
+        "kind": "room",
+        "cam": "day",
+        "time": "08:00",
+        "phone": "dark",
+        "mood": "work"
+      }
+    },
+    {
+      "vo": "8:10 Uhr: der erste Griff.",
+      "head": "",
+      "graphic": {
+        "kind": "room",
+        "cam": "day",
+        "time": "08:10",
+        "marks": [
+          10
+        ],
+        "phone": "hand",
+        "mood": "phone"
+      },
+      "key": "Griff"
+    },
+    {
+      "vo": "8:20 Uhr: der nächste.",
+      "head": "",
+      "graphic": {
+        "kind": "room",
+        "cam": "day",
+        "time": "08:20",
+        "marks": [
+          10,
+          20
+        ],
+        "phone": "hand",
+        "regrab": true,
+        "mood": "phone"
+      },
+      "key": "nächste"
+    },
+    {
+      "vo": "Bei 16 wachen Stunden ist das alle 10 Minuten.",
+      "head": "",
+      "graphic": {
+        "kind": "room",
+        "cam": "clock",
+        "time": "09:00",
+        "marks": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "wedge": {
+          "from": 20,
+          "to": 30,
+          "label": "10 Min."
+        },
+        "mood": "phone"
+      },
+      "calc": "16 h wach ÷ 96 = alle 10 Min."
+    },
+    {
+      "vo": "Im Jahr: über fünfunddreißigtausend Griffe.",
+      "head": "",
+      "graphic": {
+        "kind": "room",
+        "cam": "number",
+        "num": {
+          "to": 35040,
+          "unit": "Griffe im Jahr"
+        },
+        "mood": "slump"
+      },
+      "cap": "Im Jahr: über 35.000 Griffe.",
+      "key": "fünfund",
+      "calc": "96 × 365 = 35.040 im Jahr",
+      "hold": 0.25
+    },
+    {
+      "vo": "Das Problem sind nicht die Stunden.",
+      "head": "",
+      "graphic": {
+        "kind": "statement",
+        "lines": [
+          "Das Problem",
+          "sind nicht",
+          "*die Stunden.*"
+        ],
+        "invert": true
+      }
+    },
+    {
+      "vo": "Es sind die Lücken. Im Schnitt nur 10 Minuten am Stück.",
+      "head": "",
+      "graphic": {
+        "kind": "room",
+        "cam": "clock",
+        "wedge": {
+          "from": 20,
+          "to": 30,
+          "label": "10 Min."
+        },
+        "mood": "slump"
+      }
+    },
+    {
+      "vo": "Klar: 96 ist ein Beispiel. Deine Zahl steht im Handy.",
+      "head": "",
+      "graphic": {
+        "kind": "room",
+        "cam": "phone",
+        "phone": "screen",
+        "screen": [
+          "Bildschirmzeit",
+          "Aktivierungen",
+          "?"
+        ],
+        "mood": "look"
+      }
+    },
+    {
+      "vo": "Halbier sie, und aus 10 Minuten werden 20 am Stück.",
+      "head": "",
+      "graphic": {
+        "kind": "room",
+        "cam": "clock",
+        "marks": [
+          20,
+          40,
+          60
+        ],
+        "wedge": {
+          "from": 20,
+          "to": 40,
+          "label": "20 Min."
+        },
+        "phone": "down",
+        "mood": "look"
+      },
+      "calc": "48 Griffe = alle 20 Min.",
+      "calcTotal": true
+    },
+    {
+      "vo": "Schau jetzt nach. Nimm dir für morgen die Hälfte vor.",
+      "head": "",
+      "graphic": {
+        "kind": "room",
+        "cam": "desk",
+        "light": 1.0,
+        "mood": "proud",
+        "phone": "down",
+        "num": null,
+        "chip": "Wie viele Griffe sind es bei dir?"
+      },
+      "key": "Schau"
+    },
+    {
+      "vo": "Und dann sagst du seltener:",
+      "head": "",
+      "graphic": {
+        "kind": "statement",
+        "lines": [
+          "Und dann",
+          "sagst du",
+          "*seltener:*"
+        ]
+      }
+    }
+  ]
 }

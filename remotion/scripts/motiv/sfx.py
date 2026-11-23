@@ -29,8 +29,8 @@ import darkbeat as db  # noqa: E402  (filters, reverb, file writer)
 SR = db.SR
 rng = np.random.default_rng(7)
 
-LEVEL = dict(click=0.11, tok=0.10, impulse=0.18, bloom=0.08, slide=0.08, whoosh=0.09, riser=0.10, boom=0.26)   # peak of one sound; the narrator peaks near 0.9
-SEND = dict(click=0.05, tok=0.12, impulse=0.30, bloom=0.35, slide=0.25, whoosh=0.20, riser=0.25, boom=0.30)
+LEVEL = dict(click=0.11, tok=0.10, impulse=0.18, bloom=0.08, slide=0.08, whoosh=0.09, riser=0.10, boom=0.26, ping=0.09)   # peak of one sound; the narrator peaks near 0.9
+SEND = dict(click=0.05, tok=0.12, impulse=0.30, bloom=0.35, slide=0.25, whoosh=0.20, riser=0.25, boom=0.30, ping=0.22)
 REVERB = 0.5
 
 
@@ -80,6 +80,18 @@ def impulse():
     air = unit(band(rng.standard_normal(n), 1500, 4000)) * np.exp(-t / 0.04) * 0.07
     y = (body + knock + air) * np.minimum(1, t / 0.006)
     return db.fade(y / np.max(np.abs(y)), 0.0, 0.1)
+
+
+def ping():
+    """A phone lighting up: two soft glassy notes, the second a fifth higher."""
+    n = int(0.5 * SR)
+    t = np.arange(n) / SR
+    y = np.zeros(n)
+    for f, t0 in ((1046.5, 0.0), (1568.0, 0.09)):
+        tt = np.maximum(0, t - t0)
+        on = (t >= t0).astype(float)
+        y += on * (np.sin(2 * np.pi * f * tt) + 0.3 * np.sin(2 * np.pi * 2 * f * tt)) * np.exp(-tt / 0.11) * np.minimum(1, tt / 0.004)
+    return db.fade(y / np.max(np.abs(y)), 0.0, 0.05)
 
 
 def riser(dur):
@@ -209,6 +221,10 @@ def main():
                     d = it.get("d", 1.2)
                     sl, sr = moving(soft_noise(d, 500, 2500), x, it.get("x2", x))
                     put(sl, sr, t, k, LEVEL[k] * v)
+                elif k == "ping":
+                    gl, gr = pan_gains(pan_of(x))
+                    sig = ping()
+                    put(sig * gl, sig * gr, t, k, LEVEL[k] * v)
                 elif k == "riser":
                     d = it.get("d", 0.8)
                     sig = riser(d)

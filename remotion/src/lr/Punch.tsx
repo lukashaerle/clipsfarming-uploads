@@ -4,6 +4,7 @@ import {C, FONT, FPS, setPalette} from '../motiv/theme';
 import {Bg, clamp, Defs, Figure, lerp, seg, smooth} from '../motiv/kit';
 import {SPACE_EM, textEm} from './metrics';
 import {GraphicLayer} from './scenes';
+import {Room, roomRuns, roomStates} from './sets';
 import {mixPose, PLACE_X_ACTION, poseOf} from './Video';
 import type {Graphic, LrProps, TimedWord, Timeline, VideoSpec} from './spec';
 
@@ -17,6 +18,8 @@ import type {Graphic, LrProps, TimedWord, Timeline, VideoSpec} from './spec';
 // Nothing shakes and nothing pulses on the beat; all motion is a cut, a pop at the cut or a punch-in on a word.
 
 const FLOOR = 1480;
+/** story style: the progress line sits below the running calculation */
+const STORY_LINE = 1500;
 /** the graphics are drawn for the band y 560-1180 (scenes.tsx); here they move up and zoom around the stage centre */
 const STAGE = {cx: 540, cy: 590, shift: -290};
 /** captions: one line inside the safe width 44-886 below y 955 */
@@ -243,26 +246,36 @@ const OUTLINE = Array.from({length: 16}, (_, i) => {
 
 const capText = (w: string) => w.toUpperCase().replace(/[.,:;]+$/, '');
 
-const Captions: React.FC<{text: string; tok?: TimedWord[]; t: number; tm: Times; debug: boolean}> = ({text, tok, t, tm, debug}) => {
+const Captions: React.FC<{text: string; tok?: TimedWord[]; t: number; tm: Times; debug: boolean; first?: boolean; stack?: boolean}> = ({text, tok, t, tm, debug, first, stack}) => {
   const groups = groupsOf(timedWords(text, tok, tm.vs, tm.ve));
+  // story style: the hook stands complete in frame 0, one group per line, and stays for the whole first scene
+  // (the cover carries the whole sentence); the word being spoken lights up as everywhere else
+  const stacked = !!stack && groups.length > 1 && groups.length <= 3;
+  const sizes = groups.map((g) => Math.min(CAP.max, CAP.fit / Math.max(0.5, textEm(g.map((w) => capText(w.text)).join(' ')))));
+  const step = Math.max(...sizes, 1) * 1.06;
+  const flat = groups.flat();
+  let spoken = -1;
+  flat.forEach((w, i) => {
+    if (t >= w.s - 0.03) spoken = i;
+  });
   // the safe-zone check draws every group of the scene at once, so one still covers them all
-  const shown = debug
-    ? groups
-    : groups.filter((g, k) => {
-        const from = g[0].s - 0.04;
-        const to = k + 1 < groups.length ? groups[k + 1][0].s - 0.04 : tm.e;
-        return t >= from && t < to;
-      });
+  const shown = groups
+    .map((g, gi) => ({g, gi, at: groups.slice(0, gi).reduce((n, x) => n + x.length, 0)}))
+    .filter(({g, gi}) => {
+      if (debug || stacked) return true;
+      // the very first caption already stands in frame 0, so the cover carries the hook
+      const from = first && gi === 0 ? -1 : g[0].s - 0.04;
+      const to = gi + 1 < groups.length ? groups[gi + 1][0].s - 0.04 : tm.e;
+      return t >= from && t < to;
+    });
   return (
     <AbsoluteFill>
-      {shown.map((g, k) => {
+      {shown.map(({g, gi, at}) => {
+        const k = gi;
         const label = g.map((w) => capText(w.text));
-        const size = Math.min(CAP.max, CAP.fit / Math.max(0.5, textEm(label.join(' '))));
-        const u = debug ? 1 : easeOut((t - (g[0].s - 0.04)) / 0.09);
-        let active = -1;
-        g.forEach((w, i) => {
-          if (t >= w.s - 0.03) active = i;
-        });
+        const size = sizes[gi];
+        const u = debug || stacked || (first && gi === 0) ? 1 : easeOut((t - (g[0].s - 0.04)) / 0.09);
+        const active = spoken - at >= 0 && spoken - at < g.length ? spoken - at : -1;
         return (
           <div
             key={k}
@@ -270,7 +283,7 @@ const Captions: React.FC<{text: string; tok?: TimedWord[]; t: number; tm: Times;
               position: 'absolute',
               left: CAP.x0,
               width: CAP.x1 - CAP.x0,
-              top: CAP.y - size * 0.6,
+              top: CAP.y + (stacked ? gi * step : 0) - size * 0.6,
               height: size * 1.2,
               display: 'flex',
               justifyContent: 'center',
@@ -302,6 +315,53 @@ const Captions: React.FC<{text: string; tok?: TimedWord[]; t: number; tm: Times;
   );
 };
 
+/** Story style: the running calculation. Every scene may add one line; it appears on that scene's key word and stays,
+ *  the newest line bright, the result line in the accent colour. At most three lines, inside the safe width. */
+const Receipt: React.FC<{spec: VideoSpec; times: Times[]; idx: number; t: number; debug: boolean}> = ({spec, times, idx, t, debug}) => {
+  const all = spec.scenes.map((sc, i) => ({text: sc.calc, total: !!sc.calcTotal, at: times[i].kt, i})).filter((l) => !!l.text && l.i <= idx && (debug || t >= l.at || l.i < idx));
+  const lines = all.slice(-3);
+  if (!lines.length) return null;
+  const Y0 = 1236;
+  const STEP = 70;
+  return (
+    <AbsoluteFill>
+      <div style={{position: 'absolute', left: 70, top: Y0 - 74, fontFamily: FONT, fontWeight: 700, fontSize: 26, letterSpacing: 7, color: C.mute}}>RECHNUNG</div>
+      <div style={{position: 'absolute', left: 50, top: Y0 - 30, width: 6, height: lines.length * STEP - 14, borderRadius: 3, background: C.you}} />
+      {lines.map((l, k) => {
+        const newest = k === lines.length - 1;
+        const a = debug || l.i < idx ? 1 : easeOut((t - l.at) / 0.2);
+        const text = (l.text as string).toUpperCase();
+        const size = Math.min(l.total ? 58 : 48, 790 / Math.max(0.5, textEm(text) + text.length * 0.04));
+        return (
+          <div
+            key={l.i}
+            style={{
+              position: 'absolute',
+              left: 76,
+              top: Y0 + k * STEP - 30,
+              height: 60,
+              display: 'flex',
+              alignItems: 'center',
+              fontFamily: FONT,
+              fontWeight: 800,
+              fontSize: size,
+              letterSpacing: size * 0.04,
+              lineHeight: 1,
+              whiteSpace: 'nowrap',
+              fontVariantNumeric: 'tabular-nums',
+              color: l.total ? C.you : newest ? C.ink : C.dim,
+              opacity: a,
+              transform: `translateX(${(1 - a) * -18}px)`,
+            }}
+          >
+            {text}
+          </div>
+        );
+      })}
+    </AbsoluteFill>
+  );
+};
+
 export const PunchVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
   setPalette(spec.accent ?? 'gelb');
   const frame = useCurrentFrame();
@@ -317,6 +377,15 @@ export const PunchVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
   const g = scene.graphic;
   const statement = g.kind === 'statement';
   const invert = statement && !!g.invert;
+  // story style: no figure at the bottom; `room` scenes flow into each other and bring their own camera
+  const story = spec.style === 'story';
+  const room = g.kind === 'room';
+  const rooms = story ? roomStates(spec) : [];
+  const runs = story ? roomRuns(rooms, times) : [];
+  const joined = room && idx > 0 && spec.scenes[idx - 1].graphic.kind === 'room';
+  // the wall clock starts to move when the time of day is spoken (the first number of the sentence)
+  const firstNum = (timeline.scenes[idx].tok ?? []).find((w) => /\d/.test(w.t));
+  const clockAt = firstNum ? Math.max(tm.s + 0.05, firstNum.s - 0.03) : tm.kt;
   const raw = t - tm.s;
   const len = tm.e - tm.s;
 
@@ -329,9 +398,9 @@ export const PunchVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
   const hop = now?.pose === 'proud' ? 26 * Math.sin(Math.PI * clamp((t - tm.kt) / 0.3)) : 0;
 
   const k = stageScale(t, tm, idx === 0, debug);
-  const aIn = idx === 0 || debug ? 1 : clamp(raw / 0.034);
+  const aIn = idx === 0 || debug || joined ? 1 : clamp(raw / 0.034);
   // a ring of light leaves the graphic when its number lands
-  const ring = !statement && !debug ? (t - tm.kt) / 0.45 : -1;
+  const ring = !statement && !room && !debug ? (t - tm.kt) / 0.45 : -1;
   const ink = invert ? INK_DARK : C.you;
 
   return (
@@ -341,8 +410,13 @@ export const PunchVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
         {debug || invert ? null : <Bg t={t} mood={0} energy={0.8} />}
         {ring > 0 && ring < 1 ? <circle cx={STAGE.cx} cy={STAGE.cy} r={lerp(170, 780, easeOut(ring))} fill="none" stroke={C.you} strokeWidth={lerp(12, 2, ring)} opacity={0.45 * (1 - ring)} /> : null}
       </svg>
-      <AbsoluteFill style={{opacity: aIn, transform: `scale(${k})`, transformOrigin: `${STAGE.cx}px ${STAGE.cy}px`, filter: C.glow && !debug && !invert ? `drop-shadow(0 0 14px ${C.glow})` : undefined}}>
-        {statement ? (
+      <AbsoluteFill style={{opacity: aIn, transform: room ? undefined : `scale(${k})`, transformOrigin: `${STAGE.cx}px ${STAGE.cy}px`, filter: C.glow && !debug && !invert ? `drop-shadow(0 0 14px ${C.glow})` : undefined}}>
+        {room ? (
+          <svg viewBox="0 0 1080 1920" width={1080} height={1920} style={{position: 'absolute'}}>
+            <Defs />
+            <Room states={rooms} runs={runs} idx={idx} t={t} s={tm.s} e={tm.e} kt={tm.kt} ct={clockAt} debug={debug} />
+          </svg>
+        ) : statement ? (
           <Kinetic g={g} tok={timeline.scenes[idx].tok} t={t} tm={tm} first={idx === 0} debug={debug} />
         ) : (
           <svg viewBox="0 0 1080 1920" width={1080} height={1920} style={{position: 'absolute'}}>
@@ -355,9 +429,9 @@ export const PunchVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
       </AbsoluteFill>
       <svg viewBox="0 0 1080 1920" width={1080} height={1920} style={{position: 'absolute', display: debug ? 'none' : undefined, filter: C.glow && !invert ? `drop-shadow(0 0 14px ${C.glow})` : undefined}}>
         <Defs />
-        <line x1={60} y1={FLOOR} x2={880} y2={FLOOR} stroke={invert ? INK_DARK : C.ink} strokeOpacity={0.3} strokeWidth={4} strokeLinecap="round" />
-        <line x1={60} y1={FLOOR} x2={60 + 820 * clamp(t / Math.max(1, timeline.length))} y2={FLOOR} stroke={ink} strokeWidth={7} strokeLinecap="round" />
-        <Figure x={pose.x} y={FLOOR} s={1.0} color={C.ink} phone={pose.phone} slump={pose.slump} look={[pose.lookX, pose.lookY]} aura={pose.aura * 0.5} opacity={invert ? 0 : pose.op} t={t} bob={hop} />
+        <line x1={60} y1={story ? STORY_LINE : FLOOR} x2={880} y2={story ? STORY_LINE : FLOOR} stroke={invert ? INK_DARK : C.ink} strokeOpacity={0.3} strokeWidth={4} strokeLinecap="round" />
+        <line x1={60} y1={story ? STORY_LINE : FLOOR} x2={60 + 820 * clamp(t / Math.max(1, timeline.length))} y2={story ? STORY_LINE : FLOOR} stroke={ink} strokeWidth={7} strokeLinecap="round" />
+        {story ? null : <Figure x={pose.x} y={FLOOR} s={1.0} color={C.ink} phone={pose.phone} slump={pose.slump} look={[pose.lookX, pose.lookY]} aura={pose.aura * 0.5} opacity={invert ? 0 : pose.op} t={t} bob={hop} />}
       </svg>
       {spec.note ? (
         <div style={{position: 'absolute', left: 62, top: 228, fontFamily: FONT, fontWeight: 600, fontSize: 30, lineHeight: 1, letterSpacing: 3, whiteSpace: 'nowrap', color: invert ? INK_DARK : C.dim, opacity: invert ? 0.7 : 1}}>
@@ -365,7 +439,8 @@ export const PunchVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
         </div>
       ) : null}
       {/* a caption text of its own (cap) follows the voice too when it has as many words as the sentence */}
-      {statement ? null : <Captions text={scene.cap ?? scene.vo} tok={timeline.scenes[idx].tok} t={t} tm={tm} debug={debug} />}
+      {story && !invert ? <Receipt spec={spec} times={times} idx={idx} t={t} debug={debug} /> : null}
+      {statement ? null : <Captions text={scene.cap ?? scene.vo} tok={timeline.scenes[idx].tok} t={t} tm={tm} debug={debug} first={idx === 0} stack={story && idx === 0} />}
       {timeline.audio ? <Audio src={staticFile(timeline.audio)} /> : null}
     </AbsoluteFill>
   );

@@ -22,7 +22,8 @@ Remotions eigener Chrome-Download ist in der Cloud gesperrt; `night.sh` nimmt au
 Fehlen beim Rendern Bibliotheken, installiere sie mit apt (Ubuntu 24.04: libasound2t64 libatk1.0-0t64 libatk-bridge2.0-0t64 libcups2t64 libnss3 libgbm1 libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libpango-1.0-0).
 
 ## 3. Stimme (ElevenLabs-Connector), pro Video
-- Text: bei `"style": "punch"` oder `"style": "action"` in der Spec `"[confident] [energetic] "`, sonst `"[calm] "`, dann die `vo`-Felder aller Szenen der Spec, mit Zeilenumbruch verbunden, unverändert.
+- **Liegt `remotion/videos/<id>/take.mp3` schon im Repo, keine neue Stimme erzeugen** (kostet Credits): direkt weiter mit Schritt 4; eine vorhandene `words.json` daneben wird benutzt.
+- Text: bei `"style": "punch"`, `"style": "story"` oder `"style": "action"` in der Spec `"[confident] [energetic] "`, sonst `"[calm] "`, dann die `vo`-Felder aller Szenen der Spec, mit Zeilenumbruch verbunden, unverändert.
 - `creative_generate_speech` mit `model_id: "eleven_v4"`, `voice_id: "Y4Kanv4K4TPlPhoBZKmC"`, `flow_id: "1k5YaqMshbFJYOc9DZRE"`,
   `generations_count: 1`. Den Status mit `creative_get_flow_run_status` abfragen, bis er fertig ist.
 - **Eine Generierung kostet Credits: nie einen gestarteten Auftrag wiederholen.** Nur wenn nachweislich kein Audio entstanden ist,
@@ -36,7 +37,7 @@ Fehlen beim Rendern Bibliotheken, installiere sie mit apt (Ubuntu 24.04: libasou
 ```
 cd remotion && bash scripts/lr/night.sh <id> ../lebensrechnung
 ```
-Dauer ungefähr: Ton 1 Min, Full HD 10 Min, 4K 25 Min pro Video. Der Punch-Stil (Spec mit `"style": "punch"`, seit 21.11. Standard: etwa 34 s, Schleife ohne Ausblenden) und der ältere Action-Stil brauchen keine Extra-Schritte: Tempo, Beat, Schnitte, Untertitel und Effekte macht `night.sh` selbst. Das Skript ist fortsetzbar (fertige 4K-Abschnitte werden übersprungen).
+Dauer ungefähr: Ton 1 Min, Full HD 10 Min, 4K 25 Min pro Video. Der Punch-Stil (Spec mit `"style": "punch"`, seit 21.11. Standard: etwa 34 s, Schleife ohne Ausblenden), der Story-Stil (`"style": "story"`, ein gezeichneter Raum mit Kamerafahrten) und der ältere Action-Stil brauchen keine Extra-Schritte: Tempo, Beat, Schnitte, Untertitel und Effekte macht `night.sh` selbst. Das Skript ist fortsetzbar (fertige 4K-Abschnitte werden übersprungen).
 Danach:
 - **Videos** kommen NICHT auf `main`, sondern auf den Branch `lr-videos`:
   `bash remotion/scripts/lr/push_videos.sh lebensrechnung/<id>-1080p.mp4 lebensrechnung/<id>-4K.mp4`

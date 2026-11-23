@@ -223,6 +223,8 @@ export type FigureProps = {
   bob?: number;
   aura?: number;
   flip?: boolean;
+  /** colour of the headband (default: dark on a light figure, light on a dark one) */
+  bandColor?: string;
 };
 
 /** Our own figure: round head with eyes and a headband, the feet are at (x, y). */
@@ -244,6 +246,7 @@ export const Figure: React.FC<FigureProps> = ({
   bob = 0,
   aura = 0,
   flip = false,
+  bandColor,
 }) => {
   const hx = slump * 18;
   const hy = -216 + slump * 24;
@@ -255,7 +258,7 @@ export const Figure: React.FC<FigureProps> = ({
   const w2 = Math.sqrt(R * R - y2 * y2);
   const ex = look[0] * 7;
   const ey = look[1] * 6;
-  const bandCol = lum(color) > 0.7 ? C.dark : C.ink;
+  const bandCol = bandColor ?? (lum(color) > 0.7 ? C.dark : C.ink);
   return (
     <g transform={`translate(${x} ${y - bob}) scale(${flip ? -s : s} ${s})`} opacity={opacity}>
       {aura > 0 ? <Glow x={0} y={-130} r={330} kind="you" a={aura} /> : null}

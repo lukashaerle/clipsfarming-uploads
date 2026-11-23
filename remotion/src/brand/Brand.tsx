@@ -6,7 +6,8 @@ import {Defs, Figure, Glow} from '../motiv/kit';
 // Channel artwork in the look of the videos: black stage, white glowing figure with the headband,
 // headlines with a bar on the left, white for the key word and grey for the rest.
 
-export type BrandProps = {first: string; second: string; tagline: string};
+export type BrandProps = {first: string; second: string; tagline: string; accent?: boolean};
+// accent: the punch style's signal yellow (headband, the second word, the bar), since 2026-11-21
 
 const Stage: React.FC<{w: number; h: number; children: React.ReactNode}> = ({w, h, children}) => (
   <AbsoluteFill style={{backgroundColor: C.bg0}}>
@@ -18,16 +19,16 @@ const Stage: React.FC<{w: number; h: number; children: React.ReactNode}> = ({w, 
 );
 
 /** "ZEIT" white, "RECHNUNG" grey, with the bar of the video headlines */
-const Wordmark: React.FC<{x: number; y: number; size: number; first: string; second: string; stacked?: boolean}> = ({x, y, size, first, second, stacked}) => {
+const Wordmark: React.FC<{x: number; y: number; size: number; first: string; second: string; stacked?: boolean; accent?: boolean}> = ({x, y, size, first, second, stacked, accent}) => {
   const bar = size * 0.09;
   const lines = stacked ? 2 : 1;
   const h = size * (lines === 2 ? 1.86 : 0.98);
   return (
     <g>
-      <rect x={x} y={y - size * 0.86} width={bar} height={h} rx={bar / 2} fill={C.ink} />
+      <rect x={x} y={y - size * 0.86} width={bar} height={h} rx={bar / 2} fill={accent ? C.you : C.ink} />
       <text x={x + bar * 2.6} y={y} fontFamily={FONT} fontWeight={800} fontSize={size} letterSpacing={size * 0.01} fill={C.ink}>
         {first.toUpperCase()}
-        {stacked ? null : <tspan fill={C.headInk}>{second.toUpperCase()}</tspan>}
+        {stacked ? null : <tspan fill={accent ? C.you : C.headInk}>{second.toUpperCase()}</tspan>}
       </text>
       {stacked ? (
         <text x={x + bar * 2.6} y={y + size * 0.9} fontFamily={FONT} fontWeight={800} fontSize={size} letterSpacing={size * 0.01} fill={C.headInk}>
@@ -41,26 +42,27 @@ const Wordmark: React.FC<{x: number; y: number; size: number; first: string; sec
 const Floor: React.FC<{x1: number; x2: number; y: number}> = ({x1, x2, y}) => <line x1={x1} y1={y} x2={x2} y2={y} stroke={C.line} strokeWidth={5} />;
 
 /** 1080 x 1080: the platforms crop it to a circle, so the figure sits in the middle and there is no text */
-export const BrandProfile: React.FC<BrandProps> = () => {
-  setPalette('sw');
+export const BrandProfile: React.FC<BrandProps> = ({accent}) => {
+  setPalette(accent ? 'gelb' : 'sw');
   return (
     <Stage w={1080} h={1080}>
-      <Glow x={540} y={520} r={560} a={0.9} />
-      <Figure x={540} y={1010} s={2.75} color={C.you} look={[0.25, -0.15]} t={0.6} />
+      <Glow x={540} y={520} r={560} a={0.9} kind={accent ? 'phone' : 'you'} />
+      <Figure x={540} y={1010} s={2.75} color={C.ink} look={[0.25, -0.15]} t={0.6} bandColor={accent ? C.you : undefined} />
     </Stage>
   );
 };
 
 /** 2560 x 1440 YouTube banner. Everything that matters sits in the middle 1546 x 423 that every device shows. */
-export const BrandBanner: React.FC<BrandProps> = ({first, second, tagline}) => {
-  setPalette('sw');
+export const BrandBanner: React.FC<BrandProps> = ({first, second, tagline, accent}) => {
+  setPalette(accent ? 'gelb' : 'sw');
   return (
     <Stage w={2560} h={1440}>
       {/* YouTube shows on every device only the middle 1235 x 338 (x 662-1897, y 551-889): everything sits in there */}
-      <Glow x={820} y={720} r={420} a={0.8} />
+      <Glow x={820} y={720} r={420} a={0.8} kind={accent ? 'phone' : 'you'} />
       <Floor x1={0} x2={2560} y={872} />
-      <Figure x={820} y={870} s={0.98} color={C.you} look={[0.6, -0.2]} t={0.6} />
-      <Wordmark x={990} y={735} size={118} first={first} second={second} />
+      {accent ? <line x1={662} y1={872} x2={1280} y2={872} stroke={C.you} strokeWidth={7} strokeLinecap="round" /> : null}
+      <Figure x={820} y={870} s={0.98} color={C.ink} look={[0.6, -0.2]} t={0.6} bandColor={accent ? C.you : undefined} />
+      <Wordmark x={990} y={735} size={118} first={first} second={second} accent={accent} />
       <text x={1000} y={818} fontFamily={FONT} fontWeight={600} fontSize={46} letterSpacing={6} fill={C.dim}>
         {tagline.toUpperCase()}
       </text>

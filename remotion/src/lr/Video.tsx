@@ -186,7 +186,7 @@ const ClassicVideo: React.FC<LrProps> = ({spec, timeline, debugSafe}) => {
 };
 
 /** the punch style has its own stage (Punch.tsx); everything else is drawn above */
-export const LrVideo: React.FC<LrProps> = (props) => (props.spec.style === 'punch' ? <PunchVideo {...props} /> : <ClassicVideo {...props} />);
+export const LrVideo: React.FC<LrProps> = (props) => (props.spec.style === 'punch' || props.spec.style === 'story' ? <PunchVideo {...props} /> : <ClassicVideo {...props} />);
 
 export const lrMetadata: CalculateMetadataFunction<LrProps> = ({props}) => ({
   durationInFrames: Math.max(1, Math.round(props.timeline.length * FPS)),

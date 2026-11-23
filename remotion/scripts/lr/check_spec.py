@@ -13,6 +13,8 @@ import sys
 
 MIN_CHARS, MAX_CHARS = 430, 520
 MIN_SCENES, MAX_SCENES = 11, 14
+# story style: a little longer, and scenes of one room flow into each other, so there may be more of them
+STORY = dict(min_chars=480, max_chars=640, min_scenes=11, max_scenes=18)
 
 
 def words_of(lines):
@@ -21,15 +23,18 @@ def words_of(lines):
 
 def check(path):
     spec = json.load(open(path, encoding="utf-8"))
-    if spec.get("style") != "punch":
-        return ["style is %r, not 'punch' (every new script uses the punch style)" % spec.get("style")] if "--strict" in sys.argv else []
+    if spec.get("style") not in ("punch", "story"):
+        return ["style is %r, not 'punch' or 'story' (every new script uses one of them)" % spec.get("style")] if "--strict" in sys.argv else []
+    story = spec.get("style") == "story"
     sc = spec["scenes"]
     bad = []
     chars = sum(len(s["vo"]) for s in sc)
-    if not MIN_CHARS <= chars <= MAX_CHARS:
-        bad.append("narration has %d characters, must be %d-%d (about 30-35 s)" % (chars, MIN_CHARS, MAX_CHARS))
-    if not MIN_SCENES <= len(sc) <= MAX_SCENES:
-        bad.append("%d scenes, must be %d-%d" % (len(sc), MIN_SCENES, MAX_SCENES))
+    lo, hi = (STORY["min_chars"], STORY["max_chars"]) if story else (MIN_CHARS, MAX_CHARS)
+    if not lo <= chars <= hi:
+        bad.append("narration has %d characters, must be %d-%d" % (chars, lo, hi))
+    lo, hi = (STORY["min_scenes"], STORY["max_scenes"]) if story else (MIN_SCENES, MAX_SCENES)
+    if not lo <= len(sc) <= hi:
+        bad.append("%d scenes, must be %d-%d" % (len(sc), lo, hi))
     inverts, holds, rise_bars = 0, 0.0, None
     for i, s in enumerate(sc, 1):
         g, vo = s["graphic"], s["vo"]
@@ -52,6 +57,13 @@ def check(path):
             if len(g.get("chip", "")) > 28:
                 bad.append("scene %d: the chip has %d characters, at most 28" % (i, len(g["chip"])))
             inverts += 1 if g.get("invert") else 0
+        if g["kind"] == "room":
+            if "time" in g and not re.fullmatch(r"\d{1,2}:\d{2}", g["time"]):
+                bad.append("scene %d: room time must look like 08:10" % i)
+            if len(g.get("chip", "")) > 36:
+                bad.append("scene %d: the chip has %d characters, at most 36" % (i, len(g["chip"])))
+            if len(s.get("calc", "")) > 34:
+                bad.append("scene %d: the calc line has %d characters, at most 34" % (i, len(s["calc"])))
         if g["kind"] == "rise":
             if rise_bars is not None and g["bars"] != rise_bars:
                 bad.append("scene %d: every 'rise' scene must carry the same 'bars'" % i)
@@ -61,12 +73,12 @@ def check(path):
             for b in g["bars"]:
                 if len(b["label"]) > 11:
                     bad.append("scene %d: bar label %r has more than 11 characters" % (i, b["label"]))
-    if sc[0]["graphic"]["kind"] != "statement":
+    if sc[0]["graphic"]["kind"] not in (("statement", "room") if story else ("statement",)):
         bad.append("scene 1 must be a statement (the hook; its first frame is the cover)")
     last = sc[-1]
-    if last["graphic"]["kind"] != "statement" or not last["vo"].rstrip().endswith(":") or len(last["vo"]) > 26:
+    if last["graphic"]["kind"] != "statement" or not last["vo"].rstrip().endswith(":") or len(last["vo"]) > 30:
         bad.append("the last scene must be a short statement that ends with ':' and leads into the first sentence (the loop), e.g. 'Und denk dran:'")
-    if not any(s["graphic"].get("chip") for s in sc[-3:] if s["graphic"]["kind"] == "statement"):
+    if not any(s["graphic"].get("chip") for s in sc[-3:] if s["graphic"]["kind"] in ("statement", "room")):
         bad.append("the closing call to action (one of the last scenes) needs a statement with a 'chip' (a question for the comments)")
     if inverts > 1:
         bad.append("%d inverted statements, at most one per video" % inverts)
