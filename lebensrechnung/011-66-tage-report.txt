@@ -1,0 +1,20 @@
+== 011-66-tage | start 2026-11-23T01:43:46Z | Linux x86_64, 4 cpus
+  s10 26.06-28.98  Und ein verpasster Tag? Schadete in der Studie kaum.
+  s11 29.31-31.96  Klar: Das sind Mittelwerte. Jeder ist anders.
+  s12 32.06-34.12  Tag verpasst? Mach morgen einfach weiter.
+  s13 34.31-35.51  Und falls du noch denkst:
+ton: fertig in 37 s
+CUTS   13 sentences | loudest sound right outside a cut: -23 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -62 dB
+WORDS  90 of 90 script words heard, each sentence listened to on its own | words the recognition was unsure about: none
+LEVEL  sentences between -16.4 and -14.2 dBFS (middle -15.0)
+FLOW   pauses between sentences 0.10 to 0.56 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s02 after 'nein.' 0.32 s, s06 after 'Tage,' 0.28 s, s08 after '1960,' 0.14 s, s10 after 'Tag?' 0.32 s, s11 after 'Klar,' 0.23 s, s11 after 'Mittelwerte.' 0.22 s, s12 after 'verpasst?' 0.24 s
+hoerpruefung: ok
+laenge: 36.0 s (2160 Bilder)
+SAFE ZONE  26 stills | all clear
+full hd: fertig in 405 s
+4k: fertig in 1363 s (4 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=36.011000|size=12365561 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=36.000000|size=39558747 
+== 011-66-tage | fertig 2026-11-23T02:14:27Z
