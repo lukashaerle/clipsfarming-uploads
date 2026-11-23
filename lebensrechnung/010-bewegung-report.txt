@@ -1,0 +1,23 @@
+== 010-bewegung | start 2026-11-23T01:16:09Z | Linux x86_64, 4 cpus
+  s10 21.81-24.72  Klar: Gut 2 von 3 schaffen das laut Befragung schon.
+  s11 25.06-27.73  Aber 22 Minuten passen in fast jeden Tag.
+  s12 28.06-30.43  Geh heute 22 Minuten zügig spazieren.
+  s13 30.56-31.45  Und wenn jemand sagt:
+ton: fertig in 35 s
+CUTS   13 sentences | loudest sound right outside a cut: -24 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -59 dB
+WORDS  76 of 80 script words heard, each sentence listened to on its own | words the recognition was unsure about: s01 'stimmt' (0.35), s08 '10' (0.42), s08 'Über' (0.44)
+LEVEL  sentences between -16.2 and -14.2 dBFS (middle -15.1)
+FLOW   pauses between sentences 0.13 to 0.56 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s01 after 'Sport?' 0.20 s, s04 after 'WHO.' 0.20 s, s10 after 'Klar,' 0.28 s
+hoerpruefung: bitte anhoeren
+  - s03: script 'Das sind nur 1,5 % deiner Woche.' | heard 'Das sind nur 1 ,5 Prozent deiner Woche.'
+  - s10: script 'Klar: Gut 2 von 3 schaffen das laut Befragung schon.' | heard 'Klar, gut zwei von drei schaffen das lautbefragung schon.'
+  - s12: script 'Geh heute 22 Minuten zügig spazieren.' | heard 'Gehe heute 22 Minuten zügig spazieren.'
+laenge: 32.0 s (1920 Bilder)
+SAFE ZONE  26 stills | all clear
+full hd: fertig in 376 s
+4k: fertig in 1210 s (4 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=32.000000|size=10809328 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=32.000000|size=34488912 
+== 010-bewegung | fertig 2026-11-23T01:43:46Z
