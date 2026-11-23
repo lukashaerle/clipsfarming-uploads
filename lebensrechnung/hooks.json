@@ -25,6 +25,8 @@
   "015-20-minuten": "szene",
   "016-39-tage": "zahl",
   "017-preis-in-stunden": "mythos",
-  "018-dein-tag-in-zahlen": "frage"
+  "018-dein-tag-in-zahlen": "frage",
+  "019-laenger-als-gedacht": "szene",
+  "020-vorsaetze": "mythos"
  }
 }

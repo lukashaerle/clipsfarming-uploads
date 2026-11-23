@@ -1,0 +1,208 @@
+{
+ "id": "020-vorsaetze",
+ "title": "Vorsätze halten besser als ihr Ruf",
+ "style": "punch",
+ "scenes": [
+  {
+   "vo": "Neujahrsvorsätze scheitern immer?",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Neujahrsvorsätze",
+     "scheitern",
+     "*immer?*"
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Von wegen. 55 % waren erfolgreich.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Von wegen.",
+     "*55 %*",
+     "waren erfolgreich."
+    ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Eine Studie fragte tausendsechsundsechzig Menschen.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 1066,
+    "unit": "Menschen"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   },
+   "cap": "Eine Studie fragte 1.066 Menschen.",
+   "key": "tausend"
+  },
+  {
+   "vo": "Sie fragten in Schweden nach einem Jahr wieder nach.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Befragung",
+      "value": "nach 1 Jahr"
+     },
+     {
+      "label": "Frage",
+      "value": "erfolgreich?"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "55 % sahen sich als erfolgreich.",
+   "head": "",
+   "graphic": {
+    "kind": "ring",
+    "percent": 55,
+    "center": "55 %"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Wer etwas tun wollte, lag sogar bei 58,9 %.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 58.9,
+    "decimals": 1,
+    "suffix": " %",
+    "unit": "wollten etwas tun"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Wer etwas lassen wollte: nur 47,1 %.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "47,1 %",
+     "label": "etwas lassen"
+    },
+    "right": {
+     "value": "58,9 %",
+     "label": "etwas tun"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Das sind 11,8 Punkte mehr als beim Lassen.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 11.8,
+    "decimals": 1,
+    "unit": "Punkte Unterschied"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Klar: Das war Selbsteinschätzung.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Erfolg",
+      "value": "selbst eingeschätzt"
+     },
+     {
+      "label": "Gruppe",
+      "value": "Menschen in Schweden"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Lieber etwas anfangen als lassen.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Lieber etwas",
+     "*anfangen*",
+     "als lassen."
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Also: Fang heute etwas Kleines an.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Also: Fang",
+     "heute etwas",
+     "*Kleines an.*"
+    ],
+    "chip": "Was fängst du an?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und merk dir:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und merk",
+     "*dir:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}

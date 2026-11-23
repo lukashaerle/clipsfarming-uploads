@@ -1,0 +1,229 @@
+{
+ "id": "019-laenger-als-gedacht",
+ "title": "Du brauchst länger, als du denkst",
+ "style": "punch",
+ "scenes": [
+  {
+   "vo": "Sie plant 34 Tage für ihre Arbeit.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Sie plant",
+     "*34 Tage*",
+     "für ihre Arbeit."
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Am Ende braucht sie 56 Tage.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Am Ende",
+     "braucht sie",
+     "*56 Tage.*"
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Studierende schätzten ihre Arbeit auf 34 Tage.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Gruppe",
+      "value": "Studierende"
+     },
+     {
+      "label": "geschätzt",
+      "value": "34 Tage"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Gebraucht haben sie am Ende 56 Tage.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 56,
+    "unit": "Tage gebraucht"
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Das sind ganze 22 Tage mehr.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "34",
+     "label": "Tage geschätzt"
+    },
+    "right": {
+     "value": "56",
+     "label": "Tage gebraucht"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Das sind 65 % mehr als geplant.",
+   "head": "",
+   "graphic": {
+    "kind": "ring",
+    "percent": 65,
+    "center": "+65 %"
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "right"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Und das trotz eines festen Abgabetermins.",
+   "head": "",
+   "graphic": {
+    "kind": "none"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Klar: Das waren Studierende, keine Regel.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Gruppe",
+      "value": "Studierende"
+     },
+     {
+      "label": "Quelle",
+      "value": "Studie, 1994"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Dinge dauern länger, als du denkst.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Dinge dauern",
+     "länger, als",
+     "*du denkst.*"
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Planst du 34 Tage, rechne mit 56 Tagen.",
+   "head": "",
+   "graphic": {
+    "kind": "timeline",
+    "from": 0,
+    "to": 60,
+    "unit": "Tage",
+    "marks": [
+     {
+      "at": 34,
+      "label": "geplant"
+     },
+     {
+      "at": 56,
+      "label": "real"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Das sind 22 Tage Puffer.",
+   "head": "",
+   "graphic": {
+    "kind": "grid",
+    "total": 56,
+    "hi": 22,
+    "cols": 14,
+    "label": "56 Tage",
+    "hiLabel": "Puffer"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Also: Plane heute mehr Zeit ein.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Also: Plane",
+     "heute mehr",
+     "*Zeit ein.*"
+    ],
+    "chip": "Was planst du gerade?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und stell dir vor:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und stell",
+     "*dir vor:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}
