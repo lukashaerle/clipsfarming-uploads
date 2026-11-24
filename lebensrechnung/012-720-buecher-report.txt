@@ -1,0 +1,25 @@
+== 012-720-buecher | start 2026-11-24T01:14:54Z | Linux x86_64, 4 cpus
+  s09 25.56-28.57  Bei 300 Seiten pro Buch: 24 Bücher im Jahr.
+  s10 28.81-33.01  In 60 Jahren sind das 1440 statt 720 Bücher.
+  s11 33.31-35.48  Leg heute Abend dein nächstes Buch aufs Kopfkissen.
+  s12 35.81-36.78  Denn die Rechnung bleibt:
+ton: fertig in 37 s
+CUTS   12 sentences | loudest sound right outside a cut: -10 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -45 dB
+WORDS  87 of 89 script words heard, each sentence listened to on its own | words the recognition was unsure about: s04 'Prozent' (0.42), s09 'Bei' (0.47)
+LEVEL  sentences between -16.0 and -14.2 dBFS (middle -15.0)
+FLOW   pauses between sentences 0.10 to 0.36 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s01 after 'Monat.' 0.19 s, s03 after 'Bücher.' 0.23 s, s07 after '–' 0.23 s, s08 after 'Nachricht?' 0.23 s, s09 after 'Buch?' 0.20 s
+hoerpruefung: bitte anhoeren
+  - s01: the finished track is not silent at its edge (-45 / -87 dB)
+  - s02: script 'Allein 2025 erschienen über zweiundfünfzigtausend neue Titel.' | heard 'Allein 2025 erschienen über 52 .000 neue Titel.'
+  - s04: script 'Deine 720 sind nicht einmal 2 % dieses einen Jahrgangs.' | heard 'Deine 720 sind nicht einmal 2 Prozent dieses einen Jahrgangs.'
+  - s10: script 'In 60 Jahren sind das 1440 statt 720 Bücher.' | heard 'In 60 Jahren sind das 1 .440 statt 720 Bücher.'
+  - s07: a pause of 0.23 s after '–', where the script has no comma or full stop
+laenge: 38.0 s (2280 Bilder)
+SAFE ZONE  24 stills | all clear
+full hd: fertig in 327 s
+4k: fertig in 1265 s (4 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=38.016000|size=12599026 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=38.000000|size=83559863 
+== 012-720-buecher | fertig 2026-11-24T01:42:38Z
