@@ -1,0 +1,227 @@
+{
+ "id": "022-abfragen",
+ "title": "Abfragen schlägt Wiederlesen",
+ "style": "punch",
+ "scenes": [
+  {
+   "vo": "Noch mal lesen hilft am meisten?",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Noch mal lesen",
+     "hilft am *meisten?*"
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Leider nein. Abfragen schlägt Wiederlesen.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Leider nein.",
+     "*Abfragen* schlägt",
+     "Wiederlesen."
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Zwei Studien haben das untersucht.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 2,
+    "unit": "Studien"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Beide verglichen Wiederlesen mit Abfragen.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Methode A",
+      "value": "Wiederlesen"
+     },
+     {
+      "label": "Methode B",
+      "value": "Abfragen",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "In beiden schnitt das Abfragen besser ab.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "lesen",
+     "label": "Wiederlesen"
+    },
+    "right": {
+     "value": "abfragen",
+     "label": "Abfragen"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Klar: Zwei Studien sind kein Gesetz.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Belege",
+      "value": "2 Studien"
+     },
+     {
+      "label": "Einordnung",
+      "value": "Zusammenhang"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Lies einen Abschnitt nur einmal.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 1,
+    "unit": "Mal lesen"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Klapp dann das Buch zu.",
+   "head": "",
+   "graphic": {
+    "kind": "blocks",
+    "n": 4,
+    "hi": 0,
+    "label": "",
+    "caption": "Buch zu"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Sag laut, was du behalten hast.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Schritt",
+      "value": "laut sagen"
+     },
+     {
+      "label": "Danach",
+      "value": "nachsehen"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Erst abfragen, dann nachsehen.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Erst *abfragen,*",
+     "dann nachsehen."
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Schau nach, was dir noch gefehlt hat.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Schau nach, was",
+     "dir *noch gefehlt*",
+     "hat."
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Probier es heute mit einer Seite.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Probier es heute",
+     "mit *einer Seite.*"
+    ],
+    "chip": "Was fragst du dich ab?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und bevor du wieder liest:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und bevor",
+     "du *wieder liest:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}

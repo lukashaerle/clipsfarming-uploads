@@ -1,0 +1,240 @@
+{
+ "id": "021-mit-25",
+ "title": "Mit 25 bei null?",
+ "style": "punch",
+ "scenes": [
+  {
+   "vo": "Mit 25 bei null anfangen?",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Mit 25 bei null",
+     "*anfangen?*"
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Von wegen. Es ist erst 7:30 Uhr.",
+   "head": "",
+   "graphic": {
+    "kind": "clock",
+    "times": [
+     "07:30"
+    ],
+    "total": "so früh ist es erst"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Stell dir dein Leben als einen Tag vor.",
+   "head": "",
+   "graphic": {
+    "kind": "blocks",
+    "n": 24,
+    "hi": 24,
+    "label": "",
+    "caption": "24 Stunden"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Bei 80 Jahren ist ein Jahr 18 Minuten lang.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 18,
+    "unit": "Minuten pro Jahr",
+    "chips": [
+     {
+      "label": "24 h ÷ 80 Jahre",
+      "value": "18 min"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Mit 25 steht die Uhr auf halb acht.",
+   "head": "",
+   "graphic": {
+    "kind": "ring",
+    "percent": 31.25,
+    "center": "7:30",
+    "chips": [
+     {
+      "label": "25 von 80 Jahren",
+      "value": "knapp ⅓"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Dein Tag hat noch 16,5 Stunden Zeit.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 16.5,
+    "decimals": 1,
+    "unit": "Stunden übrig",
+    "chips": [
+     {
+      "label": "24 − 7,5",
+      "value": "16,5 h"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Das sind 55 Jahre vor dir.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 55,
+    "unit": "Jahre vor dir",
+    "chips": [
+     {
+      "label": "80 − 25",
+      "value": "55"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Das sind 2.860 Wochen.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "1.300",
+     "label": "Wochen gelebt"
+    },
+    "right": {
+     "value": "2.860",
+     "label": "Wochen vor dir"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Mit 30 ist es genau 9 Uhr.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "7:30",
+     "label": "Uhr, mit 25"
+    },
+    "right": {
+     "value": "9:00",
+     "label": "Uhr, mit 30"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Du bist nicht spät dran. Du bist früh dran.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Du bist nicht",
+     "spät dran.",
+     "Du bist *früh dran.*"
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Klar: Das ist nur ein Durchschnitt.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Rechnung",
+      "value": "mit Durchschnitt"
+     },
+     {
+      "label": "Quelle",
+      "value": "Destatis 2025"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Schreib heute auf, was du mit 30 können willst.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Schreib heute auf,",
+     "was du *mit 30*",
+     "können willst."
+    ],
+    "chip": "Was willst du mit 30 können?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und wenn du dich fragst:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und wenn du",
+     "*dich fragst:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}
