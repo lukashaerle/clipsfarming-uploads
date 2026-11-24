@@ -15,6 +15,7 @@
   "shorts"
  ],
  "id": "010-bewegung",
- "status": "freigabe-angefragt",
- "style": "punch"
+ "status": "verpasst",
+ "style": "punch",
+ "grund": "Mit ✅ freigegeben, aber beim Freigabe-Lauf am 24.11. 17:35 UTC war die Postzeit 11:30 UTC schon vorbei."
 }
