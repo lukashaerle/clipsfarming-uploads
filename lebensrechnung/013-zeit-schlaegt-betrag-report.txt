@@ -1,0 +1,25 @@
+== 013-zeit-schlaegt-betrag | start 2026-11-24T01:42:46Z | Linux x86_64, 4 cpus
+  s11 26.81-29.53  Zum Aufholen: 183 Euro im Monat.
+  s12 29.81-32.04  Klar: ein Rechenbeispiel, keine Empfehlung.
+  s13 32.31-34.09  Rechne heute mit deinen eigenen Zahlen.
+  s14 34.31-35.61  Und alles begann so:
+ton: fertig in 40 s
+CUTS   14 sentences | loudest sound right outside a cut: -71 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -76 dB
+WORDS  73 of 77 script words heard, each sentence listened to on its own | words the recognition was unsure about: s10 'Prozent.' (0.40), s03 '40' (0.41), s03 '%' (0.45), s06 '83' (0.49)
+LEVEL  sentences between -16.5 and -13.8 dBFS (middle -15.3)
+FLOW   pauses between sentences 0.13 to 0.49 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s03 after 'Rechnung?' 0.28 s, s04 after 'Eingezahlt?' 0.19 s, s05 after 'Jahren?' 0.22 s, s06 after 'Jahren?' 0.21 s, s07 after 'Jahren?' 0.18 s, s11 after 'Aufholen?' 0.22 s, s12 after 'Klar,' 0.15 s
+hoerpruefung: bitte anhoeren
+  - s04: script 'Eingezahlt: achtundvierzigtausend Euro.' | heard 'Eingezahlt 48 .000 Euro.'
+  - s05: script 'Nach 20 Jahren: einundvierzigtausend.' | heard 'Nach 20 Jahren 41 .000.'
+  - s06: script 'Nach 30 Jahren: dreiundachtzigtausend.' | heard 'Nach 30 Jahren 83 .000.'
+  - s07: script 'Nach 40 Jahren: rund hundertfünfzigtausend.' | heard 'Nach 40 Jahren rund 150 .000.'
+  - s10: script 'Der Späte kommt nur auf 55 %.' | heard 'Der Späte kommt nur auf 55 Prozent.'
+laenge: 36.0 s (2160 Bilder)
+SAFE ZONE  28 stills | all clear
+full hd: fertig in 304 s
+4k: fertig in 1175 s (4 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=36.011000|size=12788403 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=36.000000|size=81604971 
+== 013-zeit-schlaegt-betrag | fertig 2026-11-24T02:08:47Z
