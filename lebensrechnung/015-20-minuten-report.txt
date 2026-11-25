@@ -1,0 +1,22 @@
+== 015-20-minuten | start 2026-11-25T01:53:15Z | Linux x86_64, 4 cpus
+  s09 25.31-28.69  Dabei sind 20 Minuten nur 1,4 % eines Tages.
+  s10 28.81-30.75  Zwanzig Minuten sind genug zum Anfangen.
+  s11 31.06-33.31  Stell dir heute einen Timer auf zwanzig Minuten.
+  s12 33.56-34.33  Und stell dir vor:
+ton: fertig in 35 s
+CUTS   12 sentences | loudest sound right outside a cut: -16 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -54 dB
+WORDS  78 of 80 script words heard, each sentence listened to on its own | words the recognition was unsure about: s09 'Prozent' (0.49)
+LEVEL  sentences between -16.3 and -13.7 dBFS (middle -15.1)
+FLOW   pauses between sentences 0.11 to 0.45 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s04 after 'Jahr,' 0.26 s, s05 after 'Jahren,' 0.25 s, s06 after 'Jahren,' 0.20 s, s08 after 'Klar,' 0.21 s, s08 after 'Richtwert,' 0.18 s
+hoerpruefung: bitte anhoeren
+  - s09: script 'Dabei sind 20 Minuten nur 1,4 % eines Tages.' | heard 'Dabei sind 20 Minuten nur 1 ,4 Prozent eines Tages.'
+  - s10: script 'Zwanzig Minuten sind genug zum Anfangen.' | heard '20 Minuten sind genug zum Anfang.'
+laenge: 36.0 s (2160 Bilder)
+SAFE ZONE  24 stills | all clear
+full hd: fertig in 317 s
+4k: fertig in 1165 s (4 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=36.011000|size=12117152 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=36.000000|size=74071817 
+== 015-20-minuten | fertig 2026-11-25T02:19:08Z
