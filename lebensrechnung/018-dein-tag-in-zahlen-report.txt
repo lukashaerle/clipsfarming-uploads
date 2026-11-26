@@ -1,0 +1,21 @@
+== 018-dein-tag-in-zahlen | start 2026-11-26T01:37:45Z | Linux x86_64, 4 cpus
+  s09 20.81-24.09  Im Jahr 2022 hat das Statistische Bundesamt gemessen.
+  s10 24.31-26.54  Die Zeit ist da. Sie liegt nur woanders.
+  s11 26.81-28.70  Gib heute 30 Minuten einem Menschen.
+  s12 28.81-29.54  Und frag dich:
+ton: fertig in 33 s
+CUTS   12 sentences | loudest sound right outside a cut: -44 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -73 dB
+WORDS  84 of 85 script words heard, each sentence listened to on its own | words the recognition was unsure about: s07 'Mal' (0.39)
+LEVEL  sentences between -17.5 and -14.2 dBFS (middle -15.2)
+FLOW   pauses between sentences 0.11 to 0.54 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s02 after 'Schnitt?' 0.23 s, s08 after 'Klar,' 0.29 s, s10 after 'da.' 0.25 s
+hoerpruefung: bitte anhoeren
+  - s07: script 'Fast fünfmal so viel wie fürs Lesen.' | heard 'Fast fünf Mal so viel wie fürs Lesen.'
+laenge: 30.0 s (1800 Bilder)
+SAFE ZONE  24 stills | all clear
+full hd: fertig in 239 s
+4k: fertig in 914 s (3 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=30.016000|size=9617180 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=30.000000|size=59224743 
+== 018-dein-tag-in-zahlen | fertig 2026-11-26T01:58:07Z
