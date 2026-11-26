@@ -38,6 +38,7 @@ Fehlen beim Rendern Bibliotheken, installiere sie mit apt (Ubuntu 24.04: libasou
 cd remotion && bash scripts/lr/night.sh <id> ../lebensrechnung
 ```
 Dauer ungefähr: Ton 1 Min, Full HD 10 Min, 4K 25 Min pro Video. Der Punch-Stil (Spec mit `"style": "punch"`, seit 21.11. Standard: etwa 34 s, Schleife ohne Ausblenden), der Story-Stil (`"style": "story"`, ein gezeichneter Raum mit Kamerafahrten) und der ältere Action-Stil brauchen keine Extra-Schritte: Tempo, Beat, Schnitte, Untertitel und Effekte macht `night.sh` selbst. Das Skript ist fortsetzbar (fertige 4K-Abschnitte werden übersprungen).
+**Kaputte Bilder (seit 26.11.):** Der Cloud-Browser liefert manchmal unfertige Einzelbilder (schwarz oder gekachelt; so gingen „720 Bücher“ und „Zeit schlägt Betrag“ kaputt auf YouTube). `night.sh` prüft deshalb jedes Video und jeden 4K-Abschnitt mit `scripts/lr/glitch.py`, rendert bei Fund bis zu zweimal neu (ein Tab, dann zusätzlich `--gl=swangle`) und bricht sonst mit `KAPUTTE BILDER` ab (exit 1). Dann gilt das Video als gescheitert: nicht auf `lr-videos` pushen, Fehler-Meldung mit der GLITCH-Zeile aus dem Report. Nie ein Video mit `KAPUTTE BILDER` im Report weitergeben.
 Danach:
 - **Videos** kommen NICHT auf `main`, sondern auf den Branch `lr-videos`:
   `bash remotion/scripts/lr/push_videos.sh lebensrechnung/<id>-1080p.mp4 lebensrechnung/<id>-4K.mp4`
@@ -59,7 +60,7 @@ Die Antwort muss genau `ok` sein.
 - Jede Nachricht beginnt mit `<@U0CJ23KT5MK>` (Erwähnung von Lukas, damit eine Push-Nachricht kommt).
 - Formatierung: *fett*, Links als <url|Text>.
 - Erfolg, pro Video: *„<Titel>“* fertig (die ID nur klein dahinter) für <Datum, Uhrzeit>; Länge; Hörprüfung („ok“ oder „bitte anhören“
-  plus erste Auffälligkeit); sichere Zone; verbrauchte Credits; Link zum 1080p-Video im Repo
+  plus erste Auffälligkeit); sichere Zone; Bildprüfung (GLITCH-Zeilen, „keine kaputten Bilder“); verbrauchte Credits; Link zum 1080p-Video im Repo
   (https://github.com/lukashaerle/clipsfarming-uploads/blob/main/lebensrechnung/<id>-1080p.mp4); Schluss: „Freigabe morgens in der App“.
 - Fehler: „⚠️ *LEBENSRECHNUNG Nacht-Produktion abgebrochen* – <Schritt>: <letzte Fehlerzeile>“.
 

@@ -60,11 +60,23 @@ zrc=$?
 grep -E "SAFE ZONE|^  - " "$WORK/zone.log" | tee -a "$LOG"
 [ $zrc -eq 0 ] || { say "SICHERE ZONE: VERLETZT, nicht gerendert (Bild: $WORK/zone/zonen.png)"; exit 1; }
 
+# Broken frames: since 2026-11-24 the cloud browser sometimes hands out unfinished frames (black, or the picture in
+# tiles), one to three frames long. scripts/lr/glitch.py finds them; a render with them is done again with one tab,
+# then with one tab and software GL (--gl=swangle); still broken stops the run, so nothing broken is ever scheduled.
+glitchfree() { "$PY" -I scripts/lr/glitch.py "$1" >>"$LOG" 2>&1; }
+
 # ---- 3. Full HD
 t=$(date +%s)
-npx remotion render src/index.ts LR "$OUT/$VID-1080p.mp4" --props="$WORK/props.json" --crf=18 --concurrency=$CONC "${COMMON[@]}" >"$WORK/render1080.log" 2>&1
-rc=$?
-[ $rc -eq 0 ] || { tail -5 "$WORK/render1080.log" | tee -a "$LOG"; say "FULL HD: FEHLER exit $rc"; exit 1; }
+for try in 1 2 3; do
+  c=$CONC; [ $try -gt 1 ] && c=1
+  GL=(); [ $try -eq 3 ] && GL=(--gl=swangle)
+  npx remotion render src/index.ts LR "$OUT/$VID-1080p.mp4" --props="$WORK/props.json" --crf=18 --concurrency=$c ${GL[@]+"${GL[@]}"} "${COMMON[@]}" >"$WORK/render1080.log" 2>&1
+  rc=$?
+  [ $rc -eq 0 ] || { tail -5 "$WORK/render1080.log" | tee -a "$LOG"; say "FULL HD: FEHLER exit $rc"; exit 1; }
+  glitchfree "$OUT/$VID-1080p.mp4" && break
+  [ $try -eq 3 ] && { say "FULL HD: KAPUTTE BILDER nach 3 Versuchen, nicht freigeben"; exit 1; }
+  say "full hd: kaputte Bilder, Versuch $((try+1)) mit einem Tab"
+done
 say "full hd: fertig in $(( $(date +%s) - t )) s"
 
 if [ -n "${LR_ONLY_HD:-}" ]; then say "4k: uebersprungen (LR_ONLY_HD)"; exit 0; fi
@@ -76,10 +88,17 @@ t=$(date +%s)
 for ((s=0; s<FRAMES; s+=CHUNK)); do
   e=$(( s + CHUNK - 1 )); [ $e -ge $FRAMES ] && e=$(( FRAMES - 1 ))
   f=$(printf "%s/chunks/c%03d.mov" "$WORK" $i)
-  if [ -s "$f.done" ]; then i=$((i+1)); continue; fi
-  npx remotion render src/index.ts LR "$f" --props="$WORK/props.json" --frames=$s-$e --scale=2 --codec=prores --prores-profile=light --muted --concurrency=$CONC "${COMMON[@]}" >"$WORK/chunks/c$i.log" 2>&1
-  rc=$?
-  [ $rc -eq 0 ] || { tail -5 "$WORK/chunks/c$i.log" | tee -a "$LOG"; say "4K: abschnitt $i FEHLER exit $rc"; exit 1; }
+  if [ -s "$f.done" ] && [ -s "$f" ]; then i=$((i+1)); continue; fi
+  for try in 1 2 3; do
+    c=$CONC; [ $try -gt 1 ] && c=1
+    GL=(); [ $try -eq 3 ] && GL=(--gl=swangle)
+    npx remotion render src/index.ts LR "$f" --props="$WORK/props.json" --frames=$s-$e --scale=2 --codec=prores --prores-profile=light --muted --concurrency=$c ${GL[@]+"${GL[@]}"} "${COMMON[@]}" >"$WORK/chunks/c$i.log" 2>&1
+    rc=$?
+    [ $rc -eq 0 ] || { tail -5 "$WORK/chunks/c$i.log" | tee -a "$LOG"; say "4K: abschnitt $i FEHLER exit $rc"; exit 1; }
+    glitchfree "$f" && break
+    [ $try -eq 3 ] && { say "4K: abschnitt $i KAPUTTE BILDER nach 3 Versuchen, nicht freigeben"; exit 1; }
+    say "4k: abschnitt $i kaputte Bilder, Versuch $((try+1)) mit einem Tab"
+  done
   echo ok > "$f.done"
   i=$((i+1))
 done
@@ -89,7 +108,8 @@ npx remotion ffmpeg -v error -y -f concat -safe 0 -i "$WORK/chunks/list.txt" -i 
   -c:v libx264 -preset slow -crf 16 -pix_fmt yuv420p -r 60 -c:a aac -b:a 320k -shortest -movflags +faststart "$OUT/$VID-4K.mp4"
 rc=$?
 [ $rc -eq 0 ] || { say "4K: zusammenfuegen FEHLER exit $rc"; exit 1; }
-rm -f "$WORK"/chunks/c*.mov
+rm -f "$WORK"/chunks/c*.mov "$WORK"/chunks/c*.mov.done
+glitchfree "$OUT/$VID-4K.mp4" || { say "4K: KAPUTTE BILDER im fertigen Video, nicht freigeben"; exit 1; }
 say "4k: fertig in $(( $(date +%s) - t )) s ($i abschnitte, einmal kodiert)"
 
 for q in 1080p 4K; do
