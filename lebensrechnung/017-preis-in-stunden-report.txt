@@ -1,0 +1,22 @@
+== 017-preis-in-stunden | start 2026-11-26T01:15:49Z | Linux x86_64, 4 cpus
+  s09 22.56-24.61  Das Handy kostet zweieinhalb Arbeitswochen.
+  s10 24.81-27.96  Klar: nur ein Rechenbeispiel. Dein Lohn ist ein anderer.
+  s11 28.06-30.21  Teile heute einen Preis durch deinen Stundenlohn.
+  s12 30.56-31.34  Und rechne nach:
+ton: fertig in 31 s
+CUTS   12 sentences | loudest sound right outside a cut: -20 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -61 dB
+WORDS  70 of 71 script words heard, each sentence listened to on its own | words the recognition was unsure about: s07 '2' (0.25), s08 '2' (0.35), s02 'Von' (0.50)
+LEVEL  sentences between -16.2 and -14.0 dBFS (middle -15.2)
+FLOW   pauses between sentences 0.10 to 0.52 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s05 after 'Euro.' 0.26 s, s06 after 'Arbeitswoche.' 0.23 s, s07 after 'Arbeitswochen.' 0.25 s, s08 after 'Wochen.' 0.24 s, s10 after 'Dein' 0.18 s
+hoerpruefung: bitte anhoeren
+  - s08: script 'Zweieinhalb Wochen: 100 Stunden.' | heard '2 ,5 Wochen. 100 Stunden.'
+  - s10: a pause of 0.18 s after 'Dein', where the script has no comma or full stop
+laenge: 32.0 s (1920 Bilder)
+SAFE ZONE  24 stills | all clear
+full hd: fertig in 265 s
+4k: fertig in 986 s (4 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=32.000000|size=10674331 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=32.000000|size=67771752 
+== 017-preis-in-stunden | fertig 2026-11-26T01:37:45Z
