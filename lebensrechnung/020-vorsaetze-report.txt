@@ -1,0 +1,40 @@
+== 020-vorsaetze | start 2026-11-27T02:24:58Z | Linux x86_64, 4 cpus
+  s09 23.81-25.66  Klar: Das war Selbsteinschätzung.
+  s10 25.81-27.59  Lieber etwas anfangen als lassen.
+  s11 27.81-29.93  Also: Fang heute etwas Kleines an.
+  s12 30.06-30.68  Und merk dir:
+ton: fertig in 31 s
+CUTS   12 sentences | loudest sound right outside a cut: -55 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -72 dB
+WORDS  61 of 67 script words heard, each sentence listened to on its own | words the recognition was unsure about: s05 '%' (0.36), s06 'Prozent.' (0.37), s02 '%' (0.44)
+LEVEL  sentences between -16.0 and -14.0 dBFS (middle -15.0)
+FLOW   pauses between sentences 0.11 to 0.44 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s07 after 'wollte,' 0.31 s, s09 after 'Klar,' 0.21 s, s11 after 'fang' 0.25 s
+hoerpruefung: bitte anhoeren
+  - s03: script 'Eine Studie fragte tausendsechsundsechzig Menschen.' | heard 'Eine Studie fragte 1066 Menschen.'
+  - s06: script 'Wer etwas tun wollte, lag sogar bei 58,9 %.' | heard 'Wer etwas tun wollte, lag sogar bei 58 ,9 Prozent.'
+  - s07: script 'Wer etwas lassen wollte: nur 47,1 %.' | heard 'Wer etwas lassen wollte, nur 47 ,1%.'
+  - s08: script 'Das sind 11,8 Punkte mehr als beim Lassen.' | heard 'Das sind 11 ,8 Punkte mehr als beim Lassen.'
+  - s12: script 'Und merk dir:' | heard 'und merkt ihr.'
+  - s11: a pause of 0.25 s after 'fang', where the script has no comma or full stop
+laenge: 32.0 s (1920 Bilder)
+SAFE ZONE  24 stills | all clear
+GLITCH 020-vorsaetze-1080p.mp4: none of 1920 frames broken
+full hd: fertig in 283 s
+GLITCH c000.mov: 183 of 600 frames broken (s: 0.03, 0.18, 0.27, 0.37, 0.38, 0.40, 0.42, 0.75, 0.83, 1.07, 1.08, 1.10 ...)
+4k: abschnitt 0 kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH c000.mov: none of 600 frames broken
+GLITCH c001.mov: 249 of 600 frames broken (s: 0.17, 0.18, 0.20, 0.22, 0.23, 0.30, 0.43, 0.45, 0.47, 0.48, 0.57, 0.63 ...)
+4k: abschnitt 1 kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH c001.mov: none of 600 frames broken
+GLITCH c002.mov: 180 of 600 frames broken (s: 0.17, 0.43, 0.53, 0.55, 0.57, 0.58, 0.60, 0.62, 0.63, 0.65, 0.72, 0.73 ...)
+4k: abschnitt 2 kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH c002.mov: none of 600 frames broken
+GLITCH c003.mov: 16 of 120 frames broken (s: 0.27, 0.28, 0.30, 0.32, 0.33, 0.35, 0.37, 0.38, 0.72, 0.73, 1.05, 1.20 ...)
+4k: abschnitt 3 kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH c003.mov: none of 120 frames broken
+GLITCH 020-vorsaetze-4K.mp4: none of 1920 frames broken
+4k: fertig in 2746 s (4 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=32.000000|size=10969955 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=32.000000|size=35390311 
+== 020-vorsaetze | fertig 2026-11-27T03:16:34Z

@@ -1,0 +1,33 @@
+== 019-laenger-als-gedacht | start 2026-11-27T01:54:50Z | Linux x86_64, 4 cpus
+  s10 22.81-25.93  Planst du 34 Tage, rechne mit 56 Tagen.
+  s11 26.06-27.73  Das sind 22 Tage Puffer.
+  s12 28.06-30.25  Also: Plane heute mehr Zeit ein.
+  s13 30.56-31.38  Und stell dir vor:
+ton: fertig in 33 s
+CUTS   13 sentences | loudest sound right outside a cut: -68 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -58 dB
+WORDS  77 of 80 script words heard, each sentence listened to on its own | words the recognition was unsure about: s06 'Prozent' (0.48), s12 'mehr' (0.49)
+LEVEL  sentences between -16.2 and -14.0 dBFS (middle -15.1)
+FLOW   pauses between sentences 0.12 to 0.46 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s08 after 'Klar,' 0.23 s, s08 after 'Studierende,' 0.15 s, s12 after 'Also,' 0.26 s
+hoerpruefung: bitte anhoeren
+  - s03: script 'Studierende schätzten ihre Arbeit auf 34 Tage.' | heard 'Studierende schätzen ihre Arbeit auf 34 Tage.'
+  - s06: script 'Das sind 65 % mehr als geplant.' | heard 'Das sind 65 Prozent mehr als geplant.'
+  - s13: script 'Und stell dir vor:' | heard 'und städt ihr vor.'
+laenge: 32.0 s (1920 Bilder)
+SAFE ZONE  26 stills | all clear
+GLITCH 019-laenger-als-gedacht-1080p.mp4: 5 of 1920 frames broken (s: 7.57, 29.85, 30.15, 30.30, 30.42)
+full hd: kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH 019-laenger-als-gedacht-1080p.mp4: none of 1920 frames broken
+full hd: fertig in 715 s
+GLITCH c002.mov: 146 of 600 frames broken (s: 0.03, 0.27, 0.28, 0.30, 0.65, 0.77, 0.78, 0.80, 0.82, 0.83, 0.85, 0.92 ...)
+4k: abschnitt 2 kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH c002.mov: none of 600 frames broken
+GLITCH c003.mov: 11 of 120 frames broken (s: 0.05, 0.17, 0.18, 0.20, 0.97, 1.27, 1.28, 1.30, 1.57, 1.58, 1.60)
+4k: abschnitt 3 kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH c003.mov: none of 120 frames broken
+GLITCH 019-laenger-als-gedacht-4K.mp4: none of 1920 frames broken
+4k: fertig in 1020 s (4 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=32.000000|size=10635434 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=32.000000|size=33993227 
+== 019-laenger-als-gedacht | fertig 2026-11-27T02:24:58Z
