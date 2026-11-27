@@ -1,0 +1,226 @@
+{
+ "id": "027-arbeitsweg",
+ "title": "183 Stunden Arbeitsweg",
+ "style": "punch",
+ "note": "angenommen: 25 Min., 220 Tage",
+ "scenes": [
+  {
+   "vo": "Wie viele Wochen pendelst du pro Jahr?",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Wie viele Wochen",
+     "pendelst du",
+     "pro *Jahr?*"
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Vielleicht mehr als vier Arbeitswochen.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Vielleicht mehr",
+     "als vier",
+     "*Arbeitswochen.*"
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Die Rechnung: 25 Minuten pro Strecke.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 25,
+    "unit": "Minuten pro Strecke"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Hin und zurück: 50 Minuten am Tag.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "hin",
+      "value": "25 min"
+     },
+     {
+      "label": "zurück",
+      "value": "25 min"
+     },
+     {
+      "label": "zusammen",
+      "value": "50 min",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Und das an 220 Arbeitstagen im Jahr.",
+   "head": "",
+   "graphic": {
+    "kind": "grid",
+    "total": 220,
+    "hi": 220,
+    "cols": 22,
+    "label": "220 Tage",
+    "hiLabel": "Arbeitsweg"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Macht 183 Stunden im Jahr.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 183,
+    "unit": "Stunden im Jahr"
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Durch 40 geteilt: 4,6 Arbeitswochen.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "183",
+     "label": "Stunden"
+    },
+    "right": {
+     "value": "4,6",
+     "label": "Arbeitswochen"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Eine Stunde pro Strecke: 11 Arbeitswochen.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "25 Min. pro Strecke",
+      "value": "4,6 Wochen"
+     },
+     {
+      "label": "60 Min. pro Strecke",
+      "value": "11 Wochen",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   },
+   "key": "11"
+  },
+  {
+   "vo": "In Deutschland brauchen 70 Prozent weniger als 30 Minuten.",
+   "head": "",
+   "graphic": {
+    "kind": "ring",
+    "percent": 70,
+    "center": "70 %"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   },
+   "key": "70"
+  },
+  {
+   "vo": "Kürzen geht selten. Füllen geht immer.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Kürzen geht",
+     "selten. Füllen",
+     "geht *immer.*"
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Im Zug, im Bus oder als Hörbuch.",
+   "head": "",
+   "graphic": {
+    "kind": "none"
+   },
+   "figure": {
+    "pose": "phone",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Leg dir für morgen früh etwas zum Hören bereit.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Leg dir für morgen",
+     "früh etwas zum",
+     "*Hören* bereit."
+    ],
+    "chip": "Was hörst du morgen?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und frag dich:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und",
+     "*frag dich:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}

@@ -1,0 +1,195 @@
+{
+ "id": "024-100000-schlaege",
+ "title": "100.000 Schläge am Tag",
+ "style": "punch",
+ "note": "angenommen: 70 pro Minute",
+ "scenes": [
+  {
+   "vo": "Dein Herz schlägt heute rund hunderttausendmal.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Dein Herz",
+     "schlägt heute rund",
+     "*hunderttausendmal.*"
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und du denkst nicht einmal daran.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und du denkst",
+     "nicht einmal",
+     "*daran.*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Die Rechnung: 70 Schläge pro Minute.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 70,
+    "unit": "Schläge pro Minute"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Mal 60 Minuten: 4200 pro Stunde.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "pro Minute",
+      "value": "70"
+     },
+     {
+      "label": "pro Stunde",
+      "value": "4200",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Mal 24 Stunden: hunderttausendachthundert.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 100800,
+    "unit": "Schläge am Tag"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "right"
+   },
+   "cap": "Mal 24 Stunden: 100.800.",
+   "key": "hundert"
+  },
+  {
+   "vo": "Im Jahr: 36,8 Millionen.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "100.800",
+     "label": "pro Tag"
+    },
+    "right": {
+     "value": "36,8 Mio.",
+     "label": "pro Jahr"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Und in 80 Jahren: 2,9 Milliarden.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 2.9,
+    "unit": "Milliarden Schläge",
+    "decimals": 1
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Einfach so, jeden Tag, ohne dass du etwas tust.",
+   "head": "",
+   "graphic": {
+    "kind": "none"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Klar: Dein Puls ist anders. Das ist ein Beispiel.",
+   "head": "",
+   "graphic": {
+    "kind": "none"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Es arbeitet ohne Pause. Für dich.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Es arbeitet ohne",
+     "Pause. *Für dich.*"
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Hand auf die Brust, zähl zehn Schläge mit.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Hand auf die",
+     "Brust, zähl zehn",
+     "*Schläge* mit."
+    ],
+    "chip": "Spürst du es?"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und denk dran:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und",
+     "*denk dran:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}

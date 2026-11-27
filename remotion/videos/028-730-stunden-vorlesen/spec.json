@@ -1,0 +1,284 @@
+{
+ "id": "028-730-stunden-vorlesen",
+ "title": "730 Stunden Vorlesen",
+ "style": "punch",
+ "note": "angenommen: 15 Min. pro Abend",
+ "scenes": [
+  {
+   "vo": "Gut drei von vier Eltern lesen vor.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Gut *drei von vier*",
+     "Eltern lesen vor."
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Mehrmals pro Woche, mehr als vor zwei Jahren.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Mehrmals pro Woche,",
+     "mehr als",
+     "vor *zwei Jahren.*"
+    ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Von 67,7 auf 76,4 Prozent.",
+   "head": "",
+   "graphic": {
+    "kind": "bars",
+    "bars": [
+     {
+      "label": "2024",
+      "value": 67.7
+     },
+     {
+      "label": "2026",
+      "value": 76.4,
+      "hi": true
+     }
+    ],
+    "unit": "%",
+    "decimals": 1
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Eine Umfrage unter 914 Eltern.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 914,
+    "unit": "Eltern befragt"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "15 Minuten sind 1 Prozent deines Tages.",
+   "head": "",
+   "graphic": {
+    "kind": "ring",
+    "percent": 1,
+    "center": "1 %"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Jeden Abend vorgelesen sind das 91 Stunden im Jahr.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "1 Jahr",
+      "value": 91
+     },
+     {
+      "label": "2 Jahre",
+      "value": 183
+     },
+     {
+      "label": "4 Jahre",
+      "value": 365
+     },
+     {
+      "label": "8 Jahre",
+      "value": 730
+     }
+    ],
+    "show": 1,
+    "unit": "h",
+    "title": "Stunden Vorlesen"
+   },
+   "figure": {
+    "pose": "phone",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Nach 2 Jahren: 183 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "1 Jahr",
+      "value": 91
+     },
+     {
+      "label": "2 Jahre",
+      "value": 183
+     },
+     {
+      "label": "4 Jahre",
+      "value": 365
+     },
+     {
+      "label": "8 Jahre",
+      "value": 730
+     }
+    ],
+    "show": 2,
+    "unit": "h",
+    "title": "Stunden Vorlesen"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Nach 4 Jahren: 365 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "1 Jahr",
+      "value": 91
+     },
+     {
+      "label": "2 Jahre",
+      "value": 183
+     },
+     {
+      "label": "4 Jahre",
+      "value": 365
+     },
+     {
+      "label": "8 Jahre",
+      "value": 730
+     }
+    ],
+    "show": 3,
+    "unit": "h",
+    "title": "Stunden Vorlesen"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Nach 8 Jahren: 730 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "rise",
+    "bars": [
+     {
+      "label": "1 Jahr",
+      "value": 91
+     },
+     {
+      "label": "2 Jahre",
+      "value": 183
+     },
+     {
+      "label": "4 Jahre",
+      "value": 365
+     },
+     {
+      "label": "8 Jahre",
+      "value": 730
+     }
+    ],
+    "show": 4,
+    "unit": "h",
+    "title": "Stunden Vorlesen"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   },
+   "hold": 0.5
+  },
+  {
+   "vo": "Das sind gut 30 Tage rund um die Uhr.",
+   "head": "",
+   "graphic": {
+    "kind": "grid",
+    "total": 30,
+    "hi": 30,
+    "cols": 10,
+    "label": "30 Tage",
+    "hiLabel": "zusammen"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Ein ganzer Monat, nur für euch.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Ein ganzer",
+     "Monat, nur für",
+     "*euch.*"
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Lies heute Abend einem Menschen eine Seite vor.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Lies heute Abend",
+     "einem Menschen",
+     "eine *Seite* vor."
+    ],
+    "chip": "Wem liest du vor?"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und merk dir:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und",
+     "*merk dir:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}

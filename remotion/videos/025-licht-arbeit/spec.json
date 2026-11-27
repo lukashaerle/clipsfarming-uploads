@@ -1,0 +1,226 @@
+{
+ "id": "025-licht-arbeit",
+ "title": "Licht nur während der Arbeit",
+ "style": "punch",
+ "note": "Berlin, 1.12.: 7:54 bis 15:55",
+ "scenes": [
+  {
+   "vo": "Im Dezember ist es nicht dauernd dunkel.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Im Dezember ist",
+     "es nicht dauernd",
+     "*dunkel.*"
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Nur immer dann, wenn du frei hast.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Nur immer dann,",
+     "wenn du",
+     "*frei hast.*"
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Berlin: Sonne von 7:54 bis 15:55 Uhr.",
+   "head": "",
+   "graphic": {
+    "kind": "timeline",
+    "from": 6,
+    "to": 20,
+    "unit": "Uhr",
+    "marks": [
+     {
+      "at": 8,
+      "label": "7:54"
+     },
+     {
+      "at": 16,
+      "label": "15:55"
+     }
+    ],
+    "hiFrom": 7.9,
+    "hiTo": 15.92
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   },
+   "key": "15:55"
+  },
+  {
+   "vo": "Das sind 8 Stunden Tageslicht.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 8,
+    "unit": "Stunden Tageslicht"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Bist du von 7:30 bis 17:30 unterwegs:",
+   "head": "",
+   "graphic": {
+    "kind": "timeline",
+    "from": 6,
+    "to": 20,
+    "unit": "Uhr",
+    "marks": [
+     {
+      "at": 8,
+      "label": "7:30"
+     },
+     {
+      "at": 17.5,
+      "label": "17:30"
+     }
+    ],
+    "hiFrom": 7.5,
+    "hiTo": 17.5
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Dann liegen alle 481 Minuten Licht dazwischen.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 481,
+    "unit": "Minuten Tageslicht"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Im Juni sind es 16 Stunden 49 Minuten.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "8:01",
+     "label": "Dezember"
+    },
+    "right": {
+     "value": "16:49",
+     "label": "Juni"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   },
+   "key": "16"
+  },
+  {
+   "vo": "Der Dezember hat nur 48 Prozent davon.",
+   "head": "",
+   "graphic": {
+    "kind": "ring",
+    "percent": 48,
+    "center": "48 %"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Das Licht liegt genau in deiner Arbeitszeit.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Das Licht liegt",
+     "genau in deiner",
+     "*Arbeitszeit.*"
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Eine halbe Stunde draußen holt 6 Prozent zurück.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "30 Minuten draußen",
+      "value": "6 %",
+      "hi": true
+     },
+     {
+      "label": "15 Minuten draußen",
+      "value": "3 %"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   },
+   "key": "6"
+  },
+  {
+   "vo": "Nimm morgen die Mittagspause draußen.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Nimm morgen",
+     "die Mittagspause",
+     "*draußen.*"
+    ],
+    "chip": "Wann gehst du raus?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und denk dran:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und",
+     "*denk dran:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}

@@ -1,0 +1,196 @@
+{
+ "id": "023-24-tuerchen",
+ "title": "24 Türchen Zeit",
+ "style": "punch",
+ "note": "angenommen: 15 Minuten pro Tag",
+ "scenes": [
+  {
+   "vo": "Was, wenn jedes Türchen 15 Minuten wäre?",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Was, wenn jedes",
+     "Türchen",
+     "*15 Minuten* wäre?"
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Am Ende sind das 6 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Am Ende",
+     "sind das",
+     "*6 Stunden.*"
+    ]
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Morgen geht das erste Türchen auf.",
+   "head": "",
+   "graphic": {
+    "kind": "blocks",
+    "n": 24,
+    "hi": 1,
+    "label": "24 Türchen"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Die Rechnung: 24 Türchen, je 15 Minuten.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "24",
+     "label": "Türchen"
+    },
+    "right": {
+     "value": "15",
+     "label": "Minuten pro Türchen"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Das sind 360 Minuten, also 6 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 6,
+    "unit": "Stunden"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Mit 10 Minuten pro Türchen: 4 Stunden.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "10 Min. pro Türchen",
+      "value": "4 Stunden"
+     },
+     {
+      "label": "15 Min. pro Türchen",
+      "value": "6 Stunden",
+      "hi": true
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Oder 20 Seiten pro Türchen: 480 Seiten.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 480,
+    "unit": "Seiten gelesen"
+   },
+   "figure": {
+    "pose": "phone",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "Ein dickes Buch, Türchen für Türchen.",
+   "head": "",
+   "graphic": {
+    "kind": "none"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "24 Tage sind nur 6,6 Prozent des Jahres.",
+   "head": "",
+   "graphic": {
+    "kind": "ring",
+    "percent": 6.6,
+    "center": "6,6 %"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Klein zum Durchhalten. Groß im Ergebnis.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Klein zum",
+     "Durchhalten.",
+     "Groß im *Ergebnis.*"
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Schreib heute auf, was hinter deine Türchen soll.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Schreib heute",
+     "auf, was hinter",
+     "deine *Türchen* soll."
+    ],
+    "chip": "Was ist dein Türchen?"
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und frag dich:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und",
+     "*frag dich:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}

@@ -1,0 +1,216 @@
+{
+ "id": "026-dankesbrief",
+ "title": "Der Dankesbrief",
+ "style": "punch",
+ "note": "angenommen: 5 Minuten pro Brief",
+ "scenes": [
+  {
+   "vo": "Sie schreibt ihrer alten Lehrerin drei Sätze.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Sie schreibt",
+     "ihrer alten Lehrerin",
+     "*drei Sätze.*"
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und denkt: Das ist ihr bestimmt peinlich.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und denkt:",
+     "Das ist ihr bestimmt",
+     "*peinlich.*"
+    ]
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   },
+   "hold": 0.25
+  },
+  {
+   "vo": "Eine Woche zögert sie, dann schickt sie ihn ab.",
+   "head": "",
+   "graphic": {
+    "kind": "grid",
+    "total": 7,
+    "hi": 7,
+    "cols": 7,
+    "label": "7 Tage",
+    "hiLabel": "gezögert"
+   },
+   "figure": {
+    "pose": "look",
+    "place": "left"
+   },
+   "key": "woche"
+  },
+  {
+   "vo": "Am selben Abend ruft die Lehrerin an.",
+   "head": "",
+   "graphic": {
+    "kind": "none"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "In vier Versuchen schrieben Menschen Dankesbriefe.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 4,
+    "unit": "Versuche"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   },
+   "cap": "In 4 Versuchen schrieben Menschen Dankesbriefe.",
+   "key": "vier"
+  },
+  {
+   "vo": "Die Freude der Empfänger? Unterschätzt.",
+   "head": "",
+   "graphic": {
+    "kind": "chips",
+    "items": [
+     {
+      "label": "Freude",
+      "value": "unterschätzt",
+      "hi": true
+     },
+     {
+      "label": "Verlegenheit",
+      "value": "überschätzt"
+     }
+    ]
+   },
+   "figure": {
+    "pose": "think",
+    "place": "left"
+   },
+   "key": "Freude"
+  },
+  {
+   "vo": "Sie sorgten sich um die Worte.",
+   "head": "",
+   "graphic": {
+    "kind": "none"
+   },
+   "figure": {
+    "pose": "slump",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Den Empfängern war Herzlichkeit wichtiger.",
+   "head": "",
+   "graphic": {
+    "kind": "compare",
+    "left": {
+     "value": "Worte",
+     "label": "Sorge der Schreibenden"
+    },
+    "right": {
+     "value": "Herz",
+     "label": "Blick der Empfänger"
+    },
+    "hi": "right"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   },
+   "key": "Herz"
+  },
+  {
+   "vo": "Drei Sätze dauern vielleicht 5 Minuten.",
+   "head": "",
+   "graphic": {
+    "kind": "counter",
+    "to": 5,
+    "unit": "Minuten"
+   },
+   "figure": {
+    "pose": "stand",
+    "place": "right"
+   }
+  },
+  {
+   "vo": "An den vier Adventssonntagen: 20 Minuten.",
+   "head": "",
+   "graphic": {
+    "kind": "blocks",
+    "n": 4,
+    "hi": 4,
+    "label": "4 Briefe",
+    "caption": "20 Minuten"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "left"
+   }
+  },
+  {
+   "vo": "Es zählt die Geste, nicht die Worte.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Es zählt",
+     "die Geste,",
+     "nicht die *Worte.*"
+    ],
+    "invert": true
+   },
+   "figure": {
+    "pose": "think",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Schreib heute drei Sätze an jemanden, der dir half.",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Schreib heute drei",
+     "Sätze an jemanden,",
+     "der dir *half.*"
+    ],
+    "chip": "Wem schreibst du?"
+   },
+   "figure": {
+    "pose": "proud",
+    "place": "center"
+   }
+  },
+  {
+   "vo": "Und stell dir vor:",
+   "head": "",
+   "graphic": {
+    "kind": "statement",
+    "lines": [
+     "Und",
+     "*stell dir vor:*"
+    ]
+   },
+   "figure": {
+    "pose": "look",
+    "place": "center"
+   }
+  }
+ ]
+}
