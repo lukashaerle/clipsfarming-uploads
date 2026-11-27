@@ -1,4 +1,11 @@
 {
  "_info": "Tipps aus der täglichen Lebensrechnung-Tagesreview. Die Tagesreview trägt hier jeden Abend genau einen Tipp ein (status offen). Wer neue Skripte schreibt (Routine 'LEBENSRECHNUNG Skripte'), setzt die offenen Tipps um, soweit sie zu SKRIPTE.md passen, und setzt danach status auf umgesetzt mit der Video-id. Bereits produzierte oder freigegebene Videos werden dafür nicht geändert.",
- "tipps": []
+ "tipps": [
+  {
+   "datum": "2026-11-27",
+   "tipp": "Beim nächsten neuen Skript den Hook-Typ szene nehmen (Mini-Szene mit einer Person, die man vor sich sieht, wie bei 008, 009 und 013), statt einer reinen Zahl oder Frage im ersten Satz.",
+   "begruendung": "Auf TikTok liegen die 4 Szene-Videos bei Ø 198 Aufrufen, zahl (5 Videos), frage (2, ohne beworbenes 004) und mythos (2) nur bei Ø 86–88; auf Instagram sind alle Typen ähnlich (Ø 130–224), YouTube fehlt heute – noch wenige Daten, daher vorsichtig.",
+   "status": "offen"
+  }
+ ]
 }

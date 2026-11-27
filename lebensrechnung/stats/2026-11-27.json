@@ -1,0 +1,305 @@
+{
+ "datum": "2026-11-27",
+ "videos": {
+  "001-5-stunden-am-handy": {
+   "title": "5 Stunden am Handy",
+   "hook": "zahl",
+   "postedAt": "2026-11-19T01:56",
+   "youtube": null,
+   "tiktok": {
+    "views": 12,
+    "likes": 4,
+    "comments": 3,
+    "shares": 0,
+    "saves": 1,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7709679977351908641"
+   },
+   "instagram": {
+    "plays": 126,
+    "likes": 4,
+    "comments": 0,
+    "url": "https://www.instagram.com/p/Df5190OOZLu/"
+   },
+   "total": 138
+  },
+  "002-schlummertaste": {
+   "title": "Die Schlummertaste",
+   "hook": "zahl",
+   "postedAt": "2026-11-19T12:30",
+   "youtube": null,
+   "tiktok": {
+    "views": 4,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7709843398471044385"
+   },
+   "instagram": {
+    "plays": 554,
+    "likes": 7,
+    "comments": 0,
+    "url": "https://www.instagram.com/p/Df6-gf0vzBJ/"
+   },
+   "total": 558
+  },
+  "003-eltern": {
+   "title": "360 Tage mit deinen Eltern",
+   "hook": "frage",
+   "postedAt": "2026-11-20T12:30",
+   "youtube": null,
+   "tiktok": {
+    "views": 5,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7710214487466446112"
+   },
+   "instagram": {
+    "plays": 137,
+    "likes": 1,
+    "comments": 2,
+    "url": "https://www.instagram.com/p/Df9jTg2B_yL/"
+   },
+   "total": 142
+  },
+  "004-ein-prozent": {
+   "title": "1 Prozent",
+   "hook": "frage",
+   "postedAt": "2026-11-21T12:30",
+   "youtube": null,
+   "tiktok": {
+    "views": 23400,
+    "likes": 48,
+    "comments": 1,
+    "shares": 5,
+    "saves": 6,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7710585578961587488"
+   },
+   "instagram": {
+    "plays": 127,
+    "likes": 2,
+    "comments": 0,
+    "url": "https://www.instagram.com/p/DgAIGnDBLl7/"
+   },
+   "total": 23527
+  },
+  "005-47-sekunden": {
+   "title": "47 Sekunden",
+   "hook": "frage",
+   "postedAt": "2026-11-21T19:00",
+   "youtube": null,
+   "tiktok": {
+    "views": 166,
+    "likes": 15,
+    "comments": 0,
+    "shares": 0,
+    "saves": 2,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7710686333156494625"
+   },
+   "instagram": {
+    "plays": 137,
+    "likes": 1,
+    "comments": 0,
+    "url": "https://www.instagram.com/p/DgA015uJlq5/"
+   },
+   "total": 303
+  },
+  "006-mit-19": {
+   "title": "Mit 19 schon zu spät?",
+   "hook": "mythos",
+   "postedAt": "2026-11-22T12:30",
+   "youtube": null,
+   "tiktok": {
+    "views": 98,
+    "likes": 11,
+    "comments": 1,
+    "shares": 1,
+    "saves": 2,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7710956655625768225"
+   },
+   "instagram": {
+    "plays": 165,
+    "likes": 3,
+    "comments": 0,
+    "url": "https://www.instagram.com/p/DgCs5U3BSUG/"
+   },
+   "total": 263
+  },
+  "007-aufschieben": {
+   "title": "Was Aufschieben kostet",
+   "hook": "zahl",
+   "postedAt": "2026-11-22T19:00",
+   "youtube": null,
+   "tiktok": {
+    "views": 73,
+    "likes": 7,
+    "comments": 0,
+    "shares": 0,
+    "saves": 2,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7711057525461814560"
+   },
+   "instagram": {
+    "plays": 134,
+    "likes": 0,
+    "comments": 0,
+    "url": "https://www.instagram.com/p/DgDZscUhpt8/"
+   },
+   "total": 207
+  },
+  "008-17-stunden-wach": {
+   "title": "17 Stunden wach",
+   "hook": "szene",
+   "postedAt": "2026-11-23T12:30",
+   "youtube": null,
+   "tiktok": {
+    "views": 253,
+    "likes": 14,
+    "comments": 0,
+    "shares": 2,
+    "saves": 5,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7711327740376386848"
+   },
+   "instagram": {
+    "plays": 131,
+    "likes": 2,
+    "comments": 0,
+    "url": "https://www.instagram.com/p/DgFRsoiKPGv/"
+   },
+   "total": 384
+  },
+  "009-freundschaft": {
+   "title": "200 Stunden bis zur Freundschaft",
+   "hook": "szene",
+   "postedAt": "2026-11-23T19:00",
+   "youtube": null,
+   "tiktok": {
+    "views": 233,
+    "likes": 9,
+    "comments": 0,
+    "shares": 1,
+    "saves": 2,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7711428546043956512"
+   },
+   "instagram": {
+    "plays": 131,
+    "likes": 1,
+    "comments": 0,
+    "url": "https://www.instagram.com/p/DgF-fxMIlxJ/"
+   },
+   "total": 364
+  },
+  "011-66-tage": {
+   "title": "66 Tage, nicht 21",
+   "hook": "mythos",
+   "postedAt": "2026-11-24T19:00",
+   "youtube": null,
+   "tiktok": {
+    "views": 75,
+    "likes": 5,
+    "comments": 0,
+    "shares": 0,
+    "saves": 1,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7711799963646233889"
+   },
+   "instagram": {
+    "plays": 133,
+    "likes": 1,
+    "comments": 0,
+    "url": "https://www.instagram.com/p/DgIjmHBhOzH/"
+   },
+   "total": 208
+  },
+  "012-720-buecher": {
+   "title": "720 Bücher",
+   "hook": "zahl",
+   "postedAt": "2026-11-25T12:30",
+   "youtube": null,
+   "tiktok": {
+    "views": 234,
+    "likes": 9,
+    "comments": 0,
+    "shares": 1,
+    "saves": 1,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7712069927540149543"
+   },
+   "instagram": {
+    "plays": 159,
+    "likes": 1,
+    "comments": 0,
+    "url": "https://www.instagram.com/p/DgKbZYbBfkF/"
+   },
+   "total": 393
+  },
+  "013-zeit-schlaegt-betrag": {
+   "title": "Zeit schlägt Betrag",
+   "hook": "szene",
+   "postedAt": "2026-11-25T19:00",
+   "youtube": null,
+   "tiktok": {
+    "views": 228,
+    "likes": 4,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7712171041002491169"
+   },
+   "instagram": {
+    "plays": 131,
+    "likes": 1,
+    "comments": 1,
+    "url": "https://www.instagram.com/p/DgLISAFSRKZ/"
+   },
+   "total": 359
+  },
+  "015-20-minuten": {
+   "title": "20 Minuten",
+   "hook": "szene",
+   "postedAt": "2026-11-26T19:00",
+   "youtube": null,
+   "tiktok": {
+    "views": 79,
+    "likes": 11,
+    "comments": 0,
+    "shares": 0,
+    "saves": 1,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7712542283341499681"
+   },
+   "instagram": {
+    "plays": 129,
+    "likes": 1,
+    "comments": 0,
+    "url": "https://www.instagram.com/p/DgNtChqPyVP/"
+   },
+   "total": 208
+  },
+  "016-39-tage": {
+   "title": "Noch 39 Tage",
+   "hook": "zahl",
+   "postedAt": "2026-11-22T21:00",
+   "youtube": null,
+   "tiktok": {
+    "views": 115,
+    "likes": 14,
+    "comments": 0,
+    "shares": 0,
+    "saves": 1,
+    "url": "https://www.tiktok.com/@lebensrechnung/video/7711088362089762081"
+   },
+   "instagram": {
+    "plays": 149,
+    "likes": 1,
+    "comments": 0,
+    "url": "https://www.instagram.com/p/DgDnY6lhmeJ/"
+   },
+   "total": 264
+  }
+ },
+ "unklar": [],
+ "quellen": {
+  "youtube": "keine Daten: WebFetch-Freigabe für youtube.com im unbeaufsichtigten Lauf nicht beantwortet",
+  "tiktok": "Apify clockworks/free-tiktok-scraper, 27.11.2026 20:44 UTC, Follower 9",
+  "instagram": "Apify apify/instagram-reel-scraper, 27.11.2026 20:44 UTC, Follower nicht im Ergebnis"
+ }
+}
