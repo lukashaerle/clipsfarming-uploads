@@ -8,6 +8,10 @@ Nummer + Kurzname, z. B. `011-buecher`. Beispiele: alle vorhandenen `remotion/vi
   Keine eigenen Zahlen, keine Recherche. Was im Plan als (a) Rechnung steht, als Annahme mit „wenn“ formulieren.
 - Welche Themen schon verbraucht sind, steht in `lebensrechnung/themen/verbraucht.json` (Arbeitstitel → id). Nimm die nächsten
   unverbrauchten Themen in der Reihenfolge des Plans; A-Themen auf 12:30, B-Themen auf 19:00, wenn möglich.
+- **Tipps aus der Tagesreview:** Vor dem Schreiben `lebensrechnung/tipps.json` lesen. Jeden Tipp mit `"status": "offen"` im nächsten
+  neuen Skript umsetzen (Hook-Typ, Aufbau, Länge, Schlusssatz, Posttext …), soweit er zu den Regeln hier passt; Zahlen und Quellen
+  kommen trotzdem nur aus dem Wochenplan. Danach beim Tipp `"status": "umgesetzt"` und `"video": "<id>"` setzen. Passt ein Tipp nicht
+  zu den Regeln, `"status": "verworfen"` mit kurzem `"grund"`. Schon produzierte Videos nicht ändern.
 - Gehen die unverbrauchten Themen zur Neige (weniger als 4), schreibe trotzdem, was geht, und melde es (siehe Routine).
 
 ## Aufbau (Punch-Stil, seit 21.11.2026 Standard für alle neuen Videos)
