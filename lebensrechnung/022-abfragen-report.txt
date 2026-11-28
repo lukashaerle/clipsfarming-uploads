@@ -1,0 +1,33 @@
+== 022-abfragen | start 2026-11-28T02:13:10Z | Linux x86_64, 4 cpus
+  s10 18.56-20.36  Erst abfragen, dann nachsehen.
+  s11 20.56-22.05  Schau nach, was dir noch gefehlt hat.
+  s12 22.31-23.79  Probier es heute mit einer Seite.
+  s13 24.06-25.41  Und bevor du wieder liest:
+ton: fertig in 22 s
+CUTS   13 sentences | loudest sound right outside a cut: -71 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -51 dB
+WORDS  skipped, no recognition model here (LocalEntryNotFoundError)
+LEVEL  sentences between -16.3 and -13.8 dBFS (middle -15.0)
+FLOW   pauses between sentences 0.10 to 0.58 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s02 after 'nein.' 0.24 s, s06 after 'Klar:' 0.23 s
+hoerpruefung: ok
+laenge: 26.0 s (1560 Bilder)
+SAFE ZONE  26 stills | all clear
+GLITCH 022-abfragen-1080p.mp4: 4 of 1560 frames broken (s: 10.93, 23.53, 23.73, 23.95)
+full hd: kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH 022-abfragen-1080p.mp4: none of 1560 frames broken
+full hd: fertig in 568 s
+GLITCH c000.mov: 157 of 600 frames broken (s: 0.17, 0.57, 0.72, 0.73, 0.75, 0.77, 0.78, 0.90, 1.02, 1.10, 1.12, 1.13 ...)
+4k: abschnitt 0 kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH c000.mov: none of 600 frames broken
+GLITCH c001.mov: 183 of 600 frames broken (s: 0.02, 0.03, 0.05, 0.07, 0.27, 0.28, 0.30, 0.32, 0.40, 0.42, 0.43, 0.45 ...)
+4k: abschnitt 1 kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH c001.mov: none of 600 frames broken
+GLITCH c002.mov: 69 of 360 frames broken (s: 0.62, 0.63, 0.95, 1.07, 1.13, 1.15, 1.17, 1.18, 1.33, 1.35, 1.37, 1.55 ...)
+4k: abschnitt 2 kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH c002.mov: none of 360 frames broken
+GLITCH 022-abfragen-4K.mp4: none of 1560 frames broken
+4k: fertig in 2266 s (3 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=26.005000|size=8753770 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=26.000000|size=27881602 
+== 022-abfragen | fertig 2026-11-28T03:01:03Z
