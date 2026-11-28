@@ -1,0 +1,36 @@
+== 021-mit-25 | start 2026-11-28T01:16:01Z | Linux x86_64, 4 cpus
+  s10 22.56-24.70  Du bist nicht spät dran. Du bist früh dran.
+  s11 24.81-26.34  Klar: Das ist nur ein Durchschnitt.
+  s12 26.56-28.92  Schreib heute auf, was du mit 30 können willst.
+  s13 29.06-29.98  Und wenn du dich fragst:
+ton: fertig in 22 s
+CUTS   13 sentences | loudest sound right outside a cut: -72 dB (silence is below -60)
+EDGES  loudest level at a sentence edge in the finished track: -81 dB
+WORDS  skipped, no recognition model here (LocalEntryNotFoundError)
+LEVEL  sentences between -16.2 and -14.3 dBFS (middle -15.2)
+FLOW   pauses between sentences 0.11 to 0.58 s | moved: none | sped up: none | pauses shortened: none
+PAUSES inside sentences: s10 after 'dran.' 0.21 s, s11 after 'Klar:' 0.23 s
+hoerpruefung: ok
+laenge: 32.0 s (1920 Bilder)
+SAFE ZONE  26 stills | all clear
+GLITCH 021-mit-25-1080p.mp4: 7 of 1920 frames broken (s: 28.03, 28.30, 28.45, 28.47, 28.57, 28.83, 28.85)
+full hd: kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH 021-mit-25-1080p.mp4: none of 1920 frames broken
+full hd: fertig in 717 s
+GLITCH c000.mov: 125 of 600 frames broken (s: 0.15, 0.48, 0.67, 0.73, 1.08, 1.10, 1.32, 1.33, 1.35, 1.37, 1.38, 1.40 ...)
+4k: abschnitt 0 kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH c000.mov: none of 600 frames broken
+GLITCH c001.mov: 228 of 600 frames broken (s: 0.18, 0.27, 0.28, 0.30, 0.32, 0.47, 0.67, 0.77, 0.78, 0.80, 0.82, 0.83 ...)
+4k: abschnitt 1 kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH c001.mov: none of 600 frames broken
+GLITCH c002.mov: 128 of 600 frames broken (s: 0.12, 0.13, 0.15, 0.45, 0.53, 0.55, 0.68, 0.87, 0.88, 0.95, 1.12, 1.13 ...)
+4k: abschnitt 2 kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH c002.mov: none of 600 frames broken
+GLITCH c003.mov: 37 of 120 frames broken (s: 0.13, 0.15, 0.17, 0.18, 0.20, 0.22, 0.23, 0.25, 0.27, 0.28, 0.35, 0.42 ...)
+4k: abschnitt 3 kaputte Bilder, Versuch 2 mit einem Tab
+GLITCH c003.mov: none of 120 frames broken
+GLITCH 021-mit-25-4K.mp4: none of 1920 frames broken
+4k: fertig in 2673 s (4 abschnitte, einmal kodiert)
+stream|codec_name=h264|width=1080|height=1920 stream|codec_name=aac format|duration=32.000000|size=11292725 
+stream|codec_name=h264|width=2160|height=3840 stream|codec_name=aac format|duration=32.000000|size=36199840 
+== 021-mit-25 | fertig 2026-11-28T02:13:10Z
